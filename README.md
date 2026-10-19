@@ -8,7 +8,7 @@ Python tools to **read, validate and scale** a life cycle inventory (LCI) publis
 
 The paper proposes a common structure for publishing LCIs: a dataset, a properties file, a metadata sheet and a network graph. This repository shows what that structure makes possible. It loads the published files without the original software, checks them for internal consistency, and computes the foreground inventory per functional unit.
 
-> This is an independent project and is not affiliated with the authors or with DLR. The dataset in [`data/original/`](data/original/) belongs to the authors and is licensed **CC BY-NC 4.0**.
+> Built by [Komal Chougule](https://github.com/malleshkomal), co-author of the paper. The dataset in [`data/original/`](data/original/) is the authors' published supplementary data, licensed **CC BY-NC 4.0**.
 
 ## Interactive findings page
 

@@ -117,7 +117,7 @@ FOOT = """
   Data: supplementary life cycle inventory of Nair, Chougule, Gomez Trillos and Brand-Daniels,
   <a href="https://www.sciencedirect.com/science/article/pii/S0959652625014702">Journal of Cleaner Production</a>,
   licensed <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
-  Independent analysis, not affiliated with the authors or DLR. Built with lcitools (build_site.py).
+  Analysis and page by co-author Komal Chougule. Built with lcitools (build_site.py).
 </footer>
 </main>
 </body>
