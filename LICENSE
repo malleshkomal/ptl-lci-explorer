@@ -1,0 +1,19 @@
+Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
+
+The charts (charts/) and data files (chart-data/) in this repository are derived
+from the life cycle inventory published as supplementary data to:
+
+  Nair, R. R., Chougule, K. M., Gomez Trillos, J. C., & Brand-Daniels, U.
+  "A generalized schema to publish and share life cycle inventories (LCI):
+  Exemplary case of an aviation fuel supply chain."
+  Journal of Cleaner Production.
+  https://www.sciencedirect.com/science/article/pii/S0959652625014702
+
+which the authors released under CC BY-NC 4.0. These derived files are shared
+under the same licence.
+
+You are free to share and adapt this material, provided that you give
+appropriate credit to the original authors, indicate if changes were made, and
+do not use the material for commercial purposes.
+
+Full licence text: https://creativecommons.org/licenses/by-nc/4.0/legalcode
