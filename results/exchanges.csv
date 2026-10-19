@@ -1,0 +1,81 @@
+activity,name,amount,unit,type,database,location,categories,reference product,Comment
+Alkaline electrolyser construction,Hydrogen,5.36,kilogram,biosphere,biosphere3,,air,,doi.org/10.1021/es500191g
+Alkaline electrolyser construction,"Occupation, industrial area",29.8,square meter-year,biosphere,biosphere3,,natural resource::land,,doi.org/10.1021/es500191g
+Alkaline electrolyser construction,Alkaline electrolyser construction,1.0,unit,production,power-to-liquid,RER,,Electrolyser for hydrogen production,doi.org/10.1021/es500191g
+Alkaline electrolyser construction,market for corrugated board box,51.0,kilogram,technosphere,power-to-liquid,RER,,corrugated board box,doi.org/10.1021/es500191g
+Alkaline electrolyser construction,"market for nitrogen, liquid",85.0,kilogram,technosphere,power-to-liquid,RER,,"nitrogen, liquid",doi.org/10.1021/es500191g
+Alkaline electrolyser construction,market for potassium hydroxide,30.0,kilogram,technosphere,power-to-liquid,GLO,,potassium hydroxide,doi.org/10.1021/es500191g
+Alkaline electrolyser construction,market for reinforcing steel,4000.0,kilogram,technosphere,power-to-liquid,GLO,,reinforcing steel,doi.org/10.1021/es500191g
+Alkaline electrolyser construction,"market for sodium silicate, spray powder, 80%",200.0,kilogram,technosphere,power-to-liquid,RER,,"sodium silicate, spray powder, 80%",doi.org/10.1021/es500191g
+Alkaline electrolyser construction,"market for steel, chromium steel 18/8",8000.0,kilogram,technosphere,power-to-liquid,GLO,,"steel, chromium steel 18/8",doi.org/10.1021/es500191g
+Alkaline electrolyser construction,"market for waste bulk iron, excluding reinforcement",8000.0,kilogram,technosphere,power-to-liquid,Europe without Switzerland,,"waste bulk iron, excluding reinforcement",doi.org/10.1021/es500191g
+Alkaline electrolyser construction,market for waste fibreboard,51.0,kilogram,technosphere,power-to-liquid,RoW,,waste fibreboard,doi.org/10.1021/es500191g
+Alkaline electrolyser construction,market for waste reinforcement steel,4000.0,kilogram,technosphere,power-to-liquid,RoW,,waste reinforcement steel,doi.org/10.1021/es500191g
+Alkaline electrolyser construction,"market group for transport, freight train",2550.0,ton kilometer,technosphere,power-to-liquid,RER,,"transport, freight train",doi.org/10.1021/es500191g
+Alkaline electrolyser construction,"transport, freight, lorry 16-32 metric ton, EURO3",1230.0,ton kilometer,technosphere,power-to-liquid,RER,,"transport, freight, lorry 16-32 metric ton, EURO3",doi.org/10.1021/es500191g
+CO production via RWGS,CO production via RWGS,1.0,kilogram,production,power-to-liquid,RER,,Carbon Monoxide from RWGS,doi.org/10.1021/es500191g
+CO production via RWGS,Direct air capture,1.57,kilogram,technosphere,power-to-liquid,RER,,"CO2 from direct air capture, 25 bar",doi.org/10.1021/es500191g
+CO production via RWGS,Fixed bed reactor construction,1.93e-09,unit,technosphere,power-to-liquid,RER,,Fixed bed reactor for RWGS,doi.org/10.1021/es500191g
+CO production via RWGS,Hydrogen compression to 25 bar,0.07,kilogram,technosphere,power-to-liquid,RER,,"Hydrogen gas, 25 bar",doi.org/10.1021/es500191g
+Direct air capture,"Carbon dioxide, in air",1.0,kilogram,biosphere,biosphere3,,natural resource::in air,,doi.org/10.1021/es500191g
+Direct air capture,Direct air capture,1.0,kilogram,production,power-to-liquid,RER,,"CO2 from direct air capture, 25 bar",doi.org/10.1021/es500191g
+Direct air capture,Direct air capture (DAC) equipment,9.13e-08,unit,technosphere,power-to-liquid,RER,,DAC equipment (absorber),doi.org/10.1021/es500191g
+Direct air capture,"electricity production, wind, 1-3MW turbine, onshore",0.31,kilowatt hour,technosphere,ecoinvent_cutoff39,DE,,"electricity, high voltage",doi.org/10.1021/es500191g
+Direct air capture (DAC) equipment,"Occupation, industrial area",36.0,square meter-year,biosphere,biosphere3,,natural resource::land,,doi.org/10.1021/es500191g
+Direct air capture (DAC) equipment,Direct air capture (DAC) equipment,1.0,unit,production,power-to-liquid,RER,,DAC equipment (absorber),doi.org/10.1021/es500191g
+Direct air capture (DAC) equipment,"market for steel, low-alloyed",3800.0,kilogram,technosphere,ecoinvent_cutoff39,GLO,,"steel, low-alloyed",doi.org/10.1021/es500191g
+Direct air capture (DAC) equipment,"market for waste bulk iron, excluding reinforcement",3800.0,kilogram,technosphere,ecoinvent_cutoff39,Europe without Switzerland,,"waste bulk iron, excluding reinforcement",doi.org/10.1021/es500191g
+Fixed bed reactor construction,"Occupation, industrial area",3.14,square meter-year,biosphere,biosphere3,,natural resource::land,,doi.org/10.1021/es500191g
+Fixed bed reactor construction,Fixed bed reactor construction,1.0,unit,production,power-to-liquid,RER,,Fixed bed reactor for RWGS,doi.org/10.1021/es500191g
+Fixed bed reactor construction,RWGS catalyst production,6600.0,kilogram,technosphere,power-to-liquid,RER,,RWGS catalyst,doi.org/10.1021/es500191g
+Fixed bed reactor construction,"market for steel, chromium steel 18/8",4760.0,kilogram,technosphere,ecoinvent_cutoff39,GLO,,"steel, chromium steel 18/8",doi.org/10.1021/es500191g
+Fixed bed reactor construction,"market for steel, low-alloyed",4760.0,kilogram,technosphere,ecoinvent_cutoff39,GLO,,"steel, low-alloyed",doi.org/10.1021/es500191g
+Fixed bed reactor construction,"market for waste bulk iron, excluding reinforcement",9520.0,kilogram,technosphere,ecoinvent_cutoff39,Europe without Switzerland,,"waste bulk iron, excluding reinforcement",doi.org/10.1021/es500191g
+Fixed bed reactor construction,"market for zeolite, powder",26700.0,kilogram,technosphere,ecoinvent_cutoff39,GLO,,"zeolite, powder",doi.org/10.1021/es500191g
+GTL plant construction,"Occupation, industrial area",1120000.0,square meter-year,biosphere,biosphere3,,natural resource::land,,doi.org/10.1021/es500191g
+GTL plant construction,GTL plant construction,1.0,unit,production,power-to-liquid,RER,,GTL plant,doi.org/10.1021/es500191g
+GTL plant construction,market for reinforcing steel,7200000.0,kilogram,technosphere,ecoinvent_cutoff39,GLO,,reinforcing steel,doi.org/10.1021/es500191g
+GTL plant construction,"market for steel, low-alloyed",7200000.0,kilogram,technosphere,ecoinvent_cutoff39,GLO,,"steel, low-alloyed",doi.org/10.1021/es500191g
+GTL plant construction,"market for waste bulk iron, excluding reinforcement",14400000.0,kilogram,technosphere,ecoinvent_cutoff39,Europe without Switzerland,,"waste bulk iron, excluding reinforcement",doi.org/10.1021/es500191g
+GTL plant construction,market for waste reinforced concrete,828000000.0,kilogram,technosphere,ecoinvent_cutoff39,CH,,waste reinforced concrete,doi.org/10.1021/es500191g
+GTL plant construction,"market group for concrete, normal strength",345000.0,cubic meter,technosphere,ecoinvent_cutoff39,GLO,,"concrete, normal strength",doi.org/10.1021/es500191g
+GTL production,GTL production,1.0,kilogram,production,power-to-liquid,RER,,GTL product,doi.org/10.1021/es500191g
+GTL production,GTL plant construction,6.7e-12,unit,technosphere,power-to-liquid,RER,,GTL plant,doi.org/10.1021/es500191g
+GTL production,Syngas production,2.3,kilogram,technosphere,power-to-liquid,RER,,Syngas,doi.org/10.1021/es500191g
+Hydrogen compression to 25 bar,Hydrogen compression to 25 bar,1.0,kilogram,production,power-to-liquid,RER,,"Hydrogen gas, 25 bar",doi.org/10.1021/es500191g
+Hydrogen compression to 25 bar,Hydrogen compressor production,3.42e-08,unit,technosphere,power-to-liquid,RER,,Hydrogen compressor,doi.org/10.1021/es500191g
+Hydrogen compression to 25 bar,"Hydrogen production, alkaline electrolysis",1.0,kilogram,technosphere,power-to-liquid,RER,,Hydrogen gas from alkaline electrolysis,doi.org/10.1021/es500191g
+Hydrogen compression to 25 bar,"electricity production, wind, 1-3MW turbine, onshore",0.66,kilowatt hour,technosphere,ecoinvent_cutoff39,DE,,"electricity, high voltage",doi.org/10.1021/es500191g
+Hydrogen compressor production,"Occupation, industrial area",16.2,square meter-year,biosphere,biosphere3,,natural resource::land,,doi.org/10.1021/es500191g
+Hydrogen compressor production,Hydrogen compressor production,1.0,unit,production,power-to-liquid,RER,,Hydrogen compressor,doi.org/10.1021/es500191g
+Hydrogen compressor production,"market for aluminium, wrought alloy",500.0,kilogram,technosphere,ecoinvent_cutoff39,GLO,,"aluminium, wrought alloy",doi.org/10.1021/es500191g
+Hydrogen compressor production,"market for concrete, normal strength",12.0,cubic meter,technosphere,ecoinvent_cutoff39,CH,,"concrete, normal strength",doi.org/10.1021/es500191g
+Hydrogen compressor production,market for lubricating oil,150.0,kilogram,technosphere,ecoinvent_cutoff39,RER,,lubricating oil,doi.org/10.1021/es500191g
+Hydrogen compressor production,"market for steel, chromium steel 18/8",5000.0,kilogram,technosphere,ecoinvent_cutoff39,GLO,,"steel, chromium steel 18/8",doi.org/10.1021/es500191g
+Hydrogen compressor production,"market for steel, low-alloyed",3000.0,kilogram,technosphere,ecoinvent_cutoff39,GLO,,"steel, low-alloyed",doi.org/10.1021/es500191g
+Hydrogen compressor production,"market for transport, freight, lorry 16-32 metric ton, EURO6",2160.0,ton kilometer,technosphere,ecoinvent_cutoff39,RER,,"transport, freight, lorry 16-32 metric ton, EURO6",doi.org/10.1021/es500191g
+Hydrogen compressor production,"market for waste bulk iron, excluding reinforcement",8000.0,kilogram,technosphere,ecoinvent_cutoff39,Europe without Switzerland,,"waste bulk iron, excluding reinforcement",doi.org/10.1021/es500191g
+Hydrogen compressor production,"market for waste concrete, not reinforced",26000.0,kilogram,technosphere,ecoinvent_cutoff39,Europe without Switzerland,,"waste concrete, not reinforced",doi.org/10.1021/es500191g
+Hydrogen compressor production,"market group for transport, freight train",1790.0,ton kilometer,technosphere,ecoinvent_cutoff39,RER,,"transport, freight train",doi.org/10.1021/es500191g
+Hydrogen compressor production,"treatment of scrap aluminium, municipal incineration",500.0,kilogram,technosphere,ecoinvent_cutoff39,Europe without Switzerland,,scrap aluminium,doi.org/10.1021/es500191g
+Hydrogen liquefaction,Hydrogen liquefaction,1.0,kilogram,production,power-to-liquid,RER,,Liquid hydrogen,doi.org/10.1021/acssuschemeng.1c06769
+Hydrogen liquefaction,Hydrogen compression to 25 bar,1.01625,kilogram,technosphere,power-to-liquid,RER,,"Hydrogen gas, 25 bar",doi.org/10.1021/acssuschemeng.1c06769
+Hydrogen liquefaction,Hydrogen liquefaction plant construction,2.03e-09,unit,technosphere,power-to-liquid,RER,,Hydrogen liquefaction plant,doi.org/10.1021/acssuschemeng.1c06769
+Hydrogen liquefaction,"electricity production, wind, 1-3MW turbine, onshore",6.86985,kilowatt hour,technosphere,ecoinvent_cutoff39,DE,,"electricity, high voltage",doi.org/10.1021/acssuschemeng.1c06769
+Hydrogen liquefaction plant construction,Hydrogen liquefaction plant construction,1.0,unit,production,power-to-liquid,RER,,Hydrogen liquefaction plant,doi.org/10.1021/acssuschemeng.1c06769
+Hydrogen liquefaction plant construction,"market for aluminium alloy, AlMg3",140000.0,kilogram,technosphere,ecoinvent_cutoff39,GLO,,"aluminium alloy, AlMg3",doi.org/10.1021/acssuschemeng.1c06769
+Hydrogen liquefaction plant construction,"market for concrete, normal strength",20300.0,cubic meter,technosphere,ecoinvent_cutoff39,CH,,"concrete, normal strength",doi.org/10.1021/acssuschemeng.1c06769
+Hydrogen liquefaction plant construction,market for reinforcing steel,380000.0,kilogram,technosphere,ecoinvent_cutoff39,GLO,,reinforcing steel,doi.org/10.1021/acssuschemeng.1c06769
+Hydrogen liquefaction plant construction,"market for sheet rolling, copper",150000.0,kilogram,technosphere,ecoinvent_cutoff39,GLO,,"sheet rolling, copper",doi.org/10.1021/acssuschemeng.1c06769
+Hydrogen liquefaction plant construction,"market for steel, chromium steel 18/8, hot rolled",595000.0,kilogram,technosphere,ecoinvent_cutoff39,GLO,,"steel, chromium steel 18/8, hot rolled",doi.org/10.1021/acssuschemeng.1c06769
+"Hydrogen production, alkaline electrolysis","Hydrogen production, alkaline electrolysis",1.0,kilogram,production,power-to-liquid,RER,,Hydrogen gas from alkaline electrolysis,doi.org/10.1021/es500191g
+"Hydrogen production, alkaline electrolysis",Alkaline electrolyser construction,2.31e-06,unit,technosphere,power-to-liquid,RER,,Electrolyser for hydrogen production,doi.org/10.1021/es500191g
+"Hydrogen production, alkaline electrolysis","electricity production, wind, 1-3MW turbine, onshore",56.7,kilowatt hour,technosphere,ecoinvent_cutoff39,DE,,"electricity, high voltage",doi.org/10.1021/es500191g
+"Hydrogen production, alkaline electrolysis","market for water, deionised",11.1,kilogram,technosphere,ecoinvent_cutoff39,Europe without Switzerland,,"water, deionised",doi.org/10.1021/es500191g
+RWGS catalyst production,RWGS catalyst production,1.0,kilogram,production,power-to-liquid,RER,,RWGS catalyst,doi.org/10.1021/es500191g
+RWGS catalyst production,"market for aluminium oxide, non-metallurgical",0.11,kilogram,technosphere,ecoinvent_cutoff39,"IAI Area, EU27 & EFTA",,"aluminium oxide, non-metallurgical",doi.org/10.1021/es500191g
+RWGS catalyst production,market for copper oxide,0.57,kilogram,technosphere,ecoinvent_cutoff39,GLO,,copper oxide,doi.org/10.1021/es500191g
+RWGS catalyst production,market for zinc oxide,0.31,kilogram,technosphere,ecoinvent_cutoff39,GLO,,zinc oxide,doi.org/10.1021/es500191g
+Syngas production,Syngas production,1.0,kilogram,production,power-to-liquid,RER,,Syngas,doi.org/10.1021/es500191g
+Syngas production,CO production via RWGS,0.875,kilogram,technosphere,power-to-liquid,RER,,Carbon Monoxide from RWGS,doi.org/10.1021/es500191g
+Syngas production,Hydrogen compression to 25 bar,0.125,kilogram,technosphere,power-to-liquid,RER,,"Hydrogen gas, 25 bar",doi.org/10.1021/es500191g

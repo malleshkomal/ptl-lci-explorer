@@ -1,0 +1,237 @@
+Database,power-to-liquid
+format,Excel spreadsheet
+
+Activity,Alkaline electrolyser construction
+code,6d5dd9270c49006479042f4683411e39
+comment,"Taken from: van der Giesen, Coen; Kleijn, René; Kramer, Gert Jan; Energy and climate impacts of producing synthetic hydrocarbon fuels from CO(2), dx.doi.org/10.1021/es500191g"
+location,RER
+production amount,1
+reference product,Electrolyser for hydrogen production
+unit,unit
+worksheet name,power-to-liquid
+Exchanges
+name,amount,database,location,unit,categories,type,Comment,reference product
+Hydrogen,5.36,biosphere3,,kilogram,air,biosphere,doi.org/10.1021/es500191g,
+"Occupation, industrial area",29.8,biosphere3,,square meter-year,natural resource::land,biosphere,doi.org/10.1021/es500191g,
+Alkaline electrolyser construction,1,power-to-liquid,RER,unit,,production,doi.org/10.1021/es500191g,Electrolyser for hydrogen production
+market for corrugated board box,51,power-to-liquid,RER,kilogram,,technosphere,doi.org/10.1021/es500191g,corrugated board box
+"market for nitrogen, liquid",85,power-to-liquid,RER,kilogram,,technosphere,doi.org/10.1021/es500191g,"nitrogen, liquid"
+market for potassium hydroxide,30,power-to-liquid,GLO,kilogram,,technosphere,doi.org/10.1021/es500191g,potassium hydroxide
+market for reinforcing steel,4000,power-to-liquid,GLO,kilogram,,technosphere,doi.org/10.1021/es500191g,reinforcing steel
+"market for sodium silicate, spray powder, 80%",200,power-to-liquid,RER,kilogram,,technosphere,doi.org/10.1021/es500191g,"sodium silicate, spray powder, 80%"
+"market for steel, chromium steel 18/8",8000,power-to-liquid,GLO,kilogram,,technosphere,doi.org/10.1021/es500191g,"steel, chromium steel 18/8"
+"market for waste bulk iron, excluding reinforcement",8000,power-to-liquid,Europe without Switzerland,kilogram,,technosphere,doi.org/10.1021/es500191g,"waste bulk iron, excluding reinforcement"
+market for waste fibreboard,51,power-to-liquid,RoW,kilogram,,technosphere,doi.org/10.1021/es500191g,waste fibreboard
+market for waste reinforcement steel,4000,power-to-liquid,RoW,kilogram,,technosphere,doi.org/10.1021/es500191g,waste reinforcement steel
+"market group for transport, freight train",2550,power-to-liquid,RER,ton kilometer,,technosphere,doi.org/10.1021/es500191g,"transport, freight train"
+"transport, freight, lorry 16-32 metric ton, EURO3",1230,power-to-liquid,RER,ton kilometer,,technosphere,doi.org/10.1021/es500191g,"transport, freight, lorry 16-32 metric ton, EURO3"
+
+Activity,CO production via RWGS
+code,065d8dc5d91e8e7913c26a5752ab9e82
+comment,"Taken from: van der Giesen, Coen; Kleijn, RenÃ©; Kramer, Gert Jan; Energy and climate impacts of producing synthetic hydrocarbon fuels from CO(2), dx.doi.org/10.1021/es500191g"
+location,RER
+production amount,1
+reference product,Carbon Monoxide from RWGS
+unit,kilogram
+worksheet name,power-to-liquid
+Exchanges
+name,amount,database,location,unit,type,Comment,reference product
+CO production via RWGS,1,power-to-liquid,RER,kilogram,production,doi.org/10.1021/es500191g,Carbon Monoxide from RWGS
+Direct air capture,1.57,power-to-liquid,RER,kilogram,technosphere,doi.org/10.1021/es500191g,"CO2 from direct air capture, 25 bar"
+Fixed bed reactor construction,1.93e-09,power-to-liquid,RER,unit,technosphere,doi.org/10.1021/es500191g,Fixed bed reactor for RWGS
+Hydrogen compression to 25 bar,0.07,power-to-liquid,RER,kilogram,technosphere,doi.org/10.1021/es500191g,"Hydrogen gas, 25 bar"
+
+Activity,Direct air capture
+code,baed13a71685101ded6f523d34abf7de
+comment,"Taken from: van der Giesen, Coen; Kleijn, René; Kramer, Gert Jan; Energy and climate impacts of producing synthetic hydrocarbon fuels from CO(2), dx.doi.org/10.1021/es500191g"
+location,RER
+production amount,1
+reference product,"CO2 from direct air capture, 25 bar"
+unit,kilogram
+worksheet name,power-to-liquid
+Exchanges
+name,amount,database,location,unit,categories,type,Comment,reference product
+"Carbon dioxide, in air",1,biosphere3,,kilogram,natural resource::in air,biosphere,doi.org/10.1021/es500191g,
+Direct air capture,1,power-to-liquid,RER,kilogram,,production,doi.org/10.1021/es500191g,"CO2 from direct air capture, 25 bar"
+Direct air capture (DAC) equipment,9.13e-08,power-to-liquid,RER,unit,,technosphere,doi.org/10.1021/es500191g,DAC equipment (absorber)
+"electricity production, wind, 1-3MW turbine, onshore",0.31,ecoinvent_cutoff39,DE,kilowatt hour,,technosphere,doi.org/10.1021/es500191g,"electricity, high voltage"
+
+Activity,Direct air capture (DAC) equipment
+code,1391b7fcd6ab8c6adc9d8f6353ec2669
+comment,"Taken from: van der Giesen, Coen; Kleijn, René; Kramer, Gert Jan; Energy and climate impacts of producing synthetic hydrocarbon fuels from CO(2), dx.doi.org/10.1021/es500191g"
+location,RER
+production amount,1
+reference product,DAC equipment (absorber)
+unit,unit
+worksheet name,power-to-liquid
+Exchanges
+name,amount,database,location,unit,categories,type,Comment,reference product
+"Occupation, industrial area",36,biosphere3,,square meter-year,natural resource::land,biosphere,doi.org/10.1021/es500191g,
+Direct air capture (DAC) equipment,1,power-to-liquid,RER,unit,,production,doi.org/10.1021/es500191g,DAC equipment (absorber)
+"market for steel, low-alloyed",3800,ecoinvent_cutoff39,GLO,kilogram,,technosphere,doi.org/10.1021/es500191g,"steel, low-alloyed"
+"market for waste bulk iron, excluding reinforcement",3800,ecoinvent_cutoff39,Europe without Switzerland,kilogram,,technosphere,doi.org/10.1021/es500191g,"waste bulk iron, excluding reinforcement"
+
+Activity,Fixed bed reactor construction
+code,751f08be41c8631fc8c8f7b2f013b286
+comment,"Taken from: van der Giesen, Coen; Kleijn, RenÃ©; Kramer, Gert Jan; Energy and climate impacts of producing synthetic hydrocarbon fuels from CO(2), dx.doi.org/10.1021/es500191g"
+location,RER
+production amount,1
+reference product,Fixed bed reactor for RWGS
+unit,unit
+worksheet name,power-to-liquid
+Exchanges
+name,amount,database,location,unit,categories,type,Comment,reference product
+"Occupation, industrial area",3.14,biosphere3,,square meter-year,natural resource::land,biosphere,doi.org/10.1021/es500191g,
+Fixed bed reactor construction,1,power-to-liquid,RER,unit,,production,doi.org/10.1021/es500191g,Fixed bed reactor for RWGS
+RWGS catalyst production,6600,power-to-liquid,RER,kilogram,,technosphere,doi.org/10.1021/es500191g,RWGS catalyst
+"market for steel, chromium steel 18/8",4760,ecoinvent_cutoff39,GLO,kilogram,,technosphere,doi.org/10.1021/es500191g,"steel, chromium steel 18/8"
+"market for steel, low-alloyed",4760,ecoinvent_cutoff39,GLO,kilogram,,technosphere,doi.org/10.1021/es500191g,"steel, low-alloyed"
+"market for waste bulk iron, excluding reinforcement",9520,ecoinvent_cutoff39,Europe without Switzerland,kilogram,,technosphere,doi.org/10.1021/es500191g,"waste bulk iron, excluding reinforcement"
+"market for zeolite, powder",26700,ecoinvent_cutoff39,GLO,kilogram,,technosphere,doi.org/10.1021/es500191g,"zeolite, powder"
+
+Activity,GTL plant construction
+code,19edf7ff058a962a8b869490fee43a94
+comment,"Taken from: van der Giesen, Coen; Kleijn, RenÃ©; Kramer, Gert Jan; Energy and climate impacts of producing synthetic hydrocarbon fuels from CO(2), dx.doi.org/10.1021/es500191g"
+location,RER
+production amount,1
+reference product,GTL plant
+unit,unit
+worksheet name,power-to-liquid
+Exchanges
+name,amount,database,location,unit,categories,type,Comment,reference product
+"Occupation, industrial area",1120000,biosphere3,,square meter-year,natural resource::land,biosphere,doi.org/10.1021/es500191g,
+GTL plant construction,1,power-to-liquid,RER,unit,,production,doi.org/10.1021/es500191g,GTL plant
+market for reinforcing steel,7200000,ecoinvent_cutoff39,GLO,kilogram,,technosphere,doi.org/10.1021/es500191g,reinforcing steel
+"market for steel, low-alloyed",7200000,ecoinvent_cutoff39,GLO,kilogram,,technosphere,doi.org/10.1021/es500191g,"steel, low-alloyed"
+"market for waste bulk iron, excluding reinforcement",14400000,ecoinvent_cutoff39,Europe without Switzerland,kilogram,,technosphere,doi.org/10.1021/es500191g,"waste bulk iron, excluding reinforcement"
+market for waste reinforced concrete,828000000,ecoinvent_cutoff39,CH,kilogram,,technosphere,doi.org/10.1021/es500191g,waste reinforced concrete
+"market group for concrete, normal strength",345000,ecoinvent_cutoff39,GLO,cubic meter,,technosphere,doi.org/10.1021/es500191g,"concrete, normal strength"
+
+Activity,GTL production
+code,4900be6331ef06bee75c7e2b80f04a7f
+comment,"Taken from: van der Giesen, Coen; Kleijn, RenÃ©; Kramer, Gert Jan; Energy and climate impacts of producing synthetic hydrocarbon fuels from CO(2), dx.doi.org/10.1021/es500191g"
+location,RER
+production amount,1
+reference product,GTL product
+unit,kilogram
+worksheet name,power-to-liquid
+Exchanges
+name,amount,database,location,unit,type,Comment,reference product
+GTL production,1,power-to-liquid,RER,kilogram,production,doi.org/10.1021/es500191g,GTL product
+GTL plant construction,6.7e-12,power-to-liquid,RER,unit,technosphere,doi.org/10.1021/es500191g,GTL plant
+Syngas production,2.3,power-to-liquid,RER,kilogram,technosphere,doi.org/10.1021/es500191g,Syngas
+
+Activity,Hydrogen compression to 25 bar
+code,670bd38b84b0f3960539bd406136b1c0
+comment,"Taken from: van der Giesen, Coen; Kleijn, RenÃ©; Kramer, Gert Jan; Energy and climate impacts of producing synthetic hydrocarbon fuels from CO(2), dx.doi.org/10.1021/es500191g"
+location,RER
+production amount,1
+reference product,"Hydrogen gas, 25 bar"
+unit,kilogram
+worksheet name,power-to-liquid
+Exchanges
+name,amount,database,location,unit,type,Comment,reference product
+Hydrogen compression to 25 bar,1,power-to-liquid,RER,kilogram,production,doi.org/10.1021/es500191g,"Hydrogen gas, 25 bar"
+Hydrogen compressor production,3.42e-08,power-to-liquid,RER,unit,technosphere,doi.org/10.1021/es500191g,Hydrogen compressor
+"Hydrogen production, alkaline electrolysis",1,power-to-liquid,RER,kilogram,technosphere,doi.org/10.1021/es500191g,Hydrogen gas from alkaline electrolysis
+"electricity production, wind, 1-3MW turbine, onshore",0.66,ecoinvent_cutoff39,DE,kilowatt hour,technosphere,doi.org/10.1021/es500191g,"electricity, high voltage"
+
+Activity,Hydrogen compressor production
+code,55276e8ad4e3b0d2b9991dca9d5d7e13
+comment,"Taken from: van der Giesen, Coen; Kleijn, RenÃ©; Kramer, Gert Jan; Energy and climate impacts of producing synthetic hydrocarbon fuels from CO(2), dx.doi.org/10.1021/es500191g"
+location,RER
+production amount,1
+reference product,Hydrogen compressor
+unit,unit
+worksheet name,power-to-liquid
+Exchanges
+name,amount,database,location,unit,categories,type,Comment,reference product
+"Occupation, industrial area",16.2,biosphere3,,square meter-year,natural resource::land,biosphere,doi.org/10.1021/es500191g,
+Hydrogen compressor production,1,power-to-liquid,RER,unit,,production,doi.org/10.1021/es500191g,Hydrogen compressor
+"market for aluminium, wrought alloy",500,ecoinvent_cutoff39,GLO,kilogram,,technosphere,doi.org/10.1021/es500191g,"aluminium, wrought alloy"
+"market for concrete, normal strength",12,ecoinvent_cutoff39,CH,cubic meter,,technosphere,doi.org/10.1021/es500191g,"concrete, normal strength"
+market for lubricating oil,150,ecoinvent_cutoff39,RER,kilogram,,technosphere,doi.org/10.1021/es500191g,lubricating oil
+"market for steel, chromium steel 18/8",5000,ecoinvent_cutoff39,GLO,kilogram,,technosphere,doi.org/10.1021/es500191g,"steel, chromium steel 18/8"
+"market for steel, low-alloyed",3000,ecoinvent_cutoff39,GLO,kilogram,,technosphere,doi.org/10.1021/es500191g,"steel, low-alloyed"
+"market for transport, freight, lorry 16-32 metric ton, EURO6",2160,ecoinvent_cutoff39,RER,ton kilometer,,technosphere,doi.org/10.1021/es500191g,"transport, freight, lorry 16-32 metric ton, EURO6"
+"market for waste bulk iron, excluding reinforcement",8000,ecoinvent_cutoff39,Europe without Switzerland,kilogram,,technosphere,doi.org/10.1021/es500191g,"waste bulk iron, excluding reinforcement"
+"market for waste concrete, not reinforced",26000,ecoinvent_cutoff39,Europe without Switzerland,kilogram,,technosphere,doi.org/10.1021/es500191g,"waste concrete, not reinforced"
+"market group for transport, freight train",1790,ecoinvent_cutoff39,RER,ton kilometer,,technosphere,doi.org/10.1021/es500191g,"transport, freight train"
+"treatment of scrap aluminium, municipal incineration",500,ecoinvent_cutoff39,Europe without Switzerland,kilogram,,technosphere,doi.org/10.1021/es500191g,scrap aluminium
+
+Activity,Hydrogen liquefaction
+code,67cc1a3d2d28bed6c731a0b2ea07865e
+comment,"Taken from: https://doi.org/10.1021/acssuschemeng.1c06769 and Integrated Design for Demonstration of Efficient Liquefaction of Hydrogen (IDEALHY), Hydrogen Liquefaction Report, 2013 (50 t LH2/d, 8000h/a=333d/a, 30 a lifetime, 16.25 g/kg h2 losses)"
+location,RER
+production amount,1
+reference product,Liquid hydrogen
+unit,kilogram
+worksheet name,power-to-liquid
+Exchanges
+name,amount,database,location,unit,type,Comment,reference product
+Hydrogen liquefaction,1,power-to-liquid,RER,kilogram,production,doi.org/10.1021/acssuschemeng.1c06769,Liquid hydrogen
+Hydrogen compression to 25 bar,1.01625,power-to-liquid,RER,kilogram,technosphere,doi.org/10.1021/acssuschemeng.1c06769,"Hydrogen gas, 25 bar"
+Hydrogen liquefaction plant construction,2.03e-09,power-to-liquid,RER,unit,technosphere,doi.org/10.1021/acssuschemeng.1c06769,Hydrogen liquefaction plant
+"electricity production, wind, 1-3MW turbine, onshore",6.86985,ecoinvent_cutoff39,DE,kilowatt hour,technosphere,doi.org/10.1021/acssuschemeng.1c06769,"electricity, high voltage"
+
+Activity,Hydrogen liquefaction plant construction
+code,74bc89bec100c6a248c38fb2ac08cd76
+comment,"Taken from: https://doi.org/10.1021/acssuschemeng.1c06769 and Integrated Design for Demonstration of Efficient Liquefaction of Hydrogen (IDEALHY), Hydrogen Liquefaction Report, 2013 (50 t LH2/d, 8000h/a=333d/a, 30 a lifetime, 16.25 g/kg h2 losses)"
+location,RER
+production amount,1
+reference product,Hydrogen liquefaction plant
+unit,unit
+worksheet name,power-to-liquid
+Exchanges
+name,amount,database,location,unit,type,Comment,reference product
+Hydrogen liquefaction plant construction,1,power-to-liquid,RER,unit,production,doi.org/10.1021/acssuschemeng.1c06769,Hydrogen liquefaction plant
+"market for aluminium alloy, AlMg3",140000,ecoinvent_cutoff39,GLO,kilogram,technosphere,doi.org/10.1021/acssuschemeng.1c06769,"aluminium alloy, AlMg3"
+"market for concrete, normal strength",20300,ecoinvent_cutoff39,CH,cubic meter,technosphere,doi.org/10.1021/acssuschemeng.1c06769,"concrete, normal strength"
+market for reinforcing steel,380000,ecoinvent_cutoff39,GLO,kilogram,technosphere,doi.org/10.1021/acssuschemeng.1c06769,reinforcing steel
+"market for sheet rolling, copper",150000,ecoinvent_cutoff39,GLO,kilogram,technosphere,doi.org/10.1021/acssuschemeng.1c06769,"sheet rolling, copper"
+"market for steel, chromium steel 18/8, hot rolled",595000,ecoinvent_cutoff39,GLO,kilogram,technosphere,doi.org/10.1021/acssuschemeng.1c06769,"steel, chromium steel 18/8, hot rolled"
+
+Activity,"Hydrogen production, alkaline electrolysis"
+code,f8781deebb89871f60c74aa9706304ad
+comment,"Taken from: van der Giesen, Coen; Kleijn, René; Kramer, Gert Jan; Energy and climate impacts of producing synthetic hydrocarbon fuels from CO(2), dx.doi.org/10.1021/es500191g"
+location,RER
+production amount,1
+reference product,Hydrogen gas from alkaline electrolysis
+unit,kilogram
+worksheet name,power-to-liquid
+Exchanges
+name,amount,database,location,unit,type,Comment,reference product
+"Hydrogen production, alkaline electrolysis",1,power-to-liquid,RER,kilogram,production,doi.org/10.1021/es500191g,Hydrogen gas from alkaline electrolysis
+Alkaline electrolyser construction,2.31e-06,power-to-liquid,RER,unit,technosphere,doi.org/10.1021/es500191g,Electrolyser for hydrogen production
+"electricity production, wind, 1-3MW turbine, onshore",56.7,ecoinvent_cutoff39,DE,kilowatt hour,technosphere,doi.org/10.1021/es500191g,"electricity, high voltage"
+"market for water, deionised",11.1,ecoinvent_cutoff39,Europe without Switzerland,kilogram,technosphere,doi.org/10.1021/es500191g,"water, deionised"
+
+Activity,RWGS catalyst production
+code,0994b0ce1c4473581d5528785b8bd268
+comment,"Taken from: van der Giesen, Coen; Kleijn, RenÃ©; Kramer, Gert Jan; Energy and climate impacts of producing synthetic hydrocarbon fuels from CO(2), dx.doi.org/10.1021/es500191g"
+location,RER
+production amount,1
+reference product,RWGS catalyst
+unit,kilogram
+worksheet name,power-to-liquid
+Exchanges
+name,amount,database,location,unit,type,Comment,reference product
+RWGS catalyst production,1,power-to-liquid,RER,kilogram,production,doi.org/10.1021/es500191g,RWGS catalyst
+"market for aluminium oxide, non-metallurgical",0.11,ecoinvent_cutoff39,"IAI Area, EU27 & EFTA",kilogram,technosphere,doi.org/10.1021/es500191g,"aluminium oxide, non-metallurgical"
+market for copper oxide,0.57,ecoinvent_cutoff39,GLO,kilogram,technosphere,doi.org/10.1021/es500191g,copper oxide
+market for zinc oxide,0.31,ecoinvent_cutoff39,GLO,kilogram,technosphere,doi.org/10.1021/es500191g,zinc oxide
+
+Activity,Syngas production
+code,02e2b8b50b3b7e691a3d793d6ab1e47a
+comment,"Taken from: van der Giesen, Coen; Kleijn, RenÃ©; Kramer, Gert Jan; Energy and climate impacts of producing synthetic hydrocarbon fuels from CO(2), dx.doi.org/10.1021/es500191g"
+location,RER
+production amount,1
+reference product,Syngas
+unit,kilogram
+worksheet name,power-to-liquid
+Exchanges
+name,amount,database,location,unit,type,Comment,reference product
+Syngas production,1,power-to-liquid,RER,kilogram,production,doi.org/10.1021/es500191g,Syngas
+CO production via RWGS,0.875,power-to-liquid,RER,kilogram,technosphere,doi.org/10.1021/es500191g,Carbon Monoxide from RWGS
+Hydrogen compression to 25 bar,0.125,power-to-liquid,RER,kilogram,technosphere,doi.org/10.1021/es500191g,"Hydrogen gas, 25 bar"
+

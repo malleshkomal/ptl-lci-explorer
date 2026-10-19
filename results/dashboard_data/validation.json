@@ -1,0 +1,47 @@
+[
+{
+"check": "links",
+"level": "warning",
+"message": "'Alkaline electrolyser construction': 11 input(s) labelled database 'power-to-liquid' but not defined in it (likely background flows, e.g. 'market for corrugated board box')"
+},
+{
+"check": "encoding",
+"level": "warning",
+"message": "'CO production via RWGS': comment contains mis-encoded characters"
+},
+{
+"check": "encoding",
+"level": "warning",
+"message": "'Fixed bed reactor construction': comment contains mis-encoded characters"
+},
+{
+"check": "encoding",
+"level": "warning",
+"message": "'GTL plant construction': comment contains mis-encoded characters"
+},
+{
+"check": "encoding",
+"level": "warning",
+"message": "'GTL production': comment contains mis-encoded characters"
+},
+{
+"check": "encoding",
+"level": "warning",
+"message": "'Hydrogen compression to 25 bar': comment contains mis-encoded characters"
+},
+{
+"check": "encoding",
+"level": "warning",
+"message": "'Hydrogen compressor production': comment contains mis-encoded characters"
+},
+{
+"check": "encoding",
+"level": "warning",
+"message": "'RWGS catalyst production': comment contains mis-encoded characters"
+},
+{
+"check": "encoding",
+"level": "warning",
+"message": "'Syngas production': comment contains mis-encoded characters"
+}
+]

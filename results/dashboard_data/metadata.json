@@ -1,0 +1,222 @@
+[
+{
+"section": "Dataset",
+"field": "Name",
+"value": "power-to-liquid"
+},
+{
+"section": "Dataset",
+"field": "Description",
+"value": "A fuel supply chain for the production of aviation fuel from Fischer-tropsch synthesis utilizing wind-based renewable electricity, CO2 from direct air capture and Hydrogen from alkaline electrolysis process."
+},
+{
+"section": "Dataset",
+"field": "Year",
+"value": "2024"
+},
+{
+"section": "Dataset",
+"field": "Language",
+"value": "en"
+},
+{
+"section": "Dataset",
+"field": "Keywords",
+"value": "Power to liquid fuels | Aviation fuel | Direct air capture | Liquid hydrogen"
+},
+{
+"section": "Dataset",
+"field": "Type of Data",
+"value": "Mixed"
+},
+{
+"section": "Dataset",
+"field": "LCI Model",
+"value": "Attributional"
+},
+{
+"section": "Dataset",
+"field": "System boundary",
+"value": "Gate to gate"
+},
+{
+"section": "Dataset",
+"field": "Functional Units",
+"value": "1 kg of LH2 | 1kg of e-kerosene"
+},
+{
+"section": "Dataset",
+"field": "Region",
+"value": "Global"
+},
+{
+"section": "Dataset",
+"field": "Time Period",
+"value": "2014 - 2021"
+},
+{
+"section": "Dataset",
+"field": "LCI Assumptions",
+"value": "Electricity for electrolysis will be sourced from renewable (electricity production, wind, 1-3MW turbine, onshore, DE) from ecoinvent database. | Electrolysis efficiency was assumed as 58%, based on literature values for alkaline electrolysis. Fischer-Tropsch synthesis efficiency was assumed as 70 to 80%. | Environmental burdens allocated among co-products based on mass or energy content, with synthetic fuels are not considered in this study. | Transport of fuels is not considered in the system boundary."
+},
+{
+"section": "Dataset",
+"field": "LCI Schema",
+"value": "LCIS2024"
+},
+{
+"section": "Authors",
+"field": "Name",
+"value": "Rahul Ramesh Nair | Komal Mallesh chougule | Gomez Trillos Juan Camilo | Urte Brand-Daniels"
+},
+{
+"section": "Authors",
+"field": "Affliation",
+"value": "German Aerospace Center (DLR), Oldenburg"
+},
+{
+"section": "Authors",
+"field": "Comments",
+"value": "Can be contacted in case of question about this inventory"
+},
+{
+"section": "Background",
+"field": "Name",
+"value": "Ecoinvent"
+},
+{
+"section": "Background",
+"field": "Version",
+"value": "3.9.0"
+},
+{
+"section": "Background",
+"field": "Type",
+"value": "cutoff"
+},
+{
+"section": "Background",
+"field": "URL",
+"value": "https://support.ecoinvent.org/ecoinvent-version-3.9"
+},
+{
+"section": "License",
+"field": "Name",
+"value": "Creative Commons Attribution Non Commercial 4.0 International"
+},
+{
+"section": "License",
+"field": "SPDX Identifier",
+"value": "CC-BY-NC-4.0"
+},
+{
+"section": "Acknowledgements",
+"field": "Funding",
+"value": "ALICIA Project, German Aerospace Center, Germany"
+},
+{
+"section": "Secondary data",
+"field": "Source",
+"value": "Scientific publications"
+},
+{
+"section": "Secondary data",
+"field": "Year",
+"value": "2014 - 2021"
+},
+{
+"section": "Secondary data",
+"field": "Language",
+"value": "en"
+},
+{
+"section": "Secondary data",
+"field": "Availability",
+"value": "Yes"
+},
+{
+"section": "Secondary data",
+"field": "DOIs",
+"value": "https://doi.org/10.3390/en10070860  https://doi.org/10.1021/es500191g \nhttps://doi.org/10.1021/acssuschemeng.1c06769"
+},
+{
+"section": "Glossary",
+"field": "List of Abbreviations",
+"value": "AEL - Alkaline Electrolysis | FT - Fischer-Tropsch synthesis | DAC - Direct air capture | RWGS - reverse water gas shift reaction | GTL - Gas to liquid | PtL - Power to Liquid"
+},
+{
+"section": "Properties",
+"field": "Dataset Name",
+"value": "power-to-liquid"
+},
+{
+"section": "Properties",
+"field": "Schema Version",
+"value": "LCIS2024"
+},
+{
+"section": "Properties",
+"field": "Dataset Version",
+"value": "1.0.0"
+},
+{
+"section": "Properties",
+"field": "Software",
+"value": "Brightway 2.4.3"
+},
+{
+"section": "Properties",
+"field": "Export Time",
+"value": "20240710-143241"
+},
+{
+"section": "Properties",
+"field": "Unique Dataset Identifier",
+"value": "b562203b607451f292180b6c3867e48b"
+},
+{
+"section": "Properties",
+"field": "Total Project Parameters",
+"value": "0"
+},
+{
+"section": "Properties",
+"field": "Total Database Parameters",
+"value": "0"
+},
+{
+"section": "Properties",
+"field": "Total Activity Parameters",
+"value": "0"
+},
+{
+"section": "Properties",
+"field": "Total Activities",
+"value": "14"
+},
+{
+"section": "Properties",
+"field": "Total Exchanges",
+"value": "80"
+},
+{
+"section": "Properties",
+"field": "Total Biosphere flows",
+"value": "7"
+},
+{
+"section": "Properties",
+"field": "Total Technosphere flows",
+"value": "59"
+},
+{
+"section": "Properties",
+"field": "Total Reference products",
+"value": "14"
+},
+{
+"section": "Properties",
+"field": "Dataset dependencies",
+"value": "power-to-liquid, biosphere3, ecoinvent_cutoff39"
+}
+]

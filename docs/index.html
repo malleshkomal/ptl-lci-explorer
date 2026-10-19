@@ -1,0 +1,987 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Power-to-Liquid LCI Findings</title>
+<meta name="description" content="Interactive findings from the published life cycle inventory of power-to-liquid jet fuel and liquid hydrogen (Nair et al., DLR).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
+<style>
+:root {
+  color-scheme: light;
+  --font-anthropic-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-anthropic-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+  --color-bg: #f7f7f5; --color-panel: #ffffff; --color-fg: #16181d; --color-fg-muted: #5b5e66;
+  --color-border-line: #e3e3df; --color-ok: #1b7f4b; --color-warn: #a35f00; --color-bad: #c8322f;
+  --cds-chart-muted: #b4b3ac; --cds-chart-grid: #e8e7e3; --cds-chart-axis: #c9c8c2; --cds-chart-reference: #8b8a84;
+  --cds-surface-popover: #ffffff; --cds-border: #dcdcd7; --cds-shadow-popover: 0 6px 20px rgba(20, 22, 28, .12);
+  --cds-text-secondary: #5b5e66;
+  --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100; --s5: #e87ba4; --s6: #008300; --s7: #6250d6; --s8: #e34948;
+  --cds-radius: 10px; --cds-pad-xs: 6px; --cds-pad-sm: 10px; --cds-pad-md: 14px; --cds-pad-lg: 20px; --cds-pad-xl: 28px;
+  --cds-gap-xs: 6px; --cds-gap-sm: 10px; --cds-gap-md: 16px; --cds-gap-lg: 24px; --cds-gap-xl: 40px;
+  --cds-font-size-caption: 13px; --cds-font-size-body: 15px; --cds-font-size-heading: 17px; --cds-font-size-title: 24px;
+  --cds-font-weight-medium: 600; --cds-dur-slow: 600ms; --cds-ease-out: cubic-bezier(.2, .7, .2, 1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --color-bg: #141518; --color-panel: #1d1f23; --color-fg: #eeeeec; --color-fg-muted: #a6a8ae;
+    --color-border-line: #2f3237; --color-ok: #4cc38a; --color-warn: #e6a23c; --color-bad: #f0706b;
+    --cds-chart-muted: #5d6067; --cds-chart-grid: #2a2d32; --cds-chart-axis: #3a3d43; --cds-chart-reference: #8d9097;
+    --cds-surface-popover: #24272c; --cds-border: #3a3d43; --cds-shadow-popover: 0 6px 20px rgba(0, 0, 0, .45);
+    --cds-text-secondary: #a6a8ae;
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --color-bg: #141518; --color-panel: #1d1f23; --color-fg: #eeeeec; --color-fg-muted: #a6a8ae;
+  --color-border-line: #2f3237; --color-ok: #4cc38a; --color-warn: #e6a23c; --color-bad: #f0706b;
+  --cds-chart-muted: #5d6067; --cds-chart-grid: #2a2d32; --cds-chart-axis: #3a3d43; --cds-chart-reference: #8d9097;
+  --cds-surface-popover: #24272c; --cds-border: #3a3d43; --cds-shadow-popover: 0 6px 20px rgba(0, 0, 0, .45);
+  --cds-text-secondary: #a6a8ae;
+  --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500; --s5: #d55181; --s6: #008300; --s7: #9085e9; --s8: #e66767;
+}
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--color-bg); color: var(--color-fg); font-family: var(--font-anthropic-sans); font-size: var(--cds-font-size-body); }
+#dash-root { padding-block: 40px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+@media (min-width: 900px) { #dash-root { padding-left: max(40px, env(safe-area-inset-left, 0px)); padding-right: max(40px, env(safe-area-inset-right, 0px)); } }
+.dash-skeleton { color: transparent !important; background: var(--color-border-line); border-radius: 6px; min-width: 2.5em; display: inline-block; }
+.pl-chart.dash-skeleton { display: block; }
+.site-foot { max-width: 72rem; margin: 48px auto 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.55; }
+.site-foot a { color: inherit; }
+</style>
+</head>
+<body>
+<main id="dash-root">
+<script>
+// Stand-in for the dashboard runtime: serves the embedded tables and the page's calculations.
+window.dash = (() => {
+  const raw = {"activities":[{"activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","role":"Equipment","reference_product":"Electrolyser for hydrogen production","unit":"unit","location":"RER","chain":"Both"},{"activity":"CO production via RWGS","label":"Reverse water-gas shift","role":"Process","reference_product":"Carbon Monoxide from RWGS","unit":"kilogram","location":"RER","chain":"PtL fuel"},{"activity":"Direct air capture","label":"Direct air capture","role":"Process","reference_product":"CO2 from direct air capture, 25 bar","unit":"kilogram","location":"RER","chain":"PtL fuel"},{"activity":"Direct air capture (DAC) equipment","label":"DAC unit (equipment)","role":"Equipment","reference_product":"DAC equipment (absorber)","unit":"unit","location":"RER","chain":"PtL fuel"},{"activity":"Fixed bed reactor construction","label":"RWGS reactor (equipment)","role":"Equipment","reference_product":"Fixed bed reactor for RWGS","unit":"unit","location":"RER","chain":"PtL fuel"},{"activity":"GTL plant construction","label":"Fischer-Tropsch plant (equipment)","role":"Equipment","reference_product":"GTL plant","unit":"unit","location":"RER","chain":"PtL fuel"},{"activity":"GTL production","label":"Fischer-Tropsch synthesis","role":"Process","reference_product":"GTL product","unit":"kilogram","location":"RER","chain":"PtL fuel"},{"activity":"Hydrogen compression to 25 bar","label":"H2 compression","role":"Process","reference_product":"Hydrogen gas, 25 bar","unit":"kilogram","location":"RER","chain":"Both"},{"activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","role":"Equipment","reference_product":"Hydrogen compressor","unit":"unit","location":"RER","chain":"Both"},{"activity":"Hydrogen liquefaction","label":"H2 liquefaction","role":"Process","reference_product":"Liquid hydrogen","unit":"kilogram","location":"RER","chain":"Liquid hydrogen"},{"activity":"Hydrogen liquefaction plant construction","label":"Liquefaction plant (equipment)","role":"Equipment","reference_product":"Hydrogen liquefaction plant","unit":"unit","location":"RER","chain":"Liquid hydrogen"},{"activity":"Hydrogen production, alkaline electrolysis","label":"Alkaline electrolysis","role":"Process","reference_product":"Hydrogen gas from alkaline electrolysis","unit":"kilogram","location":"RER","chain":"Both"},{"activity":"RWGS catalyst production","label":"RWGS catalyst (equipment)","role":"Equipment","reference_product":"RWGS catalyst","unit":"kilogram","location":"RER","chain":"PtL fuel"},{"activity":"Syngas production","label":"Syngas mixing","role":"Process","reference_product":"Syngas","unit":"kilogram","location":"RER","chain":"PtL fuel"}],"checks":[{"check":"counts","title":"Counts match the properties file","issues":0,"status":"Pass","note":"14 activities, 80 exchanges, 7 biosphere and 59 technosphere flows"},{"check":"production","title":"One production exchange per activity","issues":0,"status":"Pass","note":"Each activity produces exactly its declared amount"},{"check":"links","title":"Foreground links resolve","issues":1,"status":"Review","note":""},{"check":"amounts","title":"No zero or negative amounts","issues":0,"status":"Pass","note":""},{"check":"encoding","title":"Text is correctly encoded","issues":8,"status":"Review","note":""},{"check":"metadata","title":"Required metadata is filled","issues":0,"status":"Pass","note":"Name, description, functional units, boundary, model, authors, background, licence"}],"contributions":[{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"biosphere","flow":"Hydrogen","unit":"kilogram","amount":1.2582801e-05},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"biosphere","flow":"Occupation, industrial area","unit":"square meter-year","amount":6.99566175e-05},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for corrugated board box","unit":"kilogram","amount":0.0001197244125},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for nitrogen, liquid","unit":"kilogram","amount":0.0001995406875},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for potassium hydroxide","unit":"kilogram","amount":7.0426125e-05},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for reinforcing steel","unit":"kilogram","amount":0.00939015},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for sodium silicate, spray powder, 80%","unit":"kilogram","amount":0.00046950750000000004},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for steel, chromium steel 18/8","unit":"kilogram","amount":0.0187803},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for waste bulk iron, excluding reinforcement","unit":"kilogram","amount":0.0187803},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for waste fibreboard","unit":"kilogram","amount":0.0001197244125},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for waste reinforcement steel","unit":"kilogram","amount":0.00939015},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market group for transport, freight train","unit":"ton kilometer","amount":0.005986220625},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"transport, freight, lorry 16-32 metric ton, EURO3","unit":"ton kilometer","amount":0.002887471125},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen compression to 25 bar","label":"H2 compression","type":"technosphere","flow":"electricity production, wind, 1-3MW turbine, onshore","unit":"kilowatt hour","amount":0.6707250000000001},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"biosphere","flow":"Occupation, industrial area","unit":"square meter-year","amount":5.6304315e-07},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for aluminium, wrought alloy","unit":"kilogram","amount":1.7377875e-05},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for concrete, normal strength","unit":"cubic meter","amount":4.1706900000000004e-07},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for lubricating oil","unit":"kilogram","amount":5.213362500000001e-06},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for steel, chromium steel 18/8","unit":"kilogram","amount":0.00017377875000000001},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for steel, low-alloyed","unit":"kilogram","amount":0.00010426725000000001},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for transport, freight, lorry 16-32 metric ton, EURO6","unit":"ton kilometer","amount":7.507242e-05},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for waste bulk iron, excluding reinforcement","unit":"kilogram","amount":0.000278046},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for waste concrete, not reinforced","unit":"kilogram","amount":0.0009036495000000001},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market group for transport, freight train","unit":"ton kilometer","amount":6.221279250000001e-05},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"treatment of scrap aluminium, municipal incineration","unit":"kilogram","amount":1.7377875e-05},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen liquefaction","label":"H2 liquefaction","type":"technosphere","flow":"electricity production, wind, 1-3MW turbine, onshore","unit":"kilowatt hour","amount":6.86985},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen liquefaction plant construction","label":"Liquefaction plant (equipment)","type":"technosphere","flow":"market for aluminium alloy, AlMg3","unit":"kilogram","amount":0.00028419999999999997},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen liquefaction plant construction","label":"Liquefaction plant (equipment)","type":"technosphere","flow":"market for concrete, normal strength","unit":"cubic meter","amount":4.1209e-05},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen liquefaction plant construction","label":"Liquefaction plant (equipment)","type":"technosphere","flow":"market for reinforcing steel","unit":"kilogram","amount":0.0007713999999999999},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen liquefaction plant construction","label":"Liquefaction plant (equipment)","type":"technosphere","flow":"market for sheet rolling, copper","unit":"kilogram","amount":0.0003045},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen liquefaction plant construction","label":"Liquefaction plant (equipment)","type":"technosphere","flow":"market for steel, chromium steel 18/8, hot rolled","unit":"kilogram","amount":0.00120785},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen production, alkaline electrolysis","label":"Alkaline electrolysis","type":"technosphere","flow":"electricity production, wind, 1-3MW turbine, onshore","unit":"kilowatt hour","amount":57.62137500000001},{"fu":"lh2","product":"1 kg liquid hydrogen","activity":"Hydrogen production, alkaline electrolysis","label":"Alkaline electrolysis","type":"technosphere","flow":"market for water, deionised","unit":"kilogram","amount":11.280375000000001},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"biosphere","flow":"Hydrogen","unit":"kilogram","amount":5.3039678999999996e-06},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"biosphere","flow":"Occupation, industrial area","unit":"square meter-year","amount":2.9488478249999996e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for corrugated board box","unit":"kilogram","amount":5.046685874999999e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for nitrogen, liquid","unit":"kilogram","amount":8.411143124999999e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for potassium hydroxide","unit":"kilogram","amount":2.9686387499999997e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for reinforcing steel","unit":"kilogram","amount":0.0039581849999999995},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for sodium silicate, spray powder, 80%","unit":"kilogram","amount":0.00019790924999999997},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for steel, chromium steel 18/8","unit":"kilogram","amount":0.007916369999999999},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for waste bulk iron, excluding reinforcement","unit":"kilogram","amount":0.007916369999999999},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for waste fibreboard","unit":"kilogram","amount":5.046685874999999e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market for waste reinforcement steel","unit":"kilogram","amount":0.0039581849999999995},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"market group for transport, freight train","unit":"ton kilometer","amount":0.0025233429374999995},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","type":"technosphere","flow":"transport, freight, lorry 16-32 metric ton, EURO3","unit":"ton kilometer","amount":0.0012171418874999998},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Direct air capture","label":"Direct air capture","type":"biosphere","flow":"Carbon dioxide, in air","unit":"kilogram","amount":3.1596249999999997},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Direct air capture","label":"Direct air capture","type":"technosphere","flow":"electricity production, wind, 1-3MW turbine, onshore","unit":"kilowatt hour","amount":0.9794837499999999},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Direct air capture (DAC) equipment","label":"DAC unit (equipment)","type":"biosphere","flow":"Occupation, industrial area","unit":"square meter-year","amount":1.0385055449999999e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Direct air capture (DAC) equipment","label":"DAC unit (equipment)","type":"technosphere","flow":"market for steel, low-alloyed","unit":"kilogram","amount":0.0010962002975},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Direct air capture (DAC) equipment","label":"DAC unit (equipment)","type":"technosphere","flow":"market for waste bulk iron, excluding reinforcement","unit":"kilogram","amount":0.0010962002975},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Fixed bed reactor construction","label":"RWGS reactor (equipment)","type":"biosphere","flow":"Occupation, industrial area","unit":"square meter-year","amount":1.2196152500000001e-08},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Fixed bed reactor construction","label":"RWGS reactor (equipment)","type":"technosphere","flow":"market for steel, chromium steel 18/8","unit":"kilogram","amount":1.8488435000000003e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Fixed bed reactor construction","label":"RWGS reactor (equipment)","type":"technosphere","flow":"market for steel, low-alloyed","unit":"kilogram","amount":1.8488435000000003e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Fixed bed reactor construction","label":"RWGS reactor (equipment)","type":"technosphere","flow":"market for waste bulk iron, excluding reinforcement","unit":"kilogram","amount":3.6976870000000006e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Fixed bed reactor construction","label":"RWGS reactor (equipment)","type":"technosphere","flow":"market for zeolite, powder","unit":"kilogram","amount":0.0001037061375},{"fu":"ptl","product":"1 kg PtL fuel","activity":"GTL plant construction","label":"Fischer-Tropsch plant (equipment)","type":"biosphere","flow":"Occupation, industrial area","unit":"square meter-year","amount":7.5040000000000005e-06},{"fu":"ptl","product":"1 kg PtL fuel","activity":"GTL plant construction","label":"Fischer-Tropsch plant (equipment)","type":"technosphere","flow":"market for reinforcing steel","unit":"kilogram","amount":4.824e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"GTL plant construction","label":"Fischer-Tropsch plant (equipment)","type":"technosphere","flow":"market for steel, low-alloyed","unit":"kilogram","amount":4.824e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"GTL plant construction","label":"Fischer-Tropsch plant (equipment)","type":"technosphere","flow":"market for waste bulk iron, excluding reinforcement","unit":"kilogram","amount":9.648e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"GTL plant construction","label":"Fischer-Tropsch plant (equipment)","type":"technosphere","flow":"market for waste reinforced concrete","unit":"kilogram","amount":0.0055476},{"fu":"ptl","product":"1 kg PtL fuel","activity":"GTL plant construction","label":"Fischer-Tropsch plant (equipment)","type":"technosphere","flow":"market group for concrete, normal strength","unit":"cubic meter","amount":2.3115000000000002e-06},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Hydrogen compression to 25 bar","label":"H2 compression","type":"technosphere","flow":"electricity production, wind, 1-3MW turbine, onshore","unit":"kilowatt hour","amount":0.28272749999999996},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"biosphere","flow":"Occupation, industrial area","unit":"square meter-year","amount":2.3733688499999998e-07},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for aluminium, wrought alloy","unit":"kilogram","amount":7.3252125e-06},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for concrete, normal strength","unit":"cubic meter","amount":1.758051e-07},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for lubricating oil","unit":"kilogram","amount":2.19756375e-06},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for steel, chromium steel 18/8","unit":"kilogram","amount":7.3252125e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for steel, low-alloyed","unit":"kilogram","amount":4.3951275e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for transport, freight, lorry 16-32 metric ton, EURO6","unit":"ton kilometer","amount":3.1644918e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for waste bulk iron, excluding reinforcement","unit":"kilogram","amount":0.0001172034},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market for waste concrete, not reinforced","unit":"kilogram","amount":0.00038091105},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"market group for transport, freight train","unit":"ton kilometer","amount":2.622426075e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","type":"technosphere","flow":"treatment of scrap aluminium, municipal incineration","unit":"kilogram","amount":7.3252125e-06},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Hydrogen production, alkaline electrolysis","label":"Alkaline electrolysis","type":"technosphere","flow":"electricity production, wind, 1-3MW turbine, onshore","unit":"kilowatt hour","amount":24.288862499999997},{"fu":"ptl","product":"1 kg PtL fuel","activity":"Hydrogen production, alkaline electrolysis","label":"Alkaline electrolysis","type":"technosphere","flow":"market for water, deionised","unit":"kilogram","amount":4.7549624999999995},{"fu":"ptl","product":"1 kg PtL fuel","activity":"RWGS catalyst production","label":"RWGS catalyst (equipment)","type":"technosphere","flow":"market for aluminium oxide, non-metallurgical","unit":"kilogram","amount":2.8198747500000004e-06},{"fu":"ptl","product":"1 kg PtL fuel","activity":"RWGS catalyst production","label":"RWGS catalyst (equipment)","type":"technosphere","flow":"market for copper oxide","unit":"kilogram","amount":1.461207825e-05},{"fu":"ptl","product":"1 kg PtL fuel","activity":"RWGS catalyst production","label":"RWGS catalyst (equipment)","type":"technosphere","flow":"market for zinc oxide","unit":"kilogram","amount":7.94691975e-06}],"exchanges":[{"activity":"Alkaline electrolyser construction","flow":"Hydrogen","amount":5.36,"unit":"kilogram","type":"biosphere","kind":"biosphere","database":"biosphere3","location":"","id":1},{"activity":"Alkaline electrolyser construction","flow":"Occupation, industrial area","amount":29.8,"unit":"square meter-year","type":"biosphere","kind":"biosphere","database":"biosphere3","location":"","id":2},{"activity":"Alkaline electrolyser construction","flow":"Alkaline electrolyser construction","amount":1.0,"unit":"unit","type":"production","kind":"production","database":"power-to-liquid","location":"RER","id":3},{"activity":"Alkaline electrolyser construction","flow":"market for corrugated board box","amount":51.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"power-to-liquid","location":"RER","id":4},{"activity":"Alkaline electrolyser construction","flow":"market for nitrogen, liquid","amount":85.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"power-to-liquid","location":"RER","id":5},{"activity":"Alkaline electrolyser construction","flow":"market for potassium hydroxide","amount":30.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"power-to-liquid","location":"GLO","id":6},{"activity":"Alkaline electrolyser construction","flow":"market for reinforcing steel","amount":4000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"power-to-liquid","location":"GLO","id":7},{"activity":"Alkaline electrolyser construction","flow":"market for sodium silicate, spray powder, 80%","amount":200.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"power-to-liquid","location":"RER","id":8},{"activity":"Alkaline electrolyser construction","flow":"market for steel, chromium steel 18/8","amount":8000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"power-to-liquid","location":"GLO","id":9},{"activity":"Alkaline electrolyser construction","flow":"market for waste bulk iron, excluding reinforcement","amount":8000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"power-to-liquid","location":"Europe without Switzerland","id":10},{"activity":"Alkaline electrolyser construction","flow":"market for waste fibreboard","amount":51.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"power-to-liquid","location":"RoW","id":11},{"activity":"Alkaline electrolyser construction","flow":"market for waste reinforcement steel","amount":4000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"power-to-liquid","location":"RoW","id":12},{"activity":"Alkaline electrolyser construction","flow":"market group for transport, freight train","amount":2550.0,"unit":"ton kilometer","type":"technosphere","kind":"background input","database":"power-to-liquid","location":"RER","id":13},{"activity":"Alkaline electrolyser construction","flow":"transport, freight, lorry 16-32 metric ton, EURO3","amount":1230.0,"unit":"ton kilometer","type":"technosphere","kind":"background input","database":"power-to-liquid","location":"RER","id":14},{"activity":"CO production via RWGS","flow":"CO production via RWGS","amount":1.0,"unit":"kilogram","type":"production","kind":"production","database":"power-to-liquid","location":"RER","id":15},{"activity":"CO production via RWGS","flow":"Direct air capture","amount":1.57,"unit":"kilogram","type":"technosphere","kind":"foreground input","database":"power-to-liquid","location":"RER","id":16},{"activity":"CO production via RWGS","flow":"Fixed bed reactor construction","amount":1.93e-09,"unit":"unit","type":"technosphere","kind":"foreground input","database":"power-to-liquid","location":"RER","id":17},{"activity":"CO production via RWGS","flow":"Hydrogen compression to 25 bar","amount":0.07,"unit":"kilogram","type":"technosphere","kind":"foreground input","database":"power-to-liquid","location":"RER","id":18},{"activity":"Direct air capture","flow":"Carbon dioxide, in air","amount":1.0,"unit":"kilogram","type":"biosphere","kind":"biosphere","database":"biosphere3","location":"","id":19},{"activity":"Direct air capture","flow":"Direct air capture","amount":1.0,"unit":"kilogram","type":"production","kind":"production","database":"power-to-liquid","location":"RER","id":20},{"activity":"Direct air capture","flow":"Direct air capture (DAC) equipment","amount":9.13e-08,"unit":"unit","type":"technosphere","kind":"foreground input","database":"power-to-liquid","location":"RER","id":21},{"activity":"Direct air capture","flow":"electricity production, wind, 1-3MW turbine, onshore","amount":0.31,"unit":"kilowatt hour","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"DE","id":22},{"activity":"Direct air capture (DAC) equipment","flow":"Occupation, industrial area","amount":36.0,"unit":"square meter-year","type":"biosphere","kind":"biosphere","database":"biosphere3","location":"","id":23},{"activity":"Direct air capture (DAC) equipment","flow":"Direct air capture (DAC) equipment","amount":1.0,"unit":"unit","type":"production","kind":"production","database":"power-to-liquid","location":"RER","id":24},{"activity":"Direct air capture (DAC) equipment","flow":"market for steel, low-alloyed","amount":3800.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":25},{"activity":"Direct air capture (DAC) equipment","flow":"market for waste bulk iron, excluding reinforcement","amount":3800.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"Europe without Switzerland","id":26},{"activity":"Fixed bed reactor construction","flow":"Occupation, industrial area","amount":3.14,"unit":"square meter-year","type":"biosphere","kind":"biosphere","database":"biosphere3","location":"","id":27},{"activity":"Fixed bed reactor construction","flow":"Fixed bed reactor construction","amount":1.0,"unit":"unit","type":"production","kind":"production","database":"power-to-liquid","location":"RER","id":28},{"activity":"Fixed bed reactor construction","flow":"RWGS catalyst production","amount":6600.0,"unit":"kilogram","type":"technosphere","kind":"foreground input","database":"power-to-liquid","location":"RER","id":29},{"activity":"Fixed bed reactor construction","flow":"market for steel, chromium steel 18/8","amount":4760.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":30},{"activity":"Fixed bed reactor construction","flow":"market for steel, low-alloyed","amount":4760.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":31},{"activity":"Fixed bed reactor construction","flow":"market for waste bulk iron, excluding reinforcement","amount":9520.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"Europe without Switzerland","id":32},{"activity":"Fixed bed reactor construction","flow":"market for zeolite, powder","amount":26700.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":33},{"activity":"GTL plant construction","flow":"Occupation, industrial area","amount":1120000.0,"unit":"square meter-year","type":"biosphere","kind":"biosphere","database":"biosphere3","location":"","id":34},{"activity":"GTL plant construction","flow":"GTL plant construction","amount":1.0,"unit":"unit","type":"production","kind":"production","database":"power-to-liquid","location":"RER","id":35},{"activity":"GTL plant construction","flow":"market for reinforcing steel","amount":7200000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":36},{"activity":"GTL plant construction","flow":"market for steel, low-alloyed","amount":7200000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":37},{"activity":"GTL plant construction","flow":"market for waste bulk iron, excluding reinforcement","amount":14400000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"Europe without Switzerland","id":38},{"activity":"GTL plant construction","flow":"market for waste reinforced concrete","amount":828000000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"CH","id":39},{"activity":"GTL plant construction","flow":"market group for concrete, normal strength","amount":345000.0,"unit":"cubic meter","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":40},{"activity":"GTL production","flow":"GTL production","amount":1.0,"unit":"kilogram","type":"production","kind":"production","database":"power-to-liquid","location":"RER","id":41},{"activity":"GTL production","flow":"GTL plant construction","amount":6.7e-12,"unit":"unit","type":"technosphere","kind":"foreground input","database":"power-to-liquid","location":"RER","id":42},{"activity":"GTL production","flow":"Syngas production","amount":2.3,"unit":"kilogram","type":"technosphere","kind":"foreground input","database":"power-to-liquid","location":"RER","id":43},{"activity":"Hydrogen compression to 25 bar","flow":"Hydrogen compression to 25 bar","amount":1.0,"unit":"kilogram","type":"production","kind":"production","database":"power-to-liquid","location":"RER","id":44},{"activity":"Hydrogen compression to 25 bar","flow":"Hydrogen compressor production","amount":3.42e-08,"unit":"unit","type":"technosphere","kind":"foreground input","database":"power-to-liquid","location":"RER","id":45},{"activity":"Hydrogen compression to 25 bar","flow":"Hydrogen production, alkaline electrolysis","amount":1.0,"unit":"kilogram","type":"technosphere","kind":"foreground input","database":"power-to-liquid","location":"RER","id":46},{"activity":"Hydrogen compression to 25 bar","flow":"electricity production, wind, 1-3MW turbine, onshore","amount":0.66,"unit":"kilowatt hour","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"DE","id":47},{"activity":"Hydrogen compressor production","flow":"Occupation, industrial area","amount":16.2,"unit":"square meter-year","type":"biosphere","kind":"biosphere","database":"biosphere3","location":"","id":48},{"activity":"Hydrogen compressor production","flow":"Hydrogen compressor production","amount":1.0,"unit":"unit","type":"production","kind":"production","database":"power-to-liquid","location":"RER","id":49},{"activity":"Hydrogen compressor production","flow":"market for aluminium, wrought alloy","amount":500.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":50},{"activity":"Hydrogen compressor production","flow":"market for concrete, normal strength","amount":12.0,"unit":"cubic meter","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"CH","id":51},{"activity":"Hydrogen compressor production","flow":"market for lubricating oil","amount":150.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"RER","id":52},{"activity":"Hydrogen compressor production","flow":"market for steel, chromium steel 18/8","amount":5000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":53},{"activity":"Hydrogen compressor production","flow":"market for steel, low-alloyed","amount":3000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":54},{"activity":"Hydrogen compressor production","flow":"market for transport, freight, lorry 16-32 metric ton, EURO6","amount":2160.0,"unit":"ton kilometer","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"RER","id":55},{"activity":"Hydrogen compressor production","flow":"market for waste bulk iron, excluding reinforcement","amount":8000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"Europe without Switzerland","id":56},{"activity":"Hydrogen compressor production","flow":"market for waste concrete, not reinforced","amount":26000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"Europe without Switzerland","id":57},{"activity":"Hydrogen compressor production","flow":"market group for transport, freight train","amount":1790.0,"unit":"ton kilometer","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"RER","id":58},{"activity":"Hydrogen compressor production","flow":"treatment of scrap aluminium, municipal incineration","amount":500.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"Europe without Switzerland","id":59},{"activity":"Hydrogen liquefaction","flow":"Hydrogen liquefaction","amount":1.0,"unit":"kilogram","type":"production","kind":"production","database":"power-to-liquid","location":"RER","id":60},{"activity":"Hydrogen liquefaction","flow":"Hydrogen compression to 25 bar","amount":1.01625,"unit":"kilogram","type":"technosphere","kind":"foreground input","database":"power-to-liquid","location":"RER","id":61},{"activity":"Hydrogen liquefaction","flow":"Hydrogen liquefaction plant construction","amount":2.03e-09,"unit":"unit","type":"technosphere","kind":"foreground input","database":"power-to-liquid","location":"RER","id":62},{"activity":"Hydrogen liquefaction","flow":"electricity production, wind, 1-3MW turbine, onshore","amount":6.86985,"unit":"kilowatt hour","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"DE","id":63},{"activity":"Hydrogen liquefaction plant construction","flow":"Hydrogen liquefaction plant construction","amount":1.0,"unit":"unit","type":"production","kind":"production","database":"power-to-liquid","location":"RER","id":64},{"activity":"Hydrogen liquefaction plant construction","flow":"market for aluminium alloy, AlMg3","amount":140000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":65},{"activity":"Hydrogen liquefaction plant construction","flow":"market for concrete, normal strength","amount":20300.0,"unit":"cubic meter","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"CH","id":66},{"activity":"Hydrogen liquefaction plant construction","flow":"market for reinforcing steel","amount":380000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":67},{"activity":"Hydrogen liquefaction plant construction","flow":"market for sheet rolling, copper","amount":150000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":68},{"activity":"Hydrogen liquefaction plant construction","flow":"market for steel, chromium steel 18/8, hot rolled","amount":595000.0,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":69},{"activity":"Hydrogen production, alkaline electrolysis","flow":"Hydrogen production, alkaline electrolysis","amount":1.0,"unit":"kilogram","type":"production","kind":"production","database":"power-to-liquid","location":"RER","id":70},{"activity":"Hydrogen production, alkaline electrolysis","flow":"Alkaline electrolyser construction","amount":2.31e-06,"unit":"unit","type":"technosphere","kind":"foreground input","database":"power-to-liquid","location":"RER","id":71},{"activity":"Hydrogen production, alkaline electrolysis","flow":"electricity production, wind, 1-3MW turbine, onshore","amount":56.7,"unit":"kilowatt hour","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"DE","id":72},{"activity":"Hydrogen production, alkaline electrolysis","flow":"market for water, deionised","amount":11.1,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"Europe without Switzerland","id":73},{"activity":"RWGS catalyst production","flow":"RWGS catalyst production","amount":1.0,"unit":"kilogram","type":"production","kind":"production","database":"power-to-liquid","location":"RER","id":74},{"activity":"RWGS catalyst production","flow":"market for aluminium oxide, non-metallurgical","amount":0.11,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"IAI Area, EU27 & EFTA","id":75},{"activity":"RWGS catalyst production","flow":"market for copper oxide","amount":0.57,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":76},{"activity":"RWGS catalyst production","flow":"market for zinc oxide","amount":0.31,"unit":"kilogram","type":"technosphere","kind":"background input","database":"ecoinvent_cutoff39","location":"GLO","id":77},{"activity":"Syngas production","flow":"Syngas production","amount":1.0,"unit":"kilogram","type":"production","kind":"production","database":"power-to-liquid","location":"RER","id":78},{"activity":"Syngas production","flow":"CO production via RWGS","amount":0.875,"unit":"kilogram","type":"technosphere","kind":"foreground input","database":"power-to-liquid","location":"RER","id":79},{"activity":"Syngas production","flow":"Hydrogen compression to 25 bar","amount":0.125,"unit":"kilogram","type":"technosphere","kind":"foreground input","database":"power-to-liquid","location":"RER","id":80}],"inventory":[{"fu":"lh2","product":"1 kg liquid hydrogen","type":"biosphere","flow":"Hydrogen","unit":"kilogram","amount":1.2582801e-05},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"biosphere","flow":"Occupation, industrial area","unit":"square meter-year","amount":7.051966065e-05},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"electricity production, wind, 1-3MW turbine, onshore","unit":"kilowatt hour","amount":65.16195},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for aluminium alloy, AlMg3","unit":"kilogram","amount":0.00028419999999999997},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for aluminium, wrought alloy","unit":"kilogram","amount":1.7377875e-05},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for concrete, normal strength","unit":"cubic meter","amount":4.1626069e-05},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for corrugated board box","unit":"kilogram","amount":0.0001197244125},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for lubricating oil","unit":"kilogram","amount":5.213362500000001e-06},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for nitrogen, liquid","unit":"kilogram","amount":0.0001995406875},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for potassium hydroxide","unit":"kilogram","amount":7.0426125e-05},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for reinforcing steel","unit":"kilogram","amount":0.01016155},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for sheet rolling, copper","unit":"kilogram","amount":0.0003045},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for sodium silicate, spray powder, 80%","unit":"kilogram","amount":0.00046950750000000004},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for steel, chromium steel 18/8","unit":"kilogram","amount":0.01895407875},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for steel, chromium steel 18/8, hot rolled","unit":"kilogram","amount":0.00120785},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for steel, low-alloyed","unit":"kilogram","amount":0.00010426725000000001},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for transport, freight, lorry 16-32 metric ton, EURO6","unit":"ton kilometer","amount":7.507242e-05},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for waste bulk iron, excluding reinforcement","unit":"kilogram","amount":0.019058346},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for waste concrete, not reinforced","unit":"kilogram","amount":0.0009036495000000001},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for waste fibreboard","unit":"kilogram","amount":0.0001197244125},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for waste reinforcement steel","unit":"kilogram","amount":0.00939015},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market for water, deionised","unit":"kilogram","amount":11.280375000000001},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"market group for transport, freight train","unit":"ton kilometer","amount":0.0060484334175000005},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"transport, freight, lorry 16-32 metric ton, EURO3","unit":"ton kilometer","amount":0.002887471125},{"fu":"lh2","product":"1 kg liquid hydrogen","type":"technosphere","flow":"treatment of scrap aluminium, municipal incineration","unit":"kilogram","amount":1.7377875e-05},{"fu":"ptl","product":"1 kg PtL fuel","type":"biosphere","flow":"Carbon dioxide, in air","unit":"kilogram","amount":3.1596249999999997},{"fu":"ptl","product":"1 kg PtL fuel","type":"biosphere","flow":"Hydrogen","unit":"kilogram","amount":5.3039678999999996e-06},{"fu":"ptl","product":"1 kg PtL fuel","type":"biosphere","flow":"Occupation, industrial area","unit":"square meter-year","amount":4.76270667375e-05},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"electricity production, wind, 1-3MW turbine, onshore","unit":"kilowatt hour","amount":25.551073749999997},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for aluminium oxide, non-metallurgical","unit":"kilogram","amount":2.8198747500000004e-06},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for aluminium, wrought alloy","unit":"kilogram","amount":7.3252125e-06},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for concrete, normal strength","unit":"cubic meter","amount":1.758051e-07},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for copper oxide","unit":"kilogram","amount":1.461207825e-05},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for corrugated board box","unit":"kilogram","amount":5.046685874999999e-05},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for lubricating oil","unit":"kilogram","amount":2.19756375e-06},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for nitrogen, liquid","unit":"kilogram","amount":8.411143124999999e-05},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for potassium hydroxide","unit":"kilogram","amount":2.9686387499999997e-05},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for reinforcing steel","unit":"kilogram","amount":0.004006424999999999},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for sodium silicate, spray powder, 80%","unit":"kilogram","amount":0.00019790924999999997},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for steel, chromium steel 18/8","unit":"kilogram","amount":0.008008110559999998},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for steel, low-alloyed","unit":"kilogram","amount":0.0012068800075},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for transport, freight, lorry 16-32 metric ton, EURO6","unit":"ton kilometer","amount":3.1644918e-05},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for waste bulk iron, excluding reinforcement","unit":"kilogram","amount":0.0092632305675},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for waste concrete, not reinforced","unit":"kilogram","amount":0.00038091105},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for waste fibreboard","unit":"kilogram","amount":5.046685874999999e-05},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for waste reinforced concrete","unit":"kilogram","amount":0.0055476},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for waste reinforcement steel","unit":"kilogram","amount":0.0039581849999999995},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for water, deionised","unit":"kilogram","amount":4.7549624999999995},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for zeolite, powder","unit":"kilogram","amount":0.0001037061375},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market for zinc oxide","unit":"kilogram","amount":7.94691975e-06},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market group for concrete, normal strength","unit":"cubic meter","amount":2.3115000000000002e-06},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"market group for transport, freight train","unit":"ton kilometer","amount":0.0025495671982499997},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"transport, freight, lorry 16-32 metric ton, EURO3","unit":"ton kilometer","amount":0.0012171418874999998},{"fu":"ptl","product":"1 kg PtL fuel","type":"technosphere","flow":"treatment of scrap aluminium, municipal incineration","unit":"kilogram","amount":7.3252125e-06}],"mass_flows":[{"source":"CO2 in air","target":"Direct air capture","kg":3.159625},{"source":"Direct air capture","target":"Reverse water-gas shift","kg":3.159625},{"source":"H2 compression","target":"Reverse water-gas shift","kg":0.140875},{"source":"Syngas mixing","target":"Fischer-Tropsch synthesis","kg":2.3},{"source":"Alkaline electrolysis","target":"H2 compression","kg":0.428375},{"source":"Reverse water-gas shift","target":"Syngas mixing","kg":2.0125},{"source":"H2 compression","target":"Syngas mixing","kg":0.2875},{"source":"Fischer-Tropsch synthesis","target":"PtL fuel","kg":1.0}],"metadata":[{"section":"Dataset","field":"Name","value":"power-to-liquid"},{"section":"Dataset","field":"Description","value":"A fuel supply chain for the production of aviation fuel from Fischer-tropsch synthesis utilizing wind-based renewable electricity, CO2 from direct air capture and Hydrogen from alkaline electrolysis process."},{"section":"Dataset","field":"Year","value":"2024"},{"section":"Dataset","field":"Language","value":"en"},{"section":"Dataset","field":"Keywords","value":"Power to liquid fuels | Aviation fuel | Direct air capture | Liquid hydrogen"},{"section":"Dataset","field":"Type of Data","value":"Mixed"},{"section":"Dataset","field":"LCI Model","value":"Attributional"},{"section":"Dataset","field":"System boundary","value":"Gate to gate"},{"section":"Dataset","field":"Functional Units","value":"1 kg of LH2 | 1kg of e-kerosene"},{"section":"Dataset","field":"Region","value":"Global"},{"section":"Dataset","field":"Time Period","value":"2014 - 2021"},{"section":"Dataset","field":"LCI Assumptions","value":"Electricity for electrolysis will be sourced from renewable (electricity production, wind, 1-3MW turbine, onshore, DE) from ecoinvent database. | Electrolysis efficiency was assumed as 58%, based on literature values for alkaline electrolysis. Fischer-Tropsch synthesis efficiency was assumed as 70 to 80%. | Environmental burdens allocated among co-products based on mass or energy content, with synthetic fuels are not considered in this study. | Transport of fuels is not considered in the system boundary."},{"section":"Dataset","field":"LCI Schema","value":"LCIS2024"},{"section":"Authors","field":"Name","value":"Rahul Ramesh Nair | Komal Mallesh chougule | Gomez Trillos Juan Camilo | Urte Brand-Daniels"},{"section":"Authors","field":"Affliation","value":"German Aerospace Center (DLR), Oldenburg"},{"section":"Authors","field":"Comments","value":"Can be contacted in case of question about this inventory"},{"section":"Background","field":"Name","value":"Ecoinvent"},{"section":"Background","field":"Version","value":"3.9.0"},{"section":"Background","field":"Type","value":"cutoff"},{"section":"Background","field":"URL","value":"https://support.ecoinvent.org/ecoinvent-version-3.9"},{"section":"License","field":"Name","value":"Creative Commons Attribution Non Commercial 4.0 International"},{"section":"License","field":"SPDX Identifier","value":"CC-BY-NC-4.0"},{"section":"Acknowledgements","field":"Funding","value":"ALICIA Project, German Aerospace Center, Germany"},{"section":"Secondary data","field":"Source","value":"Scientific publications"},{"section":"Secondary data","field":"Year","value":"2014 - 2021"},{"section":"Secondary data","field":"Language","value":"en"},{"section":"Secondary data","field":"Availability","value":"Yes"},{"section":"Secondary data","field":"DOIs","value":"https://doi.org/10.3390/en10070860  https://doi.org/10.1021/es500191g \nhttps://doi.org/10.1021/acssuschemeng.1c06769"},{"section":"Glossary","field":"List of Abbreviations","value":"AEL - Alkaline Electrolysis | FT - Fischer-Tropsch synthesis | DAC - Direct air capture | RWGS - reverse water gas shift reaction | GTL - Gas to liquid | PtL - Power to Liquid"},{"section":"Properties","field":"Dataset Name","value":"power-to-liquid"},{"section":"Properties","field":"Schema Version","value":"LCIS2024"},{"section":"Properties","field":"Dataset Version","value":"1.0.0"},{"section":"Properties","field":"Software","value":"Brightway 2.4.3"},{"section":"Properties","field":"Export Time","value":"20240710-143241"},{"section":"Properties","field":"Unique Dataset Identifier","value":"b562203b607451f292180b6c3867e48b"},{"section":"Properties","field":"Total Project Parameters","value":"0"},{"section":"Properties","field":"Total Database Parameters","value":"0"},{"section":"Properties","field":"Total Activity Parameters","value":"0"},{"section":"Properties","field":"Total Activities","value":"14"},{"section":"Properties","field":"Total Exchanges","value":"80"},{"section":"Properties","field":"Total Biosphere flows","value":"7"},{"section":"Properties","field":"Total Technosphere flows","value":"59"},{"section":"Properties","field":"Total Reference products","value":"14"},{"section":"Properties","field":"Dataset dependencies","value":"power-to-liquid, biosphere3, ecoinvent_cutoff39"}],"scaling":[{"fu":"lh2","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","amount":2.3475375e-06,"unit":"unit"},{"fu":"lh2","activity":"Hydrogen compression to 25 bar","label":"H2 compression","amount":1.01625,"unit":"kilogram"},{"fu":"lh2","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","amount":3.4755750000000003e-08,"unit":"unit"},{"fu":"lh2","activity":"Hydrogen liquefaction","label":"H2 liquefaction","amount":1.0,"unit":"kilogram"},{"fu":"lh2","activity":"Hydrogen liquefaction plant construction","label":"Liquefaction plant (equipment)","amount":2.03e-09,"unit":"unit"},{"fu":"lh2","activity":"Hydrogen production, alkaline electrolysis","label":"Alkaline electrolysis","amount":1.01625,"unit":"kilogram"},{"fu":"ptl","activity":"Alkaline electrolyser construction","label":"Electrolyser (equipment)","amount":9.895462499999999e-07,"unit":"unit"},{"fu":"ptl","activity":"CO production via RWGS","label":"Reverse water-gas shift","amount":2.0124999999999997,"unit":"kilogram"},{"fu":"ptl","activity":"Direct air capture","label":"Direct air capture","amount":3.1596249999999997,"unit":"kilogram"},{"fu":"ptl","activity":"Direct air capture (DAC) equipment","label":"DAC unit (equipment)","amount":2.884737625e-07,"unit":"unit"},{"fu":"ptl","activity":"Fixed bed reactor construction","label":"RWGS reactor (equipment)","amount":3.884125e-09,"unit":"unit"},{"fu":"ptl","activity":"GTL plant construction","label":"Fischer-Tropsch plant (equipment)","amount":6.7e-12,"unit":"unit"},{"fu":"ptl","activity":"GTL production","label":"Fischer-Tropsch synthesis","amount":1.0,"unit":"kilogram"},{"fu":"ptl","activity":"Hydrogen compression to 25 bar","label":"H2 compression","amount":0.42837499999999995,"unit":"kilogram"},{"fu":"ptl","activity":"Hydrogen compressor production","label":"H2 compressor (equipment)","amount":1.4650425e-08,"unit":"unit"},{"fu":"ptl","activity":"Hydrogen production, alkaline electrolysis","label":"Alkaline electrolysis","amount":0.42837499999999995,"unit":"kilogram"},{"fu":"ptl","activity":"RWGS catalyst production","label":"RWGS catalyst (equipment)","amount":2.5635225000000003e-05,"unit":"kilogram"},{"fu":"ptl","activity":"Syngas production","label":"Syngas mixing","amount":2.3,"unit":"kilogram"}],"validation":[{"check":"links","level":"warning","message":"'Alkaline electrolyser construction': 11 input(s) labelled database 'power-to-liquid' but not defined in it (likely background flows, e.g. 'market for corrugated board box')"},{"check":"encoding","level":"warning","message":"'CO production via RWGS': comment contains mis-encoded characters"},{"check":"encoding","level":"warning","message":"'Fixed bed reactor construction': comment contains mis-encoded characters"},{"check":"encoding","level":"warning","message":"'GTL plant construction': comment contains mis-encoded characters"},{"check":"encoding","level":"warning","message":"'GTL production': comment contains mis-encoded characters"},{"check":"encoding","level":"warning","message":"'Hydrogen compression to 25 bar': comment contains mis-encoded characters"},{"check":"encoding","level":"warning","message":"'Hydrogen compressor production': comment contains mis-encoded characters"},{"check":"encoding","level":"warning","message":"'RWGS catalyst production': comment contains mis-encoded characters"},{"check":"encoding","level":"warning","message":"'Syngas production': comment contains mis-encoded characters"}]};
+  const calcs = {};
+  const cache = {};
+  const listeners = [];
+  let started = false;
+  const data = (id) => {
+    if (id in raw) return { status: 'ok', data: raw[id], refreshing: false, meta: [] };
+    if (id in calcs) {
+      if (!(id in cache)) {
+        const c = calcs[id];
+        cache[id] = c.fn(...c.inputs.map((i) => data(i).data));
+      }
+      return { status: 'ok', data: cache[id], refreshing: false, meta: [] };
+    }
+    return { status: 'missing', data: [], refreshing: false, meta: [] };
+  };
+  const run = () => listeners.forEach((fn) => { try { fn(); } catch (e) { console.error(e); } });
+  document.addEventListener('DOMContentLoaded', () => { started = true; run(); });
+  let t;
+  window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(run, 150); });
+  return {
+    data,
+    calc: (id, opts) => { calcs[id] = opts; },
+    loader: () => {},
+    onData: (fn) => { listeners.push(fn); if (started) fn(); },
+    colors: ['var(--s1)', 'var(--s2)', 'var(--s3)', 'var(--s4)', 'var(--s5)', 'var(--s6)', 'var(--s7)', 'var(--s8)'],
+    setLink: (id) => { try { history.replaceState(null, '', '#' + id); } catch (e) { /* file:// */ } },
+    params: () => ({}), setParams: () => {}, resetParams: () => {}, refresh: () => {},
+  };
+})();
+</script>
+<style>
+.pl-page { position: relative; max-width: 72rem; margin-inline: auto; font-family: var(--font-anthropic-sans); color: var(--color-fg); display: grid; gap: var(--cds-gap-xl); }
+.pl-page h1, .pl-page h2, .pl-page h3 { margin: 0; text-wrap: balance; }
+.pl-head { display: grid; gap: var(--cds-gap-sm); }
+.pl-eyebrow { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); letter-spacing: .04em; text-transform: uppercase; }
+.pl-head h1 { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: calc(var(--cds-font-size-title) * 1.35); line-height: 1.15; }
+.pl-lede { font-size: var(--cds-font-size-heading); line-height: 1.5; max-width: 62ch; margin: 0; }
+.pl-page .pl-lede b, .pl-page .pl-num { font-weight: 600; font-variant-numeric: tabular-nums; }
+.pl-nav { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); }
+.pl-nav button, .pl-seg button { font: inherit; font-size: var(--cds-font-size-caption); color: var(--color-fg); background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: 999px; padding: var(--cds-pad-xs) var(--cds-pad-sm); cursor: pointer; }
+.pl-nav button:hover, .pl-seg button:hover { border-color: var(--color-fg-muted); }
+.pl-nav button:focus-visible, .pl-seg button:focus-visible, .pl-search:focus-visible { outline: 2px solid var(--color-fg); outline-offset: 2px; }
+.pl-seg { display: inline-flex; gap: var(--cds-gap-xs); }
+.pl-seg button[aria-pressed="true"] { background: var(--color-fg); color: var(--color-bg); border-color: var(--color-fg); }
+
+.pl-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr)); gap: var(--cds-gap-md); }
+.pl-tile { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-xs); align-content: start; }
+.pl-tile-label { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.pl-tile-value { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: calc(var(--cds-font-size-title) * 1.3); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.pl-tile-unit { font-family: var(--font-anthropic-sans); font-size: var(--cds-font-size-body); color: var(--color-fg-muted); margin-left: .25em; }
+.pl-tile-note { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.45; }
+
+.pl-section { display: grid; gap: var(--cds-gap-md); scroll-margin-top: var(--cds-gap-xl); }
+.pl-section > header { display: grid; gap: var(--cds-gap-xs); max-width: 64ch; }
+.pl-section h2 { font-size: var(--cds-font-size-title); font-weight: var(--cds-font-weight-medium); }
+.pl-section > header p { margin: 0; line-height: 1.55; color: var(--color-fg-muted); }
+.pl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: var(--cds-gap-md); }
+.pl-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-sm); align-content: start; min-width: 0; }
+.pl-card h3 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); }
+.pl-card-note { margin: 0; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.5; }
+.pl-card-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--cds-gap-sm); }
+.pl-chart { position: relative; min-width: 0; }
+.pl-chart svg { display: block; }
+.pl-scroll { overflow-x: auto; }
+.pl-legend { display: flex; flex-wrap: wrap; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); list-style: none; margin: 0; padding: 0; }
+.pl-legend li { display: inline-flex; align-items: center; gap: var(--cds-gap-xs); }
+.pl-sw { width: .75rem; height: .75rem; border-radius: 3px; display: inline-block; }
+.pl-chart text { font-family: var(--font-anthropic-sans); }
+.pl-axis text { fill: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.pl-axis line { stroke: var(--cds-chart-grid); }
+.pl-axis path { display: none; }
+.pl-lbl { fill: var(--color-fg); font-size: var(--cds-font-size-caption); }
+.pl-lbl-m { fill: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.pl-halo { paint-order: stroke; stroke: var(--color-panel); stroke-width: 4px; stroke-linejoin: round; }
+
+.pl-big { font-family: var(--font-anthropic-serif); font-size: calc(var(--cds-font-size-title) * 1.6); line-height: 1; font-variant-numeric: tabular-nums; }
+.pl-big small { font-family: var(--font-anthropic-sans); font-size: var(--cds-font-size-body); color: var(--color-fg-muted); margin-left: .3em; }
+
+.pl-table-wrap { max-height: 26rem; overflow: auto; border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); }
+.pl-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; }
+.pl-table th { position: sticky; top: 0; background: var(--color-panel); text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+.pl-table td { padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+.pl-table td.pl-r, .pl-table th.pl-r { text-align: right; }
+.pl-pill { display: inline-flex; align-items: center; gap: .35em; font-size: var(--cds-font-size-caption); border: 1px solid currentColor; border-radius: 999px; padding: 0 .55em; white-space: nowrap; }
+.pl-pill.ok { color: var(--color-ok); }
+.pl-pill.warn { color: var(--color-warn); }
+.pl-pill::before { content: ""; width: .4rem; height: .4rem; border-radius: 50%; background: currentColor; }
+.pl-search { font: inherit; font-size: var(--cds-font-size-caption); color: var(--color-fg); background: var(--color-bg); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-xs) var(--cds-pad-sm); min-width: 0; width: min(100%, 18rem); }
+
+.pl-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: var(--cds-gap-md) var(--cds-gap-lg); margin: 0; }
+.pl-facts div { display: grid; gap: 2px; min-width: 0; }
+.pl-facts dt { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+.pl-facts dd { margin: 0; line-height: 1.45; overflow-wrap: anywhere; }
+.pl-list { margin: 0; padding-left: 1.1rem; display: grid; gap: var(--cds-gap-xs); line-height: 1.5; }
+.pl-chips { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); list-style: none; margin: 0; padding: 0; }
+.pl-chips li { font-size: var(--cds-font-size-caption); border: 1px solid var(--color-border-line); border-radius: 999px; padding: 2px .6em; }
+.pl-foot { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); line-height: 1.55; max-width: 72ch; }
+
+.pl-tip { position: absolute; z-index: 5; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); pointer-events: none; max-width: 16rem; display: grid; gap: 2px; }
+.pl-tip-h { color: var(--cds-text-secondary); }
+.pl-tip-row { display: flex; align-items: center; gap: .4em; }
+.pl-tip-row b { font-weight: 600; margin-left: auto; padding-left: .8em; font-variant-numeric: tabular-nums; }
+
+[data-dash-source-state=empty] { color: transparent; }
+[data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+.pl-fail { display: flex; align-items: center; justify-content: center; gap: .5em; min-height: 6rem; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.pl-fail::before { content: ""; width: .375rem; height: .375rem; border-radius: 50%; background: var(--color-bad); }
+@media (prefers-reduced-motion: no-preference) {
+  .pl-grow { animation: pl-grow var(--cds-dur-slow) var(--cds-ease-out) both; transform-box: fill-box; transform-origin: left center; }
+  @keyframes pl-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+}
+</style>
+
+<div class="pl-page" id="top">
+  <div class="pl-tip" hidden></div>
+
+  <header class="pl-head" id="summary">
+    <div class="pl-eyebrow">Life cycle inventory · Nair et al., DLR · ecoinvent 3.9 background</div>
+    <h1>Power-to-Liquid aviation fuel and liquid hydrogen</h1>
+    <p class="pl-lede">
+      Making 1 kg of synthetic jet fuel from wind power and air takes
+      <b data-source="inventory" data-field="amount" data-where="fu=ptl&amp;flow=electricity production, wind, 1-3MW turbine, onshore" data-fmt="1" class="dash-skeleton">—</b> kWh of electricity and
+      <b data-source="inventory" data-field="amount" data-where="fu=ptl&amp;flow=Carbon dioxide, in air" data-fmt="2" class="dash-skeleton">—</b> kg of CO₂ pulled from the air.
+      <b data-source="elec_share" data-field="share" data-where="fu=ptl" data-fmt="pct" class="dash-skeleton">—</b> of that electricity is used for one step: splitting water into hydrogen.
+    </p>
+    <nav class="pl-nav" aria-label="Sections">
+      <button type="button" data-go="flow">How it's made</button>
+      <button type="button" data-go="electricity">Electricity</button>
+      <button type="button" data-go="hydrogen">Hydrogen and carbon</button>
+      <button type="button" data-go="materials">Materials</button>
+      <button type="button" data-go="equipment">Equipment</button>
+      <button type="button" data-go="dataset">The dataset</button>
+      <button type="button" data-go="quality">Quality check</button>
+      <button type="button" data-go="about">About the data</button>
+    </nav>
+  </header>
+
+  <section class="pl-tiles" id="headline" aria-label="Headline figures">
+    <div class="pl-tile">
+      <div class="pl-tile-label">Electricity per kg of PtL fuel</div>
+      <div class="pl-tile-value"><span data-source="inventory" data-field="amount" data-where="fu=ptl&amp;flow=electricity production, wind, 1-3MW turbine, onshore" data-fmt="1" class="dash-skeleton">—</span><span class="pl-tile-unit">kWh</span></div>
+      <div class="pl-tile-note">Onshore wind power for electrolysis, air capture and compression</div>
+    </div>
+    <div class="pl-tile">
+      <div class="pl-tile-label">Electricity per kg of liquid hydrogen</div>
+      <div class="pl-tile-value"><span data-source="inventory" data-field="amount" data-where="fu=lh2&amp;flow=electricity production, wind, 1-3MW turbine, onshore" data-fmt="1" class="dash-skeleton">—</span><span class="pl-tile-unit">kWh</span></div>
+      <div class="pl-tile-note">Includes cooling hydrogen to a liquid at −253 °C</div>
+    </div>
+    <div class="pl-tile">
+      <div class="pl-tile-label">CO₂ captured per kg of PtL fuel</div>
+      <div class="pl-tile-value"><span data-source="inventory" data-field="amount" data-where="fu=ptl&amp;flow=Carbon dioxide, in air" data-fmt="2" class="dash-skeleton">—</span><span class="pl-tile-unit">kg</span></div>
+      <div class="pl-tile-note">Taken from the air by direct air capture, becomes the fuel's carbon</div>
+    </div>
+    <div class="pl-tile">
+      <div class="pl-tile-label">Water per kg of liquid hydrogen</div>
+      <div class="pl-tile-value"><span data-source="inventory" data-field="amount" data-where="fu=lh2&amp;flow=market for water, deionised" data-fmt="1" class="dash-skeleton">—</span><span class="pl-tile-unit">kg</span></div>
+      <div class="pl-tile-note">Deionised water split by electrolysis</div>
+    </div>
+  </section>
+
+  <section class="pl-section" id="flow">
+    <header>
+      <h2>How 1 kg of fuel is made</h2>
+      <p>Follow the mass. CO₂ from the air and hydrogen from water are turned into carbon monoxide, mixed into syngas, and built into fuel molecules. Ribbon width is kilograms per kg of finished fuel. Most of the mass that goes in leaves again as water.</p>
+    </header>
+    <div class="pl-card" id="flow-card">
+      <ul class="pl-legend" id="flow-legend"></ul>
+      <div class="pl-scroll"><div class="pl-chart" id="sankey" data-source="mass_balance" style="min-height: 400px"></div></div>
+      <p class="pl-card-note">Water is not listed in the inventory. It is the difference between what goes into a step and what comes out, which matches the chemistry: CO₂ + H₂ → CO + H₂O, then CO + 2 H₂ → –CH₂– + H₂O.</p>
+    </div>
+  </section>
+
+  <section class="pl-section" id="electricity">
+    <header>
+      <h2>Where the electricity goes</h2>
+      <p>Wind electricity is the main input to both products. Electrolysis, which splits water into hydrogen and oxygen, uses almost all of it.</p>
+    </header>
+    <div class="pl-grid">
+      <div class="pl-card" id="elec-card">
+        <h3>Electricity by process step</h3>
+        <p class="pl-card-note">kWh per kg of product. Both panels share one scale.</p>
+        <div class="pl-chart" id="elec-chart" data-source="contributions" style="min-height: 300px"></div>
+      </div>
+      <div class="pl-card" id="eff-card">
+        <h3>How much of the energy ends up in the product</h3>
+        <p class="pl-card-note">Energy content of the product (lower heating value) compared with the electricity used. The rest is lost as heat along the way.</p>
+        <div class="pl-chart" id="eff-chart" data-source="energy_kept" style="min-height: 200px"></div>
+        <p class="pl-card-note">Assumed heating values: hydrogen 33.3 kWh/kg (120 MJ/kg), kerosene-like fuel 11.9 kWh/kg (43 MJ/kg). These are standard values, not part of the dataset.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pl-section" id="hydrogen">
+    <header>
+      <h2>Hydrogen and carbon</h2>
+      <p>Hydrogen is why the electricity bill is so high. The carbon side closes a loop: the CO₂ captured from the air roughly equals what the fuel releases when it is burned.</p>
+    </header>
+    <div class="pl-grid">
+      <div class="pl-card" id="h2-card">
+        <h3>Hydrogen needed per kg of fuel</h3>
+        <div class="pl-big"><span data-source="scaling" data-field="amount" data-where="fu=ptl&amp;activity=Hydrogen production, alkaline electrolysis" data-fmt="3" class="dash-skeleton">—</span><small>kg H₂</small></div>
+        <p class="pl-card-note">Split between two uses: one part removes oxygen from CO₂, the rest goes straight into the syngas.</p>
+        <div class="pl-chart" id="h2-chart" data-source="mass_flows" style="min-height: 120px"></div>
+      </div>
+      <div class="pl-card" id="carbon-card">
+        <h3>The carbon loop</h3>
+        <p class="pl-card-note">kg CO₂ per kg of fuel. Released on burning assumes the fuel is made of –CH₂– chains (44 ÷ 14 kg CO₂ per kg).</p>
+        <div class="pl-chart" id="carbon-chart" data-source="carbon_loop" style="min-height: 150px"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pl-section" id="materials">
+    <header>
+      <h2>Materials from the wider economy</h2>
+      <p>Besides electricity and water, each kg of product draws small amounts of materials, mostly steel for plant and equipment. These are the inputs that link the dataset to ecoinvent.</p>
+    </header>
+    <div class="pl-card" id="mat-card">
+      <div class="pl-card-top">
+        <h3>Top material inputs, grams per kg of product</h3>
+        <div class="pl-seg" role="group" aria-label="Product">
+          <button type="button" id="mat-ptl" aria-pressed="true">PtL fuel</button>
+          <button type="button" id="mat-lh2" aria-pressed="false">Liquid hydrogen</button>
+        </div>
+      </div>
+      <p class="pl-card-note">Materials measured in kg only. Deionised water is left out because it is far larger (shown in the headline figures).</p>
+      <div class="pl-chart" id="mat-chart" data-source="inventory" style="min-height: 360px"></div>
+    </div>
+  </section>
+
+  <section class="pl-section" id="equipment">
+    <header>
+      <h2>Equipment lasts a long time</h2>
+      <p>Each plant or machine is shared by everything it produces in its lifetime. The dataset records how much of a unit one kg of output uses. The inverse is the total output over a unit's life.</p>
+    </header>
+    <div class="pl-card" id="equip-card">
+      <h3>Lifetime output of one unit of each piece of equipment</h3>
+      <p class="pl-card-note">Tonnes of product, logarithmic scale: each gridline is ten times the one before.</p>
+      <div class="pl-chart" id="equip-chart" data-source="equipment_life" style="min-height: 300px"></div>
+    </div>
+  </section>
+
+  <section class="pl-section" id="dataset">
+    <header>
+      <h2>Inside the dataset</h2>
+      <p>The inventory is a list of activities. Each one lists its exchanges: what it takes from other activities in the dataset, from the ecoinvent background database, and from or to the environment.</p>
+    </header>
+    <div class="pl-tiles">
+      <div class="pl-tile"><div class="pl-tile-label">Activities</div><div class="pl-tile-value"><span data-source="overview" data-field="activities" data-row="0" data-fmt="int" class="dash-skeleton">—</span></div><div class="pl-tile-note"><span data-source="overview" data-field="processes" data-row="0" data-fmt="int">—</span> processes, <span data-source="overview" data-field="equipment" data-row="0" data-fmt="int">—</span> equipment</div></div>
+      <div class="pl-tile"><div class="pl-tile-label">Exchanges</div><div class="pl-tile-value"><span data-source="overview" data-field="exchanges" data-row="0" data-fmt="int" class="dash-skeleton">—</span></div><div class="pl-tile-note">Every input, output and emission line</div></div>
+      <div class="pl-tile"><div class="pl-tile-label">Inputs from ecoinvent</div><div class="pl-tile-value"><span data-source="overview" data-field="background" data-row="0" data-fmt="int" class="dash-skeleton">—</span></div><div class="pl-tile-note">Steel, concrete, electricity, transport and more</div></div>
+      <div class="pl-tile"><div class="pl-tile-label">Exchanges with the environment</div><div class="pl-tile-value"><span data-source="overview" data-field="biosphere" data-row="0" data-fmt="int" class="dash-skeleton">—</span></div><div class="pl-tile-note">Land occupation, CO₂ from air, hydrogen emission</div></div>
+    </div>
+    <div class="pl-card" id="anatomy-card">
+      <h3>Exchanges per activity</h3>
+      <ul class="pl-legend" id="anatomy-legend"></ul>
+      <div class="pl-chart" id="anatomy-chart" data-source="anatomy" style="min-height: 420px"></div>
+      <p class="pl-card-note">Each activity's own output line is not counted here.</p>
+    </div>
+  </section>
+
+  <section class="pl-section" id="quality">
+    <header>
+      <h2>Quality check</h2>
+      <p>Six automatic checks were run on the published files. The dataset is structurally sound. Two issues are worth knowing about before reusing it.</p>
+    </header>
+    <div class="pl-grid">
+      <div class="pl-card" id="checks-card">
+        <h3>Checks</h3>
+        <div class="pl-scroll">
+          <table class="pl-table" id="checks-table" data-source="checks" data-row-key="check">
+            <thead><tr><th data-field="title">Check</th><th data-field="status">Result</th><th data-field="issues" class="pl-r">Issues</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+      <div class="pl-card" id="issues-card">
+        <h3>What was found</h3>
+        <ul class="pl-list" id="issue-summary" data-source="validation"></ul>
+        <p class="pl-card-note">Neither issue changes the numbers on this page. The first matters when importing the data into LCA software, which looks for those materials in the wrong database.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pl-section" id="explore">
+    <header>
+      <h2>All exchanges</h2>
+      <p>Every line of the inventory, as published. Search by activity, flow or database.</p>
+    </header>
+    <div class="pl-card" id="exch-card">
+      <input class="pl-search" id="exch-search" type="search" placeholder="Search, e.g. steel or electrolysis" aria-label="Search exchanges">
+      <div class="pl-table-wrap">
+        <table class="pl-table" id="exch-table" data-source="exchanges" data-row-key="id">
+          <thead><tr><th data-field="id" class="pl-r">#</th><th data-field="activity">Activity</th><th data-field="flow">Flow</th><th data-field="amount" class="pl-r">Amount</th><th data-field="unit">Unit</th><th data-field="kind">Kind</th><th data-field="database">Database</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="pl-section" id="about">
+    <header>
+      <h2>About the data</h2>
+      <p>From the metadata sheet the authors published with the inventory.</p>
+    </header>
+    <div class="pl-card">
+      <dl class="pl-facts">
+        <div><dt>What it covers</dt><dd data-source="metadata" data-field="value" data-where="section=Dataset&amp;field=Description">—</dd></div>
+        <div><dt>Functional units</dt><dd data-source="metadata" data-field="value" data-where="section=Dataset&amp;field=Functional Units">—</dd></div>
+        <div><dt>System boundary</dt><dd data-source="metadata" data-field="value" data-where="section=Dataset&amp;field=System boundary">—</dd></div>
+        <div><dt>Model</dt><dd data-source="metadata" data-field="value" data-where="section=Dataset&amp;field=LCI Model">—</dd></div>
+        <div><dt>Data period</dt><dd data-source="metadata" data-field="value" data-where="section=Dataset&amp;field=Time Period">—</dd></div>
+        <div><dt>Background database</dt><dd><span data-source="metadata" data-field="value" data-where="section=Background&amp;field=Name">—</span> <span data-source="metadata" data-field="value" data-where="section=Background&amp;field=Version">—</span>, <span data-source="metadata" data-field="value" data-where="section=Background&amp;field=Type">—</span></dd></div>
+        <div><dt>Schema</dt><dd data-source="metadata" data-field="value" data-where="section=Dataset&amp;field=LCI Schema">—</dd></div>
+        <div><dt>Software</dt><dd data-source="metadata" data-field="value" data-where="section=Properties&amp;field=Software">—</dd></div>
+        <div><dt>Authors</dt><dd data-source="metadata" data-field="value" data-where="section=Authors&amp;field=Name">—</dd></div>
+        <div><dt>Affiliation</dt><dd data-source="metadata" data-field="value" data-where="section=Authors&amp;field=Affliation">—</dd></div>
+        <div><dt>Funding</dt><dd data-source="metadata" data-field="value" data-where="section=Acknowledgements&amp;field=Funding">—</dd></div>
+        <div><dt>Licence</dt><dd data-source="metadata" data-field="value" data-where="section=License&amp;field=Name">—</dd></div>
+      </dl>
+    </div>
+    <div class="pl-grid">
+      <div class="pl-card">
+        <h3>Assumptions the authors made</h3>
+        <ul class="pl-list" id="assumptions" data-source="meta_lists"></ul>
+      </div>
+      <div class="pl-card">
+        <h3>Abbreviations</h3>
+        <ul class="pl-list" id="glossary" data-source="meta_lists"></ul>
+        <h3>Keywords</h3>
+        <ul class="pl-chips" id="keywords" data-source="meta_lists"></ul>
+      </div>
+    </div>
+    <p class="pl-foot">Source: supplementary data of Nair, Chougule, Gomez Trillos and Brand-Daniels, “A generalized schema to publish and share life cycle inventories (LCI): Exemplary case of an aviation fuel supply chain”, Journal of Cleaner Production. Data licensed CC BY-NC 4.0. All figures are life cycle inventory quantities computed by scaling the published foreground inventory to each product; they are not climate impact scores, which would need the ecoinvent database.</p>
+  </section>
+</div>
+
+<script>
+// Shared helpers for every script on this page.
+(() => {
+  const page = document.querySelector('.pl-page');
+  const tip = page.querySelector('.pl-tip');
+  const nf = (d) => new Intl.NumberFormat('en', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const fmt = (v, how) => {
+    if (v === null || v === undefined || v === '' || Number.isNaN(Number(v)) && how !== 'text') return '—';
+    if (how === 'pct') return Math.round(Number(v) * 100) + '%';
+    if (how === 'int') return d3.format(',')(Math.round(Number(v)));
+    if (how === 'text' || how === undefined) return String(v);
+    return nf(Number(how)).format(Number(v));
+  };
+  const where = (el) => {
+    const w = el.getAttribute('data-where');
+    if (!w) return null;
+    return w.split('&').map((pair) => {
+      const i = pair.indexOf('=');
+      return [decodeURIComponent(pair.slice(0, i)), decodeURIComponent(pair.slice(i + 1))];
+    });
+  };
+  const pick = (rows, el) => {
+    const w = where(el);
+    if (w) return rows.find((r) => w.every(([k, v]) => String(r[k]) === v));
+    const i = el.getAttribute('data-row');
+    return i === null ? undefined : rows[Number(i)];
+  };
+  // Fill every single-value mark (one with data-field) from its source.
+  const fill = () => {
+    page.querySelectorAll('[data-source][data-field]:not(th)').forEach((el) => {
+      const d = dash.data(el.getAttribute('data-source'));
+      if (d.status !== 'ok') { if (d.status !== 'loading') el.classList.remove('dash-skeleton'); if (!d.refreshing) el.textContent = '—'; return; }
+      el.classList.remove('dash-skeleton');
+      const row = pick(d.data, el);
+      el.textContent = row ? fmt(row[el.getAttribute('data-field')], el.getAttribute('data-fmt') || 'text') : '—';
+    });
+  };
+  const showTip = (event, head, lines) => {
+    tip.replaceChildren();
+    const h = document.createElement('div'); h.className = 'pl-tip-h'; h.textContent = head; tip.append(h);
+    lines.forEach((l) => {
+      const row = document.createElement('div'); row.className = 'pl-tip-row';
+      if (l.color) { const sw = document.createElement('span'); sw.className = 'pl-sw'; sw.style.background = l.color; row.append(sw); }
+      const n = document.createElement('span'); n.textContent = l.name; row.append(n);
+      const b = document.createElement('b'); b.textContent = l.value; row.append(b);
+      tip.append(row);
+    });
+    tip.hidden = false;
+    const box = page.getBoundingClientRect();
+    const tw = tip.offsetWidth, th = tip.offsetHeight;
+    let x = event.clientX - box.left + 14, y = event.clientY - box.top + 14;
+    if (x + tw > box.width) x = event.clientX - box.left - tw - 14;
+    if (x < 0) x = 0;
+    if (event.clientY + 14 + th > window.innerHeight) y = event.clientY - box.top - th - 14;
+    tip.style.left = x + 'px'; tip.style.top = y + 'px';
+  };
+  const hideTip = () => { tip.hidden = true; };
+  const failed = (el, id) => {
+    const s = dash.data(id).status;
+    if (s === 'error' || s === 'connect' || s === 'declined' || s === 'missing') {
+      el.replaceChildren(); const f = document.createElement('div'); f.className = 'pl-fail'; f.textContent = 'Failed to load'; el.append(f); return true;
+    }
+    return false;
+  };
+  const ready = (el, ...ids) => {
+    if (ids.some((id) => failed(el, id))) { el.classList.remove('dash-skeleton'); return false; }
+    if (ids.some((id) => dash.data(id).status !== 'ok')) { if (!el.firstChild || el.querySelector('.pl-fail')) { el.replaceChildren(); el.classList.add('dash-skeleton'); } return false; }
+    el.classList.remove('dash-skeleton');
+    return true;
+  };
+  const measure = (svg, texts, cls) => {
+    const t = svg.append('text').attr('class', cls || 'pl-lbl');
+    const w = d3.max(texts, (s) => { t.text(s); return t.node().getComputedTextLength(); }) || 0;
+    t.remove();
+    return w;
+  };
+  const once = new Set();
+  const anim = (key) => { if (once.has(key)) return ''; once.add(key); return 'pl-grow'; };
+  const legend = (ul, items) => {
+    ul.replaceChildren(...items.map(([name, color]) => {
+      const li = document.createElement('li');
+      const sw = document.createElement('span'); sw.className = 'pl-sw'; sw.style.background = color;
+      const t = document.createElement('span'); t.textContent = name;
+      li.append(sw, t); return li;
+    }));
+  };
+  window.PL = { page, fmt, fill, showTip, hideTip, ready, measure, anim, legend };
+
+  page.querySelectorAll('[data-go]').forEach((b) => b.addEventListener('click', () => {
+    const el = document.getElementById(b.dataset.go);
+    if (el) { el.scrollIntoView({ behavior: 'smooth', block: 'start' }); dash.setLink(el.id); }
+  }));
+  dash.onData(fill);
+})();
+</script>
+
+<script>
+// Calculations: every derived number on the page, from the published datasets.
+dash.calc('elec_share', {
+  title: 'Electrolysis share of electricity',
+  description: 'Total wind electricity per kg of product and the share used by alkaline electrolysis.',
+  inputs: ['contributions'],
+  fn: (contributions) => {
+    const elec = contributions.filter((r) => r.flow.startsWith('electricity'));
+    return ['lh2', 'ptl'].map((fu) => {
+      const rows = elec.filter((r) => r.fu === fu);
+      const total = rows.reduce((s, r) => s + r.amount, 0);
+      const electrolysis = rows.filter((r) => r.activity === 'Hydrogen production, alkaline electrolysis').reduce((s, r) => s + r.amount, 0);
+      return { fu, total, electrolysis, share: electrolysis / total };
+    });
+  },
+});
+
+dash.calc('energy_kept', {
+  title: 'Energy kept in the product',
+  description: 'Lower heating value of 1 kg of product divided by the electricity used to make it. Heating values are standard constants: H2 33.3 kWh/kg, kerosene-like fuel 11.9 kWh/kg.',
+  inputs: ['inventory'],
+  fn: (inventory) => {
+    const lhv = { lh2: 33.3, ptl: 11.9 };
+    const name = { lh2: 'Liquid hydrogen', ptl: 'PtL fuel' };
+    return ['lh2', 'ptl'].map((fu) => {
+      const kwh = inventory.filter((r) => r.fu === fu && r.flow.startsWith('electricity')).reduce((s, r) => s + r.amount, 0);
+      return { fu, product: name[fu], electricity_kwh: kwh, in_product_kwh: lhv[fu], lost_kwh: kwh - lhv[fu], share_kept: lhv[fu] / kwh };
+    });
+  },
+});
+
+dash.calc('carbon_loop', {
+  title: 'CO2 captured vs released',
+  description: 'CO2 taken from the air per kg of PtL fuel, against the CO2 released when 1 kg of –CH2– fuel burns (44/14 kg).',
+  inputs: ['inventory'],
+  fn: (inventory) => {
+    const captured = inventory.find((r) => r.fu === 'ptl' && r.flow === 'Carbon dioxide, in air').amount;
+    return [
+      { step: 'Captured from the air', kg_co2: captured },
+      { step: 'Released when burned', kg_co2: 44 / 14 },
+    ];
+  },
+});
+
+dash.calc('mass_balance', {
+  title: 'Mass flows with water by-product',
+  description: 'Mass flows per kg of PtL fuel, plus water by-product worked out as each step\'s inputs minus its outputs.',
+  inputs: ['mass_flows'],
+  fn: (mass_flows) => {
+    const material = { 'CO2 in air': 'CO₂', 'Direct air capture': 'CO₂', 'Alkaline electrolysis': 'H₂', 'H2 compression': 'H₂', 'Reverse water-gas shift': 'CO', 'Syngas mixing': 'Syngas', 'Fischer-Tropsch synthesis': 'Fuel' };
+    const rows = mass_flows.map((r) => ({ ...r, material: material[r.source] }));
+    const nodes = new Set(rows.flatMap((r) => [r.source, r.target]));
+    for (const n of nodes) {
+      const inflow = rows.filter((r) => r.target === n).reduce((s, r) => s + r.kg, 0);
+      const outflow = rows.filter((r) => r.source === n).reduce((s, r) => s + r.kg, 0);
+      if (inflow > 0 && outflow > 0 && inflow - outflow > 1e-9) rows.push({ source: n, target: 'Water (by-product)', kg: inflow - outflow, material: 'Water' });
+    }
+    return rows;
+  },
+});
+
+dash.calc('equipment_life', {
+  title: 'Lifetime output per equipment unit',
+  description: 'For each piece of equipment, 1 divided by the units used per kg of output, in tonnes of that output.',
+  inputs: ['exchanges', 'activities'],
+  fn: (exchanges, activities) => {
+    const role = Object.fromEntries(activities.map((a) => [a.activity, a]));
+    const product = { 'Hydrogen production, alkaline electrolysis': 'hydrogen', 'Direct air capture': 'CO₂ captured', 'CO production via RWGS': 'carbon monoxide', 'GTL production': 'PtL fuel', 'Hydrogen compression to 25 bar': 'compressed hydrogen', 'Hydrogen liquefaction': 'liquid hydrogen' };
+    return exchanges
+      .filter((e) => e.type === 'technosphere' && role[e.flow] && role[e.flow].role === 'Equipment' && role[e.activity].role === 'Process')
+      .map((e) => ({ equipment: role[e.flow].label, serves: product[e.activity], tonnes: 1 / e.amount / 1000 }))
+      .sort((a, b) => b.tonnes - a.tonnes);
+  },
+});
+
+dash.calc('anatomy', {
+  title: 'Exchanges per activity by kind',
+  description: 'Count of each activity\'s exchanges by kind, leaving out its own production line.',
+  inputs: ['exchanges', 'activities'],
+  fn: (exchanges, activities) => activities.map((a) => {
+    const rows = exchanges.filter((e) => e.activity === a.activity && e.type !== 'production');
+    const n = (k) => rows.filter((e) => e.kind === k).length;
+    return { activity: a.activity, label: a.label, role: a.role, foreground: n('foreground input'), background: n('background input'), biosphere: n('biosphere'), total: rows.length };
+  }).sort((x, y) => y.total - x.total),
+});
+
+dash.calc('overview', {
+  title: 'Dataset counts',
+  description: 'Counts of activities and exchanges by kind.',
+  inputs: ['exchanges', 'activities'],
+  fn: (exchanges, activities) => [{
+    activities: activities.length,
+    processes: activities.filter((a) => a.role === 'Process').length,
+    equipment: activities.filter((a) => a.role === 'Equipment').length,
+    exchanges: exchanges.length,
+    background: exchanges.filter((e) => e.kind === 'background input').length,
+    biosphere: exchanges.filter((e) => e.kind === 'biosphere').length,
+  }],
+});
+
+dash.calc('meta_lists', {
+  title: 'Metadata lists',
+  description: 'Assumptions, abbreviations and keywords from the metadata, split at the | separator.',
+  inputs: ['metadata'],
+  fn: (metadata) => {
+    const get = (section, field) => (metadata.find((r) => r.section === section && r.field === field) || {}).value || '';
+    const split = (list, text) => text.split('|').map((s) => s.trim()).filter(Boolean).map((text, i) => ({ list, i, text }));
+    return [
+      ...split('assumptions', get('Dataset', 'LCI Assumptions')),
+      ...split('glossary', get('Glossary', 'List of Abbreviations')),
+      ...split('keywords', get('Dataset', 'Keywords')),
+    ];
+  },
+});
+</script>
+
+<script>
+// Mass-flow (Sankey) diagram.
+(() => {
+  const el = document.getElementById('sankey');
+  const legendEl = document.getElementById('flow-legend');
+  const colorOf = (m) => (m === 'H₂' ? dash.colors[1] : m === 'Water' ? 'var(--cds-chart-muted)' : dash.colors[0]);
+  dash.onData(() => {
+    PL.legend(legendEl, [['Carbon path (CO₂ → CO → syngas → fuel)', dash.colors[0]], ['Hydrogen', dash.colors[1]], ['Water by-product', 'var(--cds-chart-muted)']]);
+    if (!PL.ready(el, 'mass_balance')) return;
+    const links = dash.data('mass_balance').data.map((d) => ({ ...d }));
+    const names = [...new Set(links.flatMap((l) => [l.source, l.target]))];
+    const nodes = new Map(names.map((n) => [n, { name: n, inL: [], outL: [], depth: 0 }]));
+    links.forEach((l) => { l.s = nodes.get(l.source); l.t = nodes.get(l.target); l.s.outL.push(l); l.t.inL.push(l); });
+    for (let i = 0; i < names.length; i++) links.forEach((l) => { l.t.depth = Math.max(l.t.depth, l.s.depth + 1); });
+    const maxDepth = d3.max([...nodes.values()], (n) => n.depth);
+    nodes.forEach((n) => { if (!n.outL.length) n.depth = maxDepth; n.value = Math.max(d3.sum(n.inL, (l) => l.kg), d3.sum(n.outL, (l) => l.kg)); });
+
+    const W = Math.max(el.parentElement.clientWidth, 760), H = 400;
+    const nodeW = 12, padY = 26, top = 24, bottom = 12, left = 4, right = 150;
+    const cols = d3.groups([...nodes.values()], (n) => n.depth).sort((a, b) => a[0] - b[0]);
+    const k = d3.min(cols, ([, ns]) => (H - top - bottom - padY * (ns.length - 1)) / d3.sum(ns, (n) => n.value));
+    const x = (d) => left + d * (W - left - right - nodeW) / maxDepth;
+    const order = { 'CO2 in air': 0, 'Alkaline electrolysis': 1, 'Direct air capture': 0, 'H2 compression': 1, 'PtL fuel': 0, 'Water (by-product)': 1 };
+    cols.forEach(([, ns]) => {
+      ns.sort((a, b) => (order[a.name] ?? 0) - (order[b.name] ?? 0));
+      const total = d3.sum(ns, (n) => n.value * k) + padY * (ns.length - 1);
+      let y = top + (H - top - bottom - total) / 2;
+      ns.forEach((n) => { n.x = x(n.depth); n.y = y; n.h = Math.max(n.value * k, 2); y += n.h + padY; });
+    });
+    nodes.forEach((n) => {
+      let sy = n.y; n.outL.sort((a, b) => a.t.y - b.t.y).forEach((l) => { l.sy = sy + l.kg * k / 2; sy += l.kg * k; });
+      let ty = n.y; n.inL.sort((a, b) => a.s.y - b.s.y).forEach((l) => { l.ty = ty + l.kg * k / 2; ty += l.kg * k; });
+    });
+
+    el.replaceChildren();
+    const svg = d3.select(el).append('svg').attr('width', W).attr('height', H).attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Mass flows per kg of PtL fuel');
+    const path = (l) => { const x0 = l.s.x + nodeW, x1 = l.t.x, xm = (x0 + x1) / 2; return `M${x0},${l.sy}C${xm},${l.sy} ${xm},${l.ty} ${x1},${l.ty}`; };
+    const linkSel = svg.append('g').attr('fill', 'none').selectAll('path').data(links).join('path')
+      .attr('d', path).style('stroke', (l) => colorOf(l.material)).attr('stroke-opacity', 0.45).attr('stroke-width', (l) => Math.max(l.kg * k, 1.5))
+      .on('mousemove', (event, l) => { linkSel.attr('stroke-opacity', (o) => (o === l ? 0.8 : 0.2)); PL.showTip(event, `${l.source} → ${l.target}`, [{ color: colorOf(l.material), name: l.material, value: PL.fmt(l.kg, 3) + ' kg' }]); })
+      .on('mouseleave', () => { linkSel.attr('stroke-opacity', 0.45); PL.hideTip(); });
+    const g = svg.append('g').selectAll('g').data([...nodes.values()]).join('g');
+    g.append('rect').attr('x', (n) => n.x).attr('y', (n) => n.y).attr('width', nodeW).attr('height', (n) => n.h).attr('rx', 3).style('fill', 'var(--color-fg)');
+    const lbl = g.append('text').attr('class', 'pl-lbl pl-halo').attr('x', (n) => n.x + nodeW + 6).attr('y', (n) => n.y + n.h / 2).attr('dy', '-0.2em');
+    lbl.append('tspan').text((n) => n.name.replace('CO2', 'CO₂').replace('H2 ', 'H₂ '));
+    g.append('text').attr('class', 'pl-lbl-m pl-halo').attr('x', (n) => n.x + nodeW + 6).attr('y', (n) => n.y + n.h / 2).attr('dy', '1.05em').text((n) => PL.fmt(n.value, 2) + ' kg');
+  });
+})();
+</script>
+
+<script>
+// Electricity by process step, two panels on one scale.
+(() => {
+  const el = document.getElementById('elec-chart');
+  const short = { 'Hydrogen production, alkaline electrolysis': 'Electrolysis', 'Hydrogen liquefaction': 'Liquefaction', 'Hydrogen compression to 25 bar': 'Compression', 'Direct air capture': 'Air capture' };
+  dash.onData(() => {
+    if (!PL.ready(el, 'contributions')) return;
+    const rows = dash.data('contributions').data.filter((r) => r.flow.startsWith('electricity'));
+    const panels = [['ptl', 'PtL fuel'], ['lh2', 'Liquid hydrogen']].map(([fu, name]) => ({ fu, name, rows: rows.filter((r) => r.fu === fu).sort((a, b) => b.amount - a.amount) }));
+    const W = el.clientWidth, barH = 22, gap = 10, headH = 28, panelGap = 22;
+    el.replaceChildren();
+    const svg = d3.select(el).append('svg').attr('width', '100%');
+    const labelW = PL.measure(svg, Object.values(short)) + 10;
+    const valW = PL.measure(svg, ['57.6 kWh']) + 8;
+    const xmax = d3.max(rows, (r) => r.amount);
+    const xs = d3.scaleLinear([0, xmax], [labelW, W - valW]);
+    let y = 0;
+    panels.forEach((p, pi) => {
+      const total = d3.sum(p.rows, (r) => r.amount);
+      svg.append('text').attr('class', 'pl-lbl').attr('x', 0).attr('y', y + 16).style('font-weight', 600).text(p.name);
+      svg.append('text').attr('class', 'pl-lbl-m').attr('x', W).attr('text-anchor', 'end').attr('y', y + 16).text(`${PL.fmt(total, 1)} kWh in total`);
+      y += headH;
+      p.rows.forEach((r, i) => {
+        const isMain = r.activity === 'Hydrogen production, alkaline electrolysis';
+        const color = isMain ? dash.colors[0] : 'var(--cds-chart-muted)';
+        svg.append('text').attr('class', 'pl-lbl-m').attr('x', labelW - 10).attr('text-anchor', 'end').attr('y', y + barH / 2).attr('dy', '0.35em').text(short[r.activity] || r.label);
+        svg.append('rect').attr('class', PL.anim('elec' + pi + i)).attr('x', labelW).attr('y', y).attr('height', barH).attr('width', Math.max(xs(r.amount) - labelW, 2)).attr('rx', 4).style('fill', color)
+          .on('mousemove', (event) => PL.showTip(event, p.name, [{ color, name: r.label, value: `${PL.fmt(r.amount, 2)} kWh (${PL.fmt(r.amount / total, 'pct')})` }]))
+          .on('mouseleave', PL.hideTip);
+        svg.append('text').attr('class', 'pl-lbl').attr('x', xs(r.amount) + 6).attr('y', y + barH / 2).attr('dy', '0.35em').text(PL.fmt(r.amount, 1) + ' kWh');
+        y += barH + gap;
+      });
+      y += panelGap;
+    });
+    svg.attr('height', y - panelGap).attr('viewBox', `0 0 ${W} ${y - panelGap}`);
+  });
+})();
+</script>
+
+<script>
+// Energy kept in the product: 100% bars.
+(() => {
+  const el = document.getElementById('eff-chart');
+  dash.onData(() => {
+    if (!PL.ready(el, 'energy_kept')) return;
+    const rows = dash.data('energy_kept').data;
+    const W = el.clientWidth, barH = 30;
+    el.replaceChildren();
+    const svg = d3.select(el).append('svg').attr('width', '100%');
+    const xs = d3.scaleLinear([0, 1], [0, W]);
+    let y = 0;
+    rows.forEach((r, i) => {
+      svg.append('text').attr('class', 'pl-lbl').attr('x', 0).attr('y', y + 14).style('font-weight', 600).text(r.product);
+      svg.append('text').attr('class', 'pl-lbl-m').attr('x', W).attr('y', y + 14).attr('text-anchor', 'end').text(`${PL.fmt(r.electricity_kwh, 1)} kWh in`);
+      y += 22;
+      const kept = xs(r.share_kept);
+      const tipLines = [{ color: dash.colors[0], name: 'In the product', value: `${PL.fmt(r.in_product_kwh, 1)} kWh` }, { color: 'var(--cds-chart-muted)', name: 'Lost as heat', value: `${PL.fmt(r.lost_kwh, 1)} kWh` }];
+      svg.append('rect').attr('class', PL.anim('eff' + i)).attr('x', 0).attr('y', y).attr('width', kept - 1).attr('height', barH).attr('rx', 4).style('fill', dash.colors[0])
+        .on('mousemove', (event) => PL.showTip(event, r.product, tipLines)).on('mouseleave', PL.hideTip);
+      svg.append('rect').attr('x', kept + 1).attr('y', y).attr('width', W - kept - 1).attr('height', barH).attr('rx', 4).style('fill', 'var(--cds-chart-muted)').attr('opacity', 0.45)
+        .on('mousemove', (event) => PL.showTip(event, r.product, tipLines)).on('mouseleave', PL.hideTip);
+      svg.append('text').attr('x', 10).attr('y', y + barH / 2).attr('dy', '0.35em').style('fill', 'var(--color-bg)').style('font-weight', 600).style('font-size', 'var(--cds-font-size-caption)').text(`${PL.fmt(r.share_kept, 'pct')} kept`);
+      y += barH + 22;
+    });
+    svg.attr('height', y - 10).attr('viewBox', `0 0 ${W} ${y - 10}`);
+  });
+})();
+</script>
+
+<script>
+// Hydrogen split and carbon loop.
+(() => {
+  const h2 = document.getElementById('h2-chart');
+  const co2 = document.getElementById('carbon-chart');
+  dash.onData(() => {
+    if (PL.ready(h2, 'mass_flows')) {
+      const rows = dash.data('mass_flows').data.filter((r) => r.source === 'H2 compression');
+      const total = d3.sum(rows, (r) => r.kg);
+      const names = { 'Reverse water-gas shift': 'To turn CO₂ into CO', 'Syngas mixing': 'Straight into syngas' };
+      const W = h2.clientWidth, barH = 34;
+      h2.replaceChildren();
+      const svg = d3.select(h2).append('svg').attr('width', '100%').attr('height', 96).attr('viewBox', `0 0 ${W} 96`);
+      const xs = d3.scaleLinear([0, total], [0, W]);
+      let x0 = 0;
+      rows.sort((a, b) => b.kg - a.kg).forEach((r, i) => {
+        const w = xs(r.kg), color = i === 0 ? dash.colors[1] : 'var(--cds-chart-muted)';
+        svg.append('rect').attr('class', PL.anim('h2' + i)).attr('x', x0 + (i ? 1 : 0)).attr('y', 0).attr('width', w - 1).attr('height', barH).attr('rx', 4).style('fill', color)
+          .on('mousemove', (event) => PL.showTip(event, 'Hydrogen per kg of fuel', [{ color, name: names[r.target], value: `${PL.fmt(r.kg, 3)} kg` }])).on('mouseleave', PL.hideTip);
+        const anchor = i === 0 ? 'start' : 'end', tx = i === 0 ? 0 : W;
+        svg.append('text').attr('class', 'pl-lbl').attr('x', tx).attr('text-anchor', anchor).attr('y', barH + 20).style('font-weight', 600).text(`${PL.fmt(r.kg, 3)} kg · ${PL.fmt(r.kg / total, 'pct')}`);
+        svg.append('text').attr('class', 'pl-lbl-m').attr('x', tx).attr('text-anchor', anchor).attr('y', barH + 38).text(names[r.target]);
+        x0 += w;
+      });
+    }
+    if (PL.ready(co2, 'carbon_loop')) {
+      const rows = dash.data('carbon_loop').data;
+      const W = co2.clientWidth, barH = 30;
+      co2.replaceChildren();
+      const svg = d3.select(co2).append('svg').attr('width', '100%');
+      const labelW = PL.measure(svg, rows.map((r) => r.step)) + 12, valW = PL.measure(svg, ['3.16 kg']) + 8;
+      const xs = d3.scaleLinear([0, d3.max(rows, (r) => r.kg_co2)], [labelW, W - valW]);
+      rows.forEach((r, i) => {
+        const y = i * (barH + 14), color = i === 0 ? dash.colors[0] : 'var(--cds-chart-muted)';
+        svg.append('text').attr('class', 'pl-lbl-m').attr('x', labelW - 12).attr('text-anchor', 'end').attr('y', y + barH / 2).attr('dy', '0.35em').text(r.step);
+        svg.append('rect').attr('class', PL.anim('co2' + i)).attr('x', labelW).attr('y', y).attr('width', xs(r.kg_co2) - labelW).attr('height', barH).attr('rx', 4).style('fill', color)
+          .on('mousemove', (event) => PL.showTip(event, 'Per kg of PtL fuel', [{ color, name: r.step, value: `${PL.fmt(r.kg_co2, 2)} kg CO₂` }])).on('mouseleave', PL.hideTip);
+        svg.append('text').attr('class', 'pl-lbl').attr('x', xs(r.kg_co2) + 6).attr('y', y + barH / 2).attr('dy', '0.35em').text(PL.fmt(r.kg_co2, 2) + ' kg');
+      });
+      const h = rows.length * (barH + 14) + 20;
+      const diff = rows[0].kg_co2 - rows[1].kg_co2;
+      svg.append('text').attr('class', 'pl-lbl-m').attr('x', labelW).attr('y', h - 4).text(`Difference: ${PL.fmt(Math.abs(diff), 2)} kg (${PL.fmt(Math.abs(diff) / rows[1].kg_co2, 'pct')})`);
+      svg.attr('height', h).attr('viewBox', `0 0 ${W} ${h}`);
+    }
+  });
+})();
+</script>
+
+<script>
+// Material inputs, grams per kg, with a product switch.
+(() => {
+  const el = document.getElementById('mat-chart');
+  const btn = { ptl: document.getElementById('mat-ptl'), lh2: document.getElementById('mat-lh2') };
+  let fu = 'ptl';
+  const tidy = (s) => s.replace(/^market (group )?for /, '').replace(/^treatment of /, 'treatment: ');
+  const draw = () => {
+    Object.entries(btn).forEach(([k, b]) => b.setAttribute('aria-pressed', String(k === fu)));
+    if (!PL.ready(el, 'inventory')) return;
+    const rows = dash.data('inventory').data
+      .filter((r) => r.fu === fu && r.type === 'technosphere' && r.unit === 'kilogram' && r.flow !== 'market for water, deionised')
+      .sort((a, b) => b.amount - a.amount).slice(0, 10);
+    const W = el.clientWidth, barH = 22, gap = 10;
+    el.replaceChildren();
+    const svg = d3.select(el).append('svg').attr('width', '100%');
+    const labels = rows.map((r) => tidy(r.flow));
+    const narrow = W < 520;
+    const labelW = narrow ? 0 : Math.min(PL.measure(svg, labels, 'pl-lbl-m') + 12, W * 0.45);
+    const valW = PL.measure(svg, ['19.06 g']) + 8;
+    const xs = d3.scaleLinear([0, d3.max(rows, (r) => r.amount * 1000)], [labelW, W - valW]);
+    const rowH = narrow ? barH + gap + 18 : barH + gap;
+    rows.forEach((r, i) => {
+      const y = i * rowH + (narrow ? 18 : 0);
+      const g = r.amount * 1000;
+      const color = dash.colors[0];
+      svg.append('text').attr('class', 'pl-lbl-m').attr('x', narrow ? 0 : labelW - 12).attr('text-anchor', narrow ? 'start' : 'end').attr('y', narrow ? y - 6 : y + barH / 2).attr('dy', narrow ? 0 : '0.35em').text(labels[i]);
+      svg.append('rect').attr('class', PL.anim('mat' + fu + i)).attr('x', labelW).attr('y', y).attr('width', Math.max(xs(g) - labelW, 2)).attr('height', barH).attr('rx', 4).style('fill', color)
+        .on('mousemove', (event) => PL.showTip(event, fu === 'ptl' ? 'Per kg of PtL fuel' : 'Per kg of liquid hydrogen', [{ name: tidy(r.flow), value: `${PL.fmt(g, 2)} g` }])).on('mouseleave', PL.hideTip);
+      svg.append('text').attr('class', 'pl-lbl').attr('x', xs(g) + 6).attr('y', y + barH / 2).attr('dy', '0.35em').text(PL.fmt(g, 2) + ' g');
+    });
+    const h = rows.length * rowH + (narrow ? 18 : 0);
+    svg.attr('height', h).attr('viewBox', `0 0 ${W} ${h}`);
+  };
+  Object.entries(btn).forEach(([k, b]) => b.addEventListener('click', () => { fu = k; draw(); }));
+  dash.onData(draw);
+})();
+</script>
+
+<script>
+// Equipment lifetime output, log scale.
+(() => {
+  const el = document.getElementById('equip-chart');
+  const compact = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 });
+  dash.onData(() => {
+    if (!PL.ready(el, 'equipment_life')) return;
+    const rows = dash.data('equipment_life').data;
+    const W = el.clientWidth, barH = 24, gap = 22, axisH = 22;
+    el.replaceChildren();
+    const svg = d3.select(el).append('svg').attr('width', '100%');
+    const narrow = W < 520;
+    const labelW = narrow ? 0 : PL.measure(svg, rows.map((r) => r.equipment), 'pl-lbl') + 14;
+    const valW = PL.measure(svg, ['149.3M t PtL fuel'], 'pl-lbl-m') + 8;
+    const lo = Math.pow(10, Math.floor(Math.log10(d3.min(rows, (r) => r.tonnes))));
+    const hi = Math.pow(10, Math.ceil(Math.log10(d3.max(rows, (r) => r.tonnes))));
+    const xs = d3.scaleLog([lo, hi], [labelW, W - (narrow ? 4 : valW)]);
+    const rowH = narrow ? barH + gap + 16 : barH + gap;
+    const top = axisH;
+    const ticks = d3.range(Math.log10(lo), Math.log10(hi) + 1).map((p) => Math.pow(10, p)).filter((t, i, a) => !narrow || i % 2 === 0 || i === a.length - 1);
+    const ax = svg.append('g').attr('class', 'pl-axis');
+    ticks.forEach((t) => {
+      ax.append('line').attr('x1', xs(t)).attr('x2', xs(t)).attr('y1', top - 4).attr('y2', top + rows.length * rowH);
+      ax.append('text').attr('x', xs(t)).attr('y', 12).attr('text-anchor', 'middle').text(compact.format(t) + ' t');
+    });
+    rows.forEach((r, i) => {
+      const y = top + i * rowH + (narrow ? 16 : 6);
+      svg.append('text').attr('class', 'pl-lbl').attr('x', narrow ? 0 : labelW - 14).attr('text-anchor', narrow ? 'start' : 'end').attr('y', narrow ? y - 5 : y + barH / 2).attr('dy', narrow ? 0 : '0.35em').text(r.equipment);
+      const w = xs(r.tonnes) - labelW;
+      svg.append('rect').attr('class', PL.anim('eq' + i)).attr('x', labelW).attr('y', y).attr('width', Math.max(w, 2)).attr('height', barH).attr('rx', 4).style('fill', dash.colors[0])
+        .on('mousemove', (event) => PL.showTip(event, r.equipment, [{ name: 'Lifetime output', value: `${d3.format(',')(Math.round(r.tonnes))} t ${r.serves}` }])).on('mouseleave', PL.hideTip);
+      const label = `${compact.format(r.tonnes)} t ${r.serves}`;
+      const lw = PL.measure(svg, [label], 'pl-lbl-m');
+      const inside = w > lw + 16 && (narrow || xs(r.tonnes) + lw + 8 > W);
+      svg.append('text').attr('class', inside ? '' : 'pl-lbl-m').attr('x', inside ? labelW + 8 : xs(r.tonnes) + 6).attr('y', y + barH / 2).attr('dy', '0.35em')
+        .style('fill', inside ? 'var(--color-bg)' : null).style('font-size', 'var(--cds-font-size-caption)').style('font-weight', inside ? 600 : null).text(label);
+    });
+    const h = top + rows.length * rowH + 6;
+    svg.attr('height', h).attr('viewBox', `0 0 ${W} ${h}`);
+  });
+})();
+</script>
+
+<script>
+// Dataset anatomy: stacked bars per activity.
+(() => {
+  const el = document.getElementById('anatomy-chart');
+  const legendEl = document.getElementById('anatomy-legend');
+  const kinds = [['foreground', 'From this dataset', 0], ['background', 'From ecoinvent', 1], ['biosphere', 'With the environment', 2]];
+  dash.onData(() => {
+    PL.legend(legendEl, kinds.map(([, n, c]) => [n, dash.colors[c]]));
+    if (!PL.ready(el, 'anatomy')) return;
+    const rows = dash.data('anatomy').data;
+    const W = el.clientWidth, barH = 18, gap = 9;
+    el.replaceChildren();
+    const svg = d3.select(el).append('svg').attr('width', '100%');
+    const narrow = W < 520;
+    const labelW = narrow ? 0 : PL.measure(svg, rows.map((r) => r.label), 'pl-lbl-m') + 12;
+    const xs = d3.scaleLinear([0, d3.max(rows, (r) => r.total)], [labelW, W - 28]);
+    const rowH = narrow ? barH + gap + 16 : barH + gap;
+    rows.forEach((r, i) => {
+      const y = i * rowH + (narrow ? 16 : 0);
+      svg.append('text').attr('class', 'pl-lbl-m').attr('x', narrow ? 0 : labelW - 12).attr('text-anchor', narrow ? 'start' : 'end').attr('y', narrow ? y - 4 : y + barH / 2).attr('dy', narrow ? 0 : '0.35em').text(r.label);
+      let x0 = labelW;
+      const lines = kinds.map(([k, n, c]) => ({ color: dash.colors[c], name: n, value: String(r[k]) }));
+      kinds.forEach(([k, , c]) => {
+        if (!r[k]) return;
+        const w = xs(r[k]) - labelW;
+        svg.append('rect').attr('x', x0).attr('y', y).attr('width', Math.max(w - 2, 1)).attr('height', barH).attr('rx', 3).style('fill', dash.colors[c])
+          .on('mousemove', (event) => PL.showTip(event, r.activity, lines)).on('mouseleave', PL.hideTip);
+        x0 += w;
+      });
+      svg.append('text').attr('class', 'pl-lbl').attr('x', x0 + 4).attr('y', y + barH / 2).attr('dy', '0.35em').text(r.total);
+    });
+    const h = rows.length * rowH + (narrow ? 16 : 0);
+    svg.attr('height', h).attr('viewBox', `0 0 ${W} ${h}`);
+  });
+})();
+</script>
+
+<script>
+// Quality checks and findings.
+(() => {
+  const body = document.querySelector('#checks-table tbody');
+  const list = document.getElementById('issue-summary');
+  dash.onData(() => {
+    const c = dash.data('checks');
+    if (c.status === 'ok') {
+      body.replaceChildren(...c.data.map((r) => {
+        const tr = document.createElement('tr'); tr.dataset.key = r.check;
+        const t = document.createElement('td'); t.textContent = r.title;
+        const s = document.createElement('td'); const pill = document.createElement('span'); pill.className = 'pl-pill ' + (r.status === 'Pass' ? 'ok' : 'warn'); pill.textContent = r.status; s.append(pill);
+        const n = document.createElement('td'); n.className = 'pl-r'; n.textContent = String(r.issues);
+        tr.append(t, s, n); return tr;
+      }));
+    } else body.replaceChildren();
+    const v = dash.data('validation');
+    if (v.status === 'ok') {
+      const links = v.data.filter((r) => r.check === 'links');
+      const enc = v.data.filter((r) => r.check === 'encoding');
+      const items = [];
+      links.forEach((r) => items.push(['Materials filed under the wrong database. ', r.message.replace(/'/g, '"') + '. They are ecoinvent materials.']));
+      if (enc.length) items.push(['Garbled characters. ', `${enc.length} activity comments show an author's name as "RenÃ©" instead of "René", a text-encoding mix-up in the CSV export.`]);
+      list.replaceChildren(...items.map(([b, t]) => { const li = document.createElement('li'); const s = document.createElement('strong'); s.textContent = b; li.append(s, t); return li; }));
+    }
+  });
+})();
+</script>
+
+<script>
+// Exchange explorer with search.
+(() => {
+  const body = document.querySelector('#exch-table tbody');
+  const search = document.getElementById('exch-search');
+  const num = (v) => (Math.abs(v) >= 1e4 || (Math.abs(v) < 1e-3 && v !== 0) ? d3.format('.3~e')(v) : d3.format(',.4~f')(v));
+  const draw = () => {
+    const d = dash.data('exchanges');
+    if (d.status !== 'ok') { body.replaceChildren(); return; }
+    const q = search.value.trim().toLowerCase();
+    const rows = d.data.filter((r) => !q || [r.activity, r.flow, r.database, r.kind].join(' ').toLowerCase().includes(q));
+    body.replaceChildren(...rows.map((r) => {
+      const tr = document.createElement('tr'); tr.dataset.key = String(r.id);
+      [[r.id, 'pl-r'], [r.activity], [r.flow], [num(r.amount), 'pl-r'], [r.unit], [r.kind], [r.database]].forEach(([v, cls]) => {
+        const td = document.createElement('td'); if (cls) td.className = cls; td.textContent = String(v); tr.append(td);
+      });
+      return tr;
+    }));
+  };
+  search.addEventListener('input', draw);
+  dash.onData(draw);
+})();
+</script>
+
+<script>
+// Metadata lists.
+(() => {
+  const targets = { assumptions: document.getElementById('assumptions'), glossary: document.getElementById('glossary'), keywords: document.getElementById('keywords') };
+  dash.onData(() => {
+    const d = dash.data('meta_lists');
+    Object.entries(targets).forEach(([list, el]) => {
+      const rows = d.status === 'ok' ? d.data.filter((r) => r.list === list) : [];
+      el.replaceChildren(...rows.map((r) => { const li = document.createElement('li'); li.textContent = r.text; return li; }));
+    });
+  });
+})();
+</script>
+
+<script>
+// Open a linked section once the page is drawn.
+(() => {
+  let done = false;
+  dash.onData(() => {
+    if (done) return;
+    done = true;
+    const named = document.getElementById(location.hash.slice(1));
+    if (named) requestAnimationFrame(() => { named.scrollIntoView(); dash.setLink(named.id); });
+  });
+})();
+</script>
+
+<footer class="site-foot">
+  Data: supplementary life cycle inventory of Nair, Chougule, Gomez Trillos and Brand-Daniels,
+  <a href="https://www.sciencedirect.com/science/article/pii/S0959652625014702">Journal of Cleaner Production</a>,
+  licensed <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>.
+  Independent analysis, not affiliated with the authors or DLR. Built with lcitools (build_site.py).
+</footer>
+</main>
+</body>
+</html>

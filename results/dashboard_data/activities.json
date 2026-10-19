@@ -1,0 +1,128 @@
+[
+{
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"role": "Equipment",
+"reference_product": "Electrolyser for hydrogen production",
+"unit": "unit",
+"location": "RER",
+"chain": "Both"
+},
+{
+"activity": "CO production via RWGS",
+"label": "Reverse water-gas shift",
+"role": "Process",
+"reference_product": "Carbon Monoxide from RWGS",
+"unit": "kilogram",
+"location": "RER",
+"chain": "PtL fuel"
+},
+{
+"activity": "Direct air capture",
+"label": "Direct air capture",
+"role": "Process",
+"reference_product": "CO2 from direct air capture, 25 bar",
+"unit": "kilogram",
+"location": "RER",
+"chain": "PtL fuel"
+},
+{
+"activity": "Direct air capture (DAC) equipment",
+"label": "DAC unit (equipment)",
+"role": "Equipment",
+"reference_product": "DAC equipment (absorber)",
+"unit": "unit",
+"location": "RER",
+"chain": "PtL fuel"
+},
+{
+"activity": "Fixed bed reactor construction",
+"label": "RWGS reactor (equipment)",
+"role": "Equipment",
+"reference_product": "Fixed bed reactor for RWGS",
+"unit": "unit",
+"location": "RER",
+"chain": "PtL fuel"
+},
+{
+"activity": "GTL plant construction",
+"label": "Fischer-Tropsch plant (equipment)",
+"role": "Equipment",
+"reference_product": "GTL plant",
+"unit": "unit",
+"location": "RER",
+"chain": "PtL fuel"
+},
+{
+"activity": "GTL production",
+"label": "Fischer-Tropsch synthesis",
+"role": "Process",
+"reference_product": "GTL product",
+"unit": "kilogram",
+"location": "RER",
+"chain": "PtL fuel"
+},
+{
+"activity": "Hydrogen compression to 25 bar",
+"label": "H2 compression",
+"role": "Process",
+"reference_product": "Hydrogen gas, 25 bar",
+"unit": "kilogram",
+"location": "RER",
+"chain": "Both"
+},
+{
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"role": "Equipment",
+"reference_product": "Hydrogen compressor",
+"unit": "unit",
+"location": "RER",
+"chain": "Both"
+},
+{
+"activity": "Hydrogen liquefaction",
+"label": "H2 liquefaction",
+"role": "Process",
+"reference_product": "Liquid hydrogen",
+"unit": "kilogram",
+"location": "RER",
+"chain": "Liquid hydrogen"
+},
+{
+"activity": "Hydrogen liquefaction plant construction",
+"label": "Liquefaction plant (equipment)",
+"role": "Equipment",
+"reference_product": "Hydrogen liquefaction plant",
+"unit": "unit",
+"location": "RER",
+"chain": "Liquid hydrogen"
+},
+{
+"activity": "Hydrogen production, alkaline electrolysis",
+"label": "Alkaline electrolysis",
+"role": "Process",
+"reference_product": "Hydrogen gas from alkaline electrolysis",
+"unit": "kilogram",
+"location": "RER",
+"chain": "Both"
+},
+{
+"activity": "RWGS catalyst production",
+"label": "RWGS catalyst (equipment)",
+"role": "Equipment",
+"reference_product": "RWGS catalyst",
+"unit": "kilogram",
+"location": "RER",
+"chain": "PtL fuel"
+},
+{
+"activity": "Syngas production",
+"label": "Syngas mixing",
+"role": "Process",
+"reference_product": "Syngas",
+"unit": "kilogram",
+"location": "RER",
+"chain": "PtL fuel"
+}
+]

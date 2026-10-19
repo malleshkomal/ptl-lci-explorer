@@ -1,0 +1,44 @@
+[
+{
+"check": "counts",
+"title": "Counts match the properties file",
+"issues": 0,
+"status": "Pass",
+"note": "14 activities, 80 exchanges, 7 biosphere and 59 technosphere flows"
+},
+{
+"check": "production",
+"title": "One production exchange per activity",
+"issues": 0,
+"status": "Pass",
+"note": "Each activity produces exactly its declared amount"
+},
+{
+"check": "links",
+"title": "Foreground links resolve",
+"issues": 1,
+"status": "Review",
+"note": ""
+},
+{
+"check": "amounts",
+"title": "No zero or negative amounts",
+"issues": 0,
+"status": "Pass",
+"note": ""
+},
+{
+"check": "encoding",
+"title": "Text is correctly encoded",
+"issues": 8,
+"status": "Review",
+"note": ""
+},
+{
+"check": "metadata",
+"title": "Required metadata is filled",
+"issues": 0,
+"status": "Pass",
+"note": "Name, description, functional units, boundary, model, authors, background, licence"
+}
+]

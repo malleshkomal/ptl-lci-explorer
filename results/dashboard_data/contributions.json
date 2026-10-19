@@ -1,0 +1,792 @@
+[
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "biosphere",
+"flow": "Hydrogen",
+"unit": "kilogram",
+"amount": 1.2582801e-05
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "biosphere",
+"flow": "Occupation, industrial area",
+"unit": "square meter-year",
+"amount": 6.99566175e-05
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for corrugated board box",
+"unit": "kilogram",
+"amount": 0.0001197244125
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for nitrogen, liquid",
+"unit": "kilogram",
+"amount": 0.0001995406875
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for potassium hydroxide",
+"unit": "kilogram",
+"amount": 7.0426125e-05
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for reinforcing steel",
+"unit": "kilogram",
+"amount": 0.00939015
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for sodium silicate, spray powder, 80%",
+"unit": "kilogram",
+"amount": 0.00046950750000000004
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for steel, chromium steel 18/8",
+"unit": "kilogram",
+"amount": 0.0187803
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for waste bulk iron, excluding reinforcement",
+"unit": "kilogram",
+"amount": 0.0187803
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for waste fibreboard",
+"unit": "kilogram",
+"amount": 0.0001197244125
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for waste reinforcement steel",
+"unit": "kilogram",
+"amount": 0.00939015
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market group for transport, freight train",
+"unit": "ton kilometer",
+"amount": 0.005986220625
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "transport, freight, lorry 16-32 metric ton, EURO3",
+"unit": "ton kilometer",
+"amount": 0.002887471125
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen compression to 25 bar",
+"label": "H2 compression",
+"type": "technosphere",
+"flow": "electricity production, wind, 1-3MW turbine, onshore",
+"unit": "kilowatt hour",
+"amount": 0.6707250000000001
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "biosphere",
+"flow": "Occupation, industrial area",
+"unit": "square meter-year",
+"amount": 5.6304315e-07
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for aluminium, wrought alloy",
+"unit": "kilogram",
+"amount": 1.7377875e-05
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for concrete, normal strength",
+"unit": "cubic meter",
+"amount": 4.1706900000000004e-07
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for lubricating oil",
+"unit": "kilogram",
+"amount": 5.213362500000001e-06
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for steel, chromium steel 18/8",
+"unit": "kilogram",
+"amount": 0.00017377875000000001
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for steel, low-alloyed",
+"unit": "kilogram",
+"amount": 0.00010426725000000001
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for transport, freight, lorry 16-32 metric ton, EURO6",
+"unit": "ton kilometer",
+"amount": 7.507242e-05
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for waste bulk iron, excluding reinforcement",
+"unit": "kilogram",
+"amount": 0.000278046
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for waste concrete, not reinforced",
+"unit": "kilogram",
+"amount": 0.0009036495000000001
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market group for transport, freight train",
+"unit": "ton kilometer",
+"amount": 6.221279250000001e-05
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "treatment of scrap aluminium, municipal incineration",
+"unit": "kilogram",
+"amount": 1.7377875e-05
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen liquefaction",
+"label": "H2 liquefaction",
+"type": "technosphere",
+"flow": "electricity production, wind, 1-3MW turbine, onshore",
+"unit": "kilowatt hour",
+"amount": 6.86985
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen liquefaction plant construction",
+"label": "Liquefaction plant (equipment)",
+"type": "technosphere",
+"flow": "market for aluminium alloy, AlMg3",
+"unit": "kilogram",
+"amount": 0.00028419999999999997
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen liquefaction plant construction",
+"label": "Liquefaction plant (equipment)",
+"type": "technosphere",
+"flow": "market for concrete, normal strength",
+"unit": "cubic meter",
+"amount": 4.1209e-05
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen liquefaction plant construction",
+"label": "Liquefaction plant (equipment)",
+"type": "technosphere",
+"flow": "market for reinforcing steel",
+"unit": "kilogram",
+"amount": 0.0007713999999999999
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen liquefaction plant construction",
+"label": "Liquefaction plant (equipment)",
+"type": "technosphere",
+"flow": "market for sheet rolling, copper",
+"unit": "kilogram",
+"amount": 0.0003045
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen liquefaction plant construction",
+"label": "Liquefaction plant (equipment)",
+"type": "technosphere",
+"flow": "market for steel, chromium steel 18/8, hot rolled",
+"unit": "kilogram",
+"amount": 0.00120785
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen production, alkaline electrolysis",
+"label": "Alkaline electrolysis",
+"type": "technosphere",
+"flow": "electricity production, wind, 1-3MW turbine, onshore",
+"unit": "kilowatt hour",
+"amount": 57.62137500000001
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"activity": "Hydrogen production, alkaline electrolysis",
+"label": "Alkaline electrolysis",
+"type": "technosphere",
+"flow": "market for water, deionised",
+"unit": "kilogram",
+"amount": 11.280375000000001
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "biosphere",
+"flow": "Hydrogen",
+"unit": "kilogram",
+"amount": 5.3039678999999996e-06
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "biosphere",
+"flow": "Occupation, industrial area",
+"unit": "square meter-year",
+"amount": 2.9488478249999996e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for corrugated board box",
+"unit": "kilogram",
+"amount": 5.046685874999999e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for nitrogen, liquid",
+"unit": "kilogram",
+"amount": 8.411143124999999e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for potassium hydroxide",
+"unit": "kilogram",
+"amount": 2.9686387499999997e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for reinforcing steel",
+"unit": "kilogram",
+"amount": 0.0039581849999999995
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for sodium silicate, spray powder, 80%",
+"unit": "kilogram",
+"amount": 0.00019790924999999997
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for steel, chromium steel 18/8",
+"unit": "kilogram",
+"amount": 0.007916369999999999
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for waste bulk iron, excluding reinforcement",
+"unit": "kilogram",
+"amount": 0.007916369999999999
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for waste fibreboard",
+"unit": "kilogram",
+"amount": 5.046685874999999e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market for waste reinforcement steel",
+"unit": "kilogram",
+"amount": 0.0039581849999999995
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "market group for transport, freight train",
+"unit": "ton kilometer",
+"amount": 0.0025233429374999995
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"type": "technosphere",
+"flow": "transport, freight, lorry 16-32 metric ton, EURO3",
+"unit": "ton kilometer",
+"amount": 0.0012171418874999998
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Direct air capture",
+"label": "Direct air capture",
+"type": "biosphere",
+"flow": "Carbon dioxide, in air",
+"unit": "kilogram",
+"amount": 3.1596249999999997
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Direct air capture",
+"label": "Direct air capture",
+"type": "technosphere",
+"flow": "electricity production, wind, 1-3MW turbine, onshore",
+"unit": "kilowatt hour",
+"amount": 0.9794837499999999
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Direct air capture (DAC) equipment",
+"label": "DAC unit (equipment)",
+"type": "biosphere",
+"flow": "Occupation, industrial area",
+"unit": "square meter-year",
+"amount": 1.0385055449999999e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Direct air capture (DAC) equipment",
+"label": "DAC unit (equipment)",
+"type": "technosphere",
+"flow": "market for steel, low-alloyed",
+"unit": "kilogram",
+"amount": 0.0010962002975
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Direct air capture (DAC) equipment",
+"label": "DAC unit (equipment)",
+"type": "technosphere",
+"flow": "market for waste bulk iron, excluding reinforcement",
+"unit": "kilogram",
+"amount": 0.0010962002975
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Fixed bed reactor construction",
+"label": "RWGS reactor (equipment)",
+"type": "biosphere",
+"flow": "Occupation, industrial area",
+"unit": "square meter-year",
+"amount": 1.2196152500000001e-08
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Fixed bed reactor construction",
+"label": "RWGS reactor (equipment)",
+"type": "technosphere",
+"flow": "market for steel, chromium steel 18/8",
+"unit": "kilogram",
+"amount": 1.8488435000000003e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Fixed bed reactor construction",
+"label": "RWGS reactor (equipment)",
+"type": "technosphere",
+"flow": "market for steel, low-alloyed",
+"unit": "kilogram",
+"amount": 1.8488435000000003e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Fixed bed reactor construction",
+"label": "RWGS reactor (equipment)",
+"type": "technosphere",
+"flow": "market for waste bulk iron, excluding reinforcement",
+"unit": "kilogram",
+"amount": 3.6976870000000006e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Fixed bed reactor construction",
+"label": "RWGS reactor (equipment)",
+"type": "technosphere",
+"flow": "market for zeolite, powder",
+"unit": "kilogram",
+"amount": 0.0001037061375
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "GTL plant construction",
+"label": "Fischer-Tropsch plant (equipment)",
+"type": "biosphere",
+"flow": "Occupation, industrial area",
+"unit": "square meter-year",
+"amount": 7.5040000000000005e-06
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "GTL plant construction",
+"label": "Fischer-Tropsch plant (equipment)",
+"type": "technosphere",
+"flow": "market for reinforcing steel",
+"unit": "kilogram",
+"amount": 4.824e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "GTL plant construction",
+"label": "Fischer-Tropsch plant (equipment)",
+"type": "technosphere",
+"flow": "market for steel, low-alloyed",
+"unit": "kilogram",
+"amount": 4.824e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "GTL plant construction",
+"label": "Fischer-Tropsch plant (equipment)",
+"type": "technosphere",
+"flow": "market for waste bulk iron, excluding reinforcement",
+"unit": "kilogram",
+"amount": 9.648e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "GTL plant construction",
+"label": "Fischer-Tropsch plant (equipment)",
+"type": "technosphere",
+"flow": "market for waste reinforced concrete",
+"unit": "kilogram",
+"amount": 0.0055476
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "GTL plant construction",
+"label": "Fischer-Tropsch plant (equipment)",
+"type": "technosphere",
+"flow": "market group for concrete, normal strength",
+"unit": "cubic meter",
+"amount": 2.3115000000000002e-06
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Hydrogen compression to 25 bar",
+"label": "H2 compression",
+"type": "technosphere",
+"flow": "electricity production, wind, 1-3MW turbine, onshore",
+"unit": "kilowatt hour",
+"amount": 0.28272749999999996
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "biosphere",
+"flow": "Occupation, industrial area",
+"unit": "square meter-year",
+"amount": 2.3733688499999998e-07
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for aluminium, wrought alloy",
+"unit": "kilogram",
+"amount": 7.3252125e-06
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for concrete, normal strength",
+"unit": "cubic meter",
+"amount": 1.758051e-07
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for lubricating oil",
+"unit": "kilogram",
+"amount": 2.19756375e-06
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for steel, chromium steel 18/8",
+"unit": "kilogram",
+"amount": 7.3252125e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for steel, low-alloyed",
+"unit": "kilogram",
+"amount": 4.3951275e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for transport, freight, lorry 16-32 metric ton, EURO6",
+"unit": "ton kilometer",
+"amount": 3.1644918e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for waste bulk iron, excluding reinforcement",
+"unit": "kilogram",
+"amount": 0.0001172034
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market for waste concrete, not reinforced",
+"unit": "kilogram",
+"amount": 0.00038091105
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "market group for transport, freight train",
+"unit": "ton kilometer",
+"amount": 2.622426075e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"type": "technosphere",
+"flow": "treatment of scrap aluminium, municipal incineration",
+"unit": "kilogram",
+"amount": 7.3252125e-06
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Hydrogen production, alkaline electrolysis",
+"label": "Alkaline electrolysis",
+"type": "technosphere",
+"flow": "electricity production, wind, 1-3MW turbine, onshore",
+"unit": "kilowatt hour",
+"amount": 24.288862499999997
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "Hydrogen production, alkaline electrolysis",
+"label": "Alkaline electrolysis",
+"type": "technosphere",
+"flow": "market for water, deionised",
+"unit": "kilogram",
+"amount": 4.7549624999999995
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "RWGS catalyst production",
+"label": "RWGS catalyst (equipment)",
+"type": "technosphere",
+"flow": "market for aluminium oxide, non-metallurgical",
+"unit": "kilogram",
+"amount": 2.8198747500000004e-06
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "RWGS catalyst production",
+"label": "RWGS catalyst (equipment)",
+"type": "technosphere",
+"flow": "market for copper oxide",
+"unit": "kilogram",
+"amount": 1.461207825e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"activity": "RWGS catalyst production",
+"label": "RWGS catalyst (equipment)",
+"type": "technosphere",
+"flow": "market for zinc oxide",
+"unit": "kilogram",
+"amount": 7.94691975e-06
+}
+]

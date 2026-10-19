@@ -1,0 +1,671 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="amount" for="edge" attr.name="amount" attr.type="double"/>
+<key id="arrows" for="edge" attr.name="arrows" attr.type="boolean"/>
+<key id="unit" for="edge" attr.name="unit" attr.type="string"/>
+<key id="amount" for="edge" attr.name="amount" attr.type="long"/>
+<key id="line_type" for="edge" attr.name="line_type" attr.type="string"/>
+<key id="color" for="edge" attr.name="color" attr.type="string"/>
+<key id="width" for="node" attr.name="width" attr.type="long"/>
+<key id="color" for="node" attr.name="color" attr.type="string"/>
+<graph edgedefault="directed"><node id="Activity - GTL plant construction">
+  <data key="color">blue</data>
+  <data key="width">26</data>
+</node>
+<node id="Occupation, industrial area"/>
+<node id="GTL plant"/>
+<node id="reinforcing steel"/>
+<node id="steel, low-alloyed"/>
+<node id="waste bulk iron, excluding reinforcement"/>
+<node id="waste reinforced concrete"/>
+<node id="concrete, normal strength"/>
+<node id="Activity - Hydrogen liquefaction plant construction">
+  <data key="color">blue</data>
+  <data key="width">26</data>
+</node>
+<node id="Hydrogen liquefaction plant"/>
+<node id="aluminium alloy, AlMg3"/>
+<node id="sheet rolling, copper"/>
+<node id="steel, chromium steel 18/8, hot rolled"/>
+<node id="Activity - Alkaline electrolyser construction">
+  <data key="color">blue</data>
+  <data key="width">26</data>
+</node>
+<node id="Electrolyser for hydrogen production"/>
+<node id="waste fibreboard"/>
+<node id="steel, chromium steel 18/8"/>
+<node id="transport, freight train"/>
+<node id="nitrogen, liquid"/>
+<node id="potassium hydroxide"/>
+<node id="sodium silicate, spray powder, 80%"/>
+<node id="corrugated board box"/>
+<node id="waste reinforcement steel"/>
+<node id="transport, freight, lorry 16-32 metric ton, EURO3"/>
+<node id="Hydrogen"/>
+<node id="Activity - Direct air capture (DAC) equipment">
+  <data key="color">blue</data>
+  <data key="width">26</data>
+</node>
+<node id="DAC equipment (absorber)"/>
+<node id="Activity - Hydrogen production, alkaline electrolysis">
+  <data key="color">blue</data>
+  <data key="width">26</data>
+</node>
+<node id="Hydrogen gas from alkaline electrolysis"/>
+<node id="electricity, high voltage"/>
+<node id="water, deionised"/>
+<node id="Activity - Hydrogen compressor production">
+  <data key="color">blue</data>
+  <data key="width">26</data>
+</node>
+<node id="Hydrogen compressor"/>
+<node id="aluminium, wrought alloy"/>
+<node id="lubricating oil"/>
+<node id="transport, freight, lorry 16-32 metric ton, EURO6"/>
+<node id="waste concrete, not reinforced"/>
+<node id="scrap aluminium"/>
+<node id="Activity - GTL production">
+  <data key="color">blue</data>
+  <data key="width">26</data>
+</node>
+<node id="GTL product"/>
+<node id="Syngas"/>
+<node id="Activity - Fixed bed reactor construction">
+  <data key="color">blue</data>
+  <data key="width">26</data>
+</node>
+<node id="Fixed bed reactor for RWGS"/>
+<node id="RWGS catalyst"/>
+<node id="zeolite, powder"/>
+<node id="Activity - RWGS catalyst production">
+  <data key="color">blue</data>
+  <data key="width">26</data>
+</node>
+<node id="aluminium oxide, non-metallurgical"/>
+<node id="copper oxide"/>
+<node id="zinc oxide"/>
+<node id="Activity - Hydrogen compression to 25 bar">
+  <data key="color">blue</data>
+  <data key="width">26</data>
+</node>
+<node id="Hydrogen gas, 25 bar"/>
+<node id="Activity - Hydrogen liquefaction">
+  <data key="color">blue</data>
+  <data key="width">26</data>
+</node>
+<node id="Liquid hydrogen"/>
+<node id="Activity - CO production via RWGS">
+  <data key="color">blue</data>
+  <data key="width">26</data>
+</node>
+<node id="Carbon Monoxide from RWGS"/>
+<node id="CO2 from direct air capture, 25 bar"/>
+<node id="Activity - Syngas production">
+  <data key="color">blue</data>
+  <data key="width">26</data>
+</node>
+<node id="Activity - Direct air capture">
+  <data key="color">blue</data>
+  <data key="width">26</data>
+</node>
+<node id="Carbon dioxide, in air"/>
+<edge source="Activity - GTL plant construction" target="Occupation, industrial area">
+  <data key="color">green</data>
+  <data key="line_type">Dots</data>
+  <data key="amount">1120000</data>
+  <data key="unit">square meter-year</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - GTL plant construction" target="GTL plant">
+  <data key="color">black</data>
+  <data key="line_type">Dash</data>
+  <data key="amount">1</data>
+  <data key="unit">unit</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="GTL plant" target="Activity - GTL production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">6.7e-12</data>
+  <data key="unit">unit</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="reinforcing steel" target="Activity - GTL plant construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">7200000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="reinforcing steel" target="Activity - Hydrogen liquefaction plant construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">380000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="reinforcing steel" target="Activity - Alkaline electrolyser construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">4000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="steel, low-alloyed" target="Activity - GTL plant construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">7200000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="steel, low-alloyed" target="Activity - Direct air capture (DAC) equipment">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">3800</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="steel, low-alloyed" target="Activity - Hydrogen compressor production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">3000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="steel, low-alloyed" target="Activity - Fixed bed reactor construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">4760</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="waste bulk iron, excluding reinforcement" target="Activity - GTL plant construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">14400000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="waste bulk iron, excluding reinforcement" target="Activity - Alkaline electrolyser construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">8000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="waste bulk iron, excluding reinforcement" target="Activity - Direct air capture (DAC) equipment">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">3800</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="waste bulk iron, excluding reinforcement" target="Activity - Hydrogen compressor production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">8000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="waste bulk iron, excluding reinforcement" target="Activity - Fixed bed reactor construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">9520</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="waste reinforced concrete" target="Activity - GTL plant construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">828000000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="concrete, normal strength" target="Activity - GTL plant construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">345000</data>
+  <data key="unit">cubic meter</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="concrete, normal strength" target="Activity - Hydrogen liquefaction plant construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">20300</data>
+  <data key="unit">cubic meter</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="concrete, normal strength" target="Activity - Hydrogen compressor production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">12</data>
+  <data key="unit">cubic meter</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Hydrogen liquefaction plant construction" target="Hydrogen liquefaction plant">
+  <data key="color">black</data>
+  <data key="line_type">Dash</data>
+  <data key="amount">1</data>
+  <data key="unit">unit</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Hydrogen liquefaction plant" target="Activity - Hydrogen liquefaction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">2.03e-09</data>
+  <data key="unit">unit</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="aluminium alloy, AlMg3" target="Activity - Hydrogen liquefaction plant construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">140000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="sheet rolling, copper" target="Activity - Hydrogen liquefaction plant construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">150000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="steel, chromium steel 18/8, hot rolled" target="Activity - Hydrogen liquefaction plant construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">595000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Alkaline electrolyser construction" target="Electrolyser for hydrogen production">
+  <data key="color">black</data>
+  <data key="line_type">Dash</data>
+  <data key="amount">1</data>
+  <data key="unit">unit</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Alkaline electrolyser construction" target="Occupation, industrial area">
+  <data key="color">green</data>
+  <data key="line_type">Dots</data>
+  <data key="amount">29.8</data>
+  <data key="unit">square meter-year</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Alkaline electrolyser construction" target="Hydrogen">
+  <data key="color">green</data>
+  <data key="line_type">Dots</data>
+  <data key="amount">5.36</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Electrolyser for hydrogen production" target="Activity - Hydrogen production, alkaline electrolysis">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">2.31e-06</data>
+  <data key="unit">unit</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="waste fibreboard" target="Activity - Alkaline electrolyser construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">51</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="steel, chromium steel 18/8" target="Activity - Alkaline electrolyser construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">8000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="steel, chromium steel 18/8" target="Activity - Hydrogen compressor production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">5000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="steel, chromium steel 18/8" target="Activity - Fixed bed reactor construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">4760</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="transport, freight train" target="Activity - Alkaline electrolyser construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">2550</data>
+  <data key="unit">ton kilometer</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="transport, freight train" target="Activity - Hydrogen compressor production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">1790</data>
+  <data key="unit">ton kilometer</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="nitrogen, liquid" target="Activity - Alkaline electrolyser construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">85</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="potassium hydroxide" target="Activity - Alkaline electrolyser construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">30</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="sodium silicate, spray powder, 80%" target="Activity - Alkaline electrolyser construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">200</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="corrugated board box" target="Activity - Alkaline electrolyser construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">51</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="waste reinforcement steel" target="Activity - Alkaline electrolyser construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">4000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="transport, freight, lorry 16-32 metric ton, EURO3" target="Activity - Alkaline electrolyser construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">1230</data>
+  <data key="unit">ton kilometer</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Direct air capture (DAC) equipment" target="Occupation, industrial area">
+  <data key="color">green</data>
+  <data key="line_type">Dots</data>
+  <data key="amount">36</data>
+  <data key="unit">square meter-year</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Direct air capture (DAC) equipment" target="DAC equipment (absorber)">
+  <data key="color">black</data>
+  <data key="line_type">Dash</data>
+  <data key="amount">1</data>
+  <data key="unit">unit</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="DAC equipment (absorber)" target="Activity - Direct air capture">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">9.13e-08</data>
+  <data key="unit">unit</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Hydrogen production, alkaline electrolysis" target="Hydrogen gas from alkaline electrolysis">
+  <data key="color">black</data>
+  <data key="line_type">Dash</data>
+  <data key="amount">1</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Hydrogen gas from alkaline electrolysis" target="Activity - Hydrogen compression to 25 bar">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">1</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="electricity, high voltage" target="Activity - Hydrogen production, alkaline electrolysis">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">56.7</data>
+  <data key="unit">kilowatt hour</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="electricity, high voltage" target="Activity - Hydrogen compression to 25 bar">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">0.66</data>
+  <data key="unit">kilowatt hour</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="electricity, high voltage" target="Activity - Hydrogen liquefaction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">6.86985</data>
+  <data key="unit">kilowatt hour</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="electricity, high voltage" target="Activity - Direct air capture">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">0.31</data>
+  <data key="unit">kilowatt hour</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="water, deionised" target="Activity - Hydrogen production, alkaline electrolysis">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">11.1</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Hydrogen compressor production" target="Occupation, industrial area">
+  <data key="color">green</data>
+  <data key="line_type">Dots</data>
+  <data key="amount">16.2</data>
+  <data key="unit">square meter-year</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Hydrogen compressor production" target="Hydrogen compressor">
+  <data key="color">black</data>
+  <data key="line_type">Dash</data>
+  <data key="amount">1</data>
+  <data key="unit">unit</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Hydrogen compressor" target="Activity - Hydrogen compression to 25 bar">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">3.42e-08</data>
+  <data key="unit">unit</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="aluminium, wrought alloy" target="Activity - Hydrogen compressor production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">500</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="lubricating oil" target="Activity - Hydrogen compressor production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">150</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="transport, freight, lorry 16-32 metric ton, EURO6" target="Activity - Hydrogen compressor production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">2160</data>
+  <data key="unit">ton kilometer</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="waste concrete, not reinforced" target="Activity - Hydrogen compressor production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">26000</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="scrap aluminium" target="Activity - Hydrogen compressor production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">500</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - GTL production" target="GTL product">
+  <data key="color">black</data>
+  <data key="line_type">Dash</data>
+  <data key="amount">1</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Syngas" target="Activity - GTL production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">2.3</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Fixed bed reactor construction" target="Occupation, industrial area">
+  <data key="color">green</data>
+  <data key="line_type">Dots</data>
+  <data key="amount">3.14</data>
+  <data key="unit">square meter-year</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Fixed bed reactor construction" target="Fixed bed reactor for RWGS">
+  <data key="color">black</data>
+  <data key="line_type">Dash</data>
+  <data key="amount">1</data>
+  <data key="unit">unit</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Fixed bed reactor for RWGS" target="Activity - CO production via RWGS">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">1.93e-09</data>
+  <data key="unit">unit</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="RWGS catalyst" target="Activity - Fixed bed reactor construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">6600</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="zeolite, powder" target="Activity - Fixed bed reactor construction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">26700</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - RWGS catalyst production" target="RWGS catalyst">
+  <data key="color">black</data>
+  <data key="line_type">Dash</data>
+  <data key="amount">1</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="aluminium oxide, non-metallurgical" target="Activity - RWGS catalyst production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">0.11</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="copper oxide" target="Activity - RWGS catalyst production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">0.57</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="zinc oxide" target="Activity - RWGS catalyst production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">0.31</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Hydrogen compression to 25 bar" target="Hydrogen gas, 25 bar">
+  <data key="color">black</data>
+  <data key="line_type">Dash</data>
+  <data key="amount">1</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Hydrogen gas, 25 bar" target="Activity - Hydrogen liquefaction">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">1.01625</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Hydrogen gas, 25 bar" target="Activity - CO production via RWGS">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">0.07</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Hydrogen gas, 25 bar" target="Activity - Syngas production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">0.125</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Hydrogen liquefaction" target="Liquid hydrogen">
+  <data key="color">black</data>
+  <data key="line_type">Dash</data>
+  <data key="amount">1</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - CO production via RWGS" target="Carbon Monoxide from RWGS">
+  <data key="color">black</data>
+  <data key="line_type">Dash</data>
+  <data key="amount">1</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Carbon Monoxide from RWGS" target="Activity - Syngas production">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">0.875</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="CO2 from direct air capture, 25 bar" target="Activity - CO production via RWGS">
+  <data key="color">purple</data>
+  <data key="line_type">Solid</data>
+  <data key="amount">1.57</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Syngas production" target="Syngas">
+  <data key="color">black</data>
+  <data key="line_type">Dash</data>
+  <data key="amount">1</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Direct air capture" target="Carbon dioxide, in air">
+  <data key="color">green</data>
+  <data key="line_type">Dots</data>
+  <data key="amount">1</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+<edge source="Activity - Direct air capture" target="CO2 from direct air capture, 25 bar">
+  <data key="color">black</data>
+  <data key="line_type">Dash</data>
+  <data key="amount">1</data>
+  <data key="unit">kilogram</data>
+  <data key="arrows">True</data>
+</edge>
+</graph></graphml>

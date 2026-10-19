@@ -29,7 +29,7 @@ cd ptl-lci-explorer
 git init -b main
 git add .
 git commit -m "Power-to-liquid LCI explorer"
-git remote add origin https://github.com/YOUR-USERNAME/ptl-lci-explorer.git
+git remote add origin https://github.com/malleshkomal/ptl-lci-explorer.git
 git push -u origin main
 ```
 
@@ -39,10 +39,8 @@ After uploading:
 2. Under **Build and deployment**, set **Source** to *Deploy from a branch*,
    **Branch** to `main`, and **folder** to `/docs`. Click **Save**.
 3. Wait 1–2 minutes and refresh. GitHub shows the address:
-   `https://YOUR-USERNAME.github.io/ptl-lci-explorer/`
-4. In `README.md`, replace `YOUR-USERNAME` with your GitHub username. You can
-   edit it on GitHub with the ✏️ pencil. Also paste the address into the
-   repository's **Website** field (⚙️ next to "About").
+   `https://malleshkomal.github.io/ptl-lci-explorer/`
+4. Paste the address into the repository's **Website** field (⚙️ next to "About").
 
 ## Before you publish
 - The dataset in `data/original/` belongs to the paper's authors and is licensed

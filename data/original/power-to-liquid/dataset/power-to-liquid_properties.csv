@@ -1,0 +1,16 @@
+Property,Value
+Dataset Name,power-to-liquid
+Schema Version,LCIS2024
+Dataset Version,1.0.0
+Software,Brightway 2.4.3
+Export Time,20240710-143241
+Unique Dataset Identifier,b562203b607451f292180b6c3867e48b
+Total Project Parameters,0
+Total Database Parameters,0
+Total Activity Parameters,0
+Total Activities,14
+Total Exchanges,80
+Total Biosphere flows,7
+Total Technosphere flows,59
+Total Reference products,14
+Dataset dependencies,"power-to-liquid, biosphere3, ecoinvent_cutoff39"

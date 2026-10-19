@@ -1,0 +1,26 @@
+type,name,unit,scaled amount
+biosphere,Hydrogen,kilogram,1.2582801e-05
+biosphere,"Occupation, industrial area",square meter-year,7.051966065e-05
+technosphere,"electricity production, wind, 1-3MW turbine, onshore",kilowatt hour,65.16195
+technosphere,"market for aluminium alloy, AlMg3",kilogram,0.00028419999999999997
+technosphere,"market for aluminium, wrought alloy",kilogram,1.7377875e-05
+technosphere,"market for concrete, normal strength",cubic meter,4.1626069e-05
+technosphere,market for corrugated board box,kilogram,0.0001197244125
+technosphere,market for lubricating oil,kilogram,5.213362500000001e-06
+technosphere,"market for nitrogen, liquid",kilogram,0.0001995406875
+technosphere,market for potassium hydroxide,kilogram,7.0426125e-05
+technosphere,market for reinforcing steel,kilogram,0.01016155
+technosphere,"market for sheet rolling, copper",kilogram,0.0003045
+technosphere,"market for sodium silicate, spray powder, 80%",kilogram,0.00046950750000000004
+technosphere,"market for steel, chromium steel 18/8",kilogram,0.01895407875
+technosphere,"market for steel, chromium steel 18/8, hot rolled",kilogram,0.00120785
+technosphere,"market for steel, low-alloyed",kilogram,0.00010426725000000001
+technosphere,"market for transport, freight, lorry 16-32 metric ton, EURO6",ton kilometer,7.507242e-05
+technosphere,"market for waste bulk iron, excluding reinforcement",kilogram,0.019058346
+technosphere,"market for waste concrete, not reinforced",kilogram,0.0009036495000000001
+technosphere,market for waste fibreboard,kilogram,0.0001197244125
+technosphere,market for waste reinforcement steel,kilogram,0.00939015
+technosphere,"market for water, deionised",kilogram,11.280375000000001
+technosphere,"market group for transport, freight train",ton kilometer,0.0060484334175000005
+technosphere,"transport, freight, lorry 16-32 metric ton, EURO3",ton kilometer,0.002887471125
+technosphere,"treatment of scrap aluminium, municipal incineration",kilogram,1.7377875e-05

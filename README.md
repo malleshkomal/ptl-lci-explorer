@@ -12,7 +12,7 @@ The paper proposes a common structure for publishing LCIs: a dataset, a properti
 
 ## Interactive findings page
 
-**[Open the interactive findings page](https://YOUR-USERNAME.github.io/ptl-lci-explorer/)**: all charts with hover details, a product switch, and a searchable table of all 80 exchanges. It's hosted free with GitHub Pages from [`docs/index.html`](docs/index.html), which is one self-contained file. You can also download it and open it in any browser.
+**[Open the interactive findings page](https://malleshkomal.github.io/ptl-lci-explorer/)**: all charts with hover details, a product switch, and a searchable table of all 80 exchanges. It's hosted free with GitHub Pages from [`docs/index.html`](docs/index.html), which is one self-contained file. You can also download it and open it in any browser.
 
 ## The supply chain
 

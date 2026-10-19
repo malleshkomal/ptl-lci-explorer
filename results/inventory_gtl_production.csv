@@ -1,0 +1,30 @@
+type,name,unit,scaled amount
+biosphere,"Carbon dioxide, in air",kilogram,3.1596249999999997
+biosphere,Hydrogen,kilogram,5.3039678999999996e-06
+biosphere,"Occupation, industrial area",square meter-year,4.76270667375e-05
+technosphere,"electricity production, wind, 1-3MW turbine, onshore",kilowatt hour,25.551073749999997
+technosphere,"market for aluminium oxide, non-metallurgical",kilogram,2.8198747500000004e-06
+technosphere,"market for aluminium, wrought alloy",kilogram,7.3252125e-06
+technosphere,"market for concrete, normal strength",cubic meter,1.758051e-07
+technosphere,market for copper oxide,kilogram,1.461207825e-05
+technosphere,market for corrugated board box,kilogram,5.046685874999999e-05
+technosphere,market for lubricating oil,kilogram,2.19756375e-06
+technosphere,"market for nitrogen, liquid",kilogram,8.411143124999999e-05
+technosphere,market for potassium hydroxide,kilogram,2.9686387499999997e-05
+technosphere,market for reinforcing steel,kilogram,0.004006424999999999
+technosphere,"market for sodium silicate, spray powder, 80%",kilogram,0.00019790924999999997
+technosphere,"market for steel, chromium steel 18/8",kilogram,0.008008110559999998
+technosphere,"market for steel, low-alloyed",kilogram,0.0012068800075
+technosphere,"market for transport, freight, lorry 16-32 metric ton, EURO6",ton kilometer,3.1644918e-05
+technosphere,"market for waste bulk iron, excluding reinforcement",kilogram,0.0092632305675
+technosphere,"market for waste concrete, not reinforced",kilogram,0.00038091105
+technosphere,market for waste fibreboard,kilogram,5.046685874999999e-05
+technosphere,market for waste reinforced concrete,kilogram,0.0055476
+technosphere,market for waste reinforcement steel,kilogram,0.0039581849999999995
+technosphere,"market for water, deionised",kilogram,4.7549624999999995
+technosphere,"market for zeolite, powder",kilogram,0.0001037061375
+technosphere,market for zinc oxide,kilogram,7.94691975e-06
+technosphere,"market group for concrete, normal strength",cubic meter,2.3115000000000002e-06
+technosphere,"market group for transport, freight train",ton kilometer,0.0025495671982499997
+technosphere,"transport, freight, lorry 16-32 metric ton, EURO3",ton kilometer,0.0012171418874999998
+technosphere,"treatment of scrap aluminium, municipal incineration",kilogram,7.3252125e-06

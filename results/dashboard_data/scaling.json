@@ -1,0 +1,128 @@
+[
+{
+"fu": "lh2",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"amount": 2.3475375e-06,
+"unit": "unit"
+},
+{
+"fu": "lh2",
+"activity": "Hydrogen compression to 25 bar",
+"label": "H2 compression",
+"amount": 1.01625,
+"unit": "kilogram"
+},
+{
+"fu": "lh2",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"amount": 3.4755750000000003e-08,
+"unit": "unit"
+},
+{
+"fu": "lh2",
+"activity": "Hydrogen liquefaction",
+"label": "H2 liquefaction",
+"amount": 1.0,
+"unit": "kilogram"
+},
+{
+"fu": "lh2",
+"activity": "Hydrogen liquefaction plant construction",
+"label": "Liquefaction plant (equipment)",
+"amount": 2.03e-09,
+"unit": "unit"
+},
+{
+"fu": "lh2",
+"activity": "Hydrogen production, alkaline electrolysis",
+"label": "Alkaline electrolysis",
+"amount": 1.01625,
+"unit": "kilogram"
+},
+{
+"fu": "ptl",
+"activity": "Alkaline electrolyser construction",
+"label": "Electrolyser (equipment)",
+"amount": 9.895462499999999e-07,
+"unit": "unit"
+},
+{
+"fu": "ptl",
+"activity": "CO production via RWGS",
+"label": "Reverse water-gas shift",
+"amount": 2.0124999999999997,
+"unit": "kilogram"
+},
+{
+"fu": "ptl",
+"activity": "Direct air capture",
+"label": "Direct air capture",
+"amount": 3.1596249999999997,
+"unit": "kilogram"
+},
+{
+"fu": "ptl",
+"activity": "Direct air capture (DAC) equipment",
+"label": "DAC unit (equipment)",
+"amount": 2.884737625e-07,
+"unit": "unit"
+},
+{
+"fu": "ptl",
+"activity": "Fixed bed reactor construction",
+"label": "RWGS reactor (equipment)",
+"amount": 3.884125e-09,
+"unit": "unit"
+},
+{
+"fu": "ptl",
+"activity": "GTL plant construction",
+"label": "Fischer-Tropsch plant (equipment)",
+"amount": 6.7e-12,
+"unit": "unit"
+},
+{
+"fu": "ptl",
+"activity": "GTL production",
+"label": "Fischer-Tropsch synthesis",
+"amount": 1.0,
+"unit": "kilogram"
+},
+{
+"fu": "ptl",
+"activity": "Hydrogen compression to 25 bar",
+"label": "H2 compression",
+"amount": 0.42837499999999995,
+"unit": "kilogram"
+},
+{
+"fu": "ptl",
+"activity": "Hydrogen compressor production",
+"label": "H2 compressor (equipment)",
+"amount": 1.4650425e-08,
+"unit": "unit"
+},
+{
+"fu": "ptl",
+"activity": "Hydrogen production, alkaline electrolysis",
+"label": "Alkaline electrolysis",
+"amount": 0.42837499999999995,
+"unit": "kilogram"
+},
+{
+"fu": "ptl",
+"activity": "RWGS catalyst production",
+"label": "RWGS catalyst (equipment)",
+"amount": 2.5635225000000003e-05,
+"unit": "kilogram"
+},
+{
+"fu": "ptl",
+"activity": "Syngas production",
+"label": "Syngas mixing",
+"amount": 2.3,
+"unit": "kilogram"
+}
+]

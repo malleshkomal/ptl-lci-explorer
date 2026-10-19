@@ -1,0 +1,42 @@
+[
+{
+"source": "CO2 in air",
+"target": "Direct air capture",
+"kg": 3.159625
+},
+{
+"source": "Direct air capture",
+"target": "Reverse water-gas shift",
+"kg": 3.159625
+},
+{
+"source": "H2 compression",
+"target": "Reverse water-gas shift",
+"kg": 0.140875
+},
+{
+"source": "Syngas mixing",
+"target": "Fischer-Tropsch synthesis",
+"kg": 2.3
+},
+{
+"source": "Alkaline electrolysis",
+"target": "H2 compression",
+"kg": 0.428375
+},
+{
+"source": "Reverse water-gas shift",
+"target": "Syngas mixing",
+"kg": 2.0125
+},
+{
+"source": "H2 compression",
+"target": "Syngas mixing",
+"kg": 0.2875
+},
+{
+"source": "Fischer-Tropsch synthesis",
+"target": "PtL fuel",
+"kg": 1.0
+}
+]

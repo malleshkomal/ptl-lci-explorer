@@ -1,0 +1,434 @@
+[
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "biosphere",
+"flow": "Hydrogen",
+"unit": "kilogram",
+"amount": 1.2582801e-05
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "biosphere",
+"flow": "Occupation, industrial area",
+"unit": "square meter-year",
+"amount": 7.051966065e-05
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "electricity production, wind, 1-3MW turbine, onshore",
+"unit": "kilowatt hour",
+"amount": 65.16195
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for aluminium alloy, AlMg3",
+"unit": "kilogram",
+"amount": 0.00028419999999999997
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for aluminium, wrought alloy",
+"unit": "kilogram",
+"amount": 1.7377875e-05
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for concrete, normal strength",
+"unit": "cubic meter",
+"amount": 4.1626069e-05
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for corrugated board box",
+"unit": "kilogram",
+"amount": 0.0001197244125
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for lubricating oil",
+"unit": "kilogram",
+"amount": 5.213362500000001e-06
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for nitrogen, liquid",
+"unit": "kilogram",
+"amount": 0.0001995406875
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for potassium hydroxide",
+"unit": "kilogram",
+"amount": 7.0426125e-05
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for reinforcing steel",
+"unit": "kilogram",
+"amount": 0.01016155
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for sheet rolling, copper",
+"unit": "kilogram",
+"amount": 0.0003045
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for sodium silicate, spray powder, 80%",
+"unit": "kilogram",
+"amount": 0.00046950750000000004
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for steel, chromium steel 18/8",
+"unit": "kilogram",
+"amount": 0.01895407875
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for steel, chromium steel 18/8, hot rolled",
+"unit": "kilogram",
+"amount": 0.00120785
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for steel, low-alloyed",
+"unit": "kilogram",
+"amount": 0.00010426725000000001
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for transport, freight, lorry 16-32 metric ton, EURO6",
+"unit": "ton kilometer",
+"amount": 7.507242e-05
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for waste bulk iron, excluding reinforcement",
+"unit": "kilogram",
+"amount": 0.019058346
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for waste concrete, not reinforced",
+"unit": "kilogram",
+"amount": 0.0009036495000000001
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for waste fibreboard",
+"unit": "kilogram",
+"amount": 0.0001197244125
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for waste reinforcement steel",
+"unit": "kilogram",
+"amount": 0.00939015
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market for water, deionised",
+"unit": "kilogram",
+"amount": 11.280375000000001
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "market group for transport, freight train",
+"unit": "ton kilometer",
+"amount": 0.0060484334175000005
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "transport, freight, lorry 16-32 metric ton, EURO3",
+"unit": "ton kilometer",
+"amount": 0.002887471125
+},
+{
+"fu": "lh2",
+"product": "1 kg liquid hydrogen",
+"type": "technosphere",
+"flow": "treatment of scrap aluminium, municipal incineration",
+"unit": "kilogram",
+"amount": 1.7377875e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "biosphere",
+"flow": "Carbon dioxide, in air",
+"unit": "kilogram",
+"amount": 3.1596249999999997
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "biosphere",
+"flow": "Hydrogen",
+"unit": "kilogram",
+"amount": 5.3039678999999996e-06
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "biosphere",
+"flow": "Occupation, industrial area",
+"unit": "square meter-year",
+"amount": 4.76270667375e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "electricity production, wind, 1-3MW turbine, onshore",
+"unit": "kilowatt hour",
+"amount": 25.551073749999997
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for aluminium oxide, non-metallurgical",
+"unit": "kilogram",
+"amount": 2.8198747500000004e-06
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for aluminium, wrought alloy",
+"unit": "kilogram",
+"amount": 7.3252125e-06
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for concrete, normal strength",
+"unit": "cubic meter",
+"amount": 1.758051e-07
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for copper oxide",
+"unit": "kilogram",
+"amount": 1.461207825e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for corrugated board box",
+"unit": "kilogram",
+"amount": 5.046685874999999e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for lubricating oil",
+"unit": "kilogram",
+"amount": 2.19756375e-06
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for nitrogen, liquid",
+"unit": "kilogram",
+"amount": 8.411143124999999e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for potassium hydroxide",
+"unit": "kilogram",
+"amount": 2.9686387499999997e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for reinforcing steel",
+"unit": "kilogram",
+"amount": 0.004006424999999999
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for sodium silicate, spray powder, 80%",
+"unit": "kilogram",
+"amount": 0.00019790924999999997
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for steel, chromium steel 18/8",
+"unit": "kilogram",
+"amount": 0.008008110559999998
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for steel, low-alloyed",
+"unit": "kilogram",
+"amount": 0.0012068800075
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for transport, freight, lorry 16-32 metric ton, EURO6",
+"unit": "ton kilometer",
+"amount": 3.1644918e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for waste bulk iron, excluding reinforcement",
+"unit": "kilogram",
+"amount": 0.0092632305675
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for waste concrete, not reinforced",
+"unit": "kilogram",
+"amount": 0.00038091105
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for waste fibreboard",
+"unit": "kilogram",
+"amount": 5.046685874999999e-05
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for waste reinforced concrete",
+"unit": "kilogram",
+"amount": 0.0055476
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for waste reinforcement steel",
+"unit": "kilogram",
+"amount": 0.0039581849999999995
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for water, deionised",
+"unit": "kilogram",
+"amount": 4.7549624999999995
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for zeolite, powder",
+"unit": "kilogram",
+"amount": 0.0001037061375
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market for zinc oxide",
+"unit": "kilogram",
+"amount": 7.94691975e-06
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market group for concrete, normal strength",
+"unit": "cubic meter",
+"amount": 2.3115000000000002e-06
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "market group for transport, freight train",
+"unit": "ton kilometer",
+"amount": 0.0025495671982499997
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "transport, freight, lorry 16-32 metric ton, EURO3",
+"unit": "ton kilometer",
+"amount": 0.0012171418874999998
+},
+{
+"fu": "ptl",
+"product": "1 kg PtL fuel",
+"type": "technosphere",
+"flow": "treatment of scrap aluminium, municipal incineration",
+"unit": "kilogram",
+"amount": 7.3252125e-06
+}
+]
