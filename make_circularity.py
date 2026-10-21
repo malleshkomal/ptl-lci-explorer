@@ -26,6 +26,7 @@ from make_charts import (AQUA, BLUE, FU, FU_NAME, GRID, MUTED, ORANGE, TEXT,  # 
 
 ROOT = Path(__file__).parent
 OUT = ROOT / "results" / "circularity"
+DASH = ROOT / "results" / "dashboard_data"
 SCREENING = "Screening GWP uses illustrative emission factors, not ecoinvent 3.9 results."
 
 
@@ -106,6 +107,21 @@ def chart(results):
     save(fig, "09_circularity_vs_gwp.png")
 
 
+def write_dashboard_data(kpis, covs, scs, lvs):
+    """Tables for the findings page (build_site.py embeds results/dashboard_data/)."""
+    code = {v: k for k, v in FU_NAME.items()}
+
+    def dump(name, df):
+        df = df.rename(columns={"product": "fu"}).assign(fu=lambda d: d["fu"].map(code))
+        df.columns = [c.replace(" ", "_") for c in df.columns]
+        (DASH / f"{name}.json").write_text(df.to_json(orient="records", indent=0, double_precision=6), encoding="utf-8")
+
+    dump("circularity_kpis", pd.DataFrame(kpis).assign(kpi=lambda d: d["kpi"].str.strip()))
+    dump("eol_coverage", pd.concat(covs))
+    dump("circularity_scenarios", pd.concat(scs).query("rule == 'cut-off'").drop(columns="rule"))
+    dump("circularity_levers", pd.concat(lvs))
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     _, acts, excs = read_brightway_csv(dataset_paths(ROOT / "data/original/power-to-liquid")["csv"])
@@ -124,6 +140,7 @@ def main():
     pd.concat(covs).to_csv(OUT / "eol_coverage.csv", index=False)
     pd.concat(scs).to_csv(OUT / "scenarios.csv", index=False)
     pd.concat(lvs).to_csv(OUT / "levers.csv", index=False)
+    write_dashboard_data(kpis, covs, scs, lvs)
 
     for r in kpis:
         v = f"{r['value']:.1%}" if r["unit"] == "share" else f"{r['value']:.3f} {r['unit']}"

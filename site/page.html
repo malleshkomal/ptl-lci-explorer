@@ -99,6 +99,7 @@
       <button type="button" data-go="hydrogen">Hydrogen and carbon</button>
       <button type="button" data-go="materials">Materials</button>
       <button type="button" data-go="equipment">Equipment</button>
+      <button type="button" data-go="circularity">Circularity</button>
       <button type="button" data-go="dataset">The dataset</button>
       <button type="button" data-go="quality">Quality check</button>
       <button type="button" data-go="about">About the data</button>
@@ -208,6 +209,40 @@
       <p class="pl-card-note">Tonnes of product, logarithmic scale: each gridline is ten times the one before.</p>
       <div class="pl-chart" id="equip-chart" data-source="equipment_life" style="min-height: 300px"></div>
     </div>
+  </section>
+
+  <section class="pl-section" id="circularity">
+    <header>
+      <h2>Circularity and the carbon footprint</h2>
+      <p>Circularity KPIs and a screening carbon footprint are calculated from the same inventory and the same three settings: metal recycled content, end-of-life recycling and equipment lifetime. Change one and both move.</p>
+    </header>
+    <div class="pl-tiles" id="circ-tiles" data-source="circularity_kpis"></div>
+    <div class="pl-grid">
+      <div class="pl-card" id="circ-card">
+        <div class="pl-card-top">
+          <h3>Circularity vs carbon footprint</h3>
+          <div class="pl-seg" role="group" aria-label="Product">
+            <button type="button" id="circ-ptl" aria-pressed="true">PtL fuel</button>
+            <button type="button" id="circ-lh2" aria-pressed="false">Liquid hydrogen</button>
+          </div>
+        </div>
+        <p class="pl-card-note">Each dot is one scenario (cut-off rule). The Material Circularity Indicator (MCI) runs from 0, fully linear, to 1, fully circular.</p>
+        <ul class="pl-legend" id="circ-legend"></ul>
+        <div class="pl-chart" id="circ-chart" data-source="circularity_scenarios" style="min-height: 300px"></div>
+        <p class="pl-card-note" id="circ-note"></p>
+      </div>
+      <div class="pl-card" id="lever-card">
+        <h3>What moves the footprint</h3>
+        <p class="pl-card-note">Change in screening GWP per kg of product at the low and high end of each setting, for the product selected on the left.</p>
+        <div class="pl-chart" id="lever-chart" data-source="circularity_levers" style="min-height: 260px"></div>
+      </div>
+    </div>
+    <div class="pl-card" id="eol-card">
+      <h3>Does each material have an end of life in the dataset?</h3>
+      <p class="pl-card-note">Material going into equipment vs the waste flows recorded for it, grams per kg of product. Below 90% is flagged: that material has no end-of-life treatment, so recycling can't be credited.</p>
+      <div class="pl-scroll"><table class="pl-table" id="eol-table" data-source="eol_coverage"></table></div>
+    </div>
+    <p class="pl-foot">The carbon footprint uses illustrative screening emission factors, not ecoinvent 3.9 results: good enough to rank the levers, not to quote. Every step is explained with worked numbers in <a href="https://github.com/malleshkomal/ptl-lci-explorer/blob/main/METHODS.md">METHODS.md</a>.</p>
   </section>
 
   <section class="pl-section" id="dataset">
@@ -867,6 +902,147 @@ dash.calc('meta_lists', {
       el.replaceChildren(...rows.map((r) => { const li = document.createElement('li'); li.textContent = r.text; return li; }));
     });
   });
+})();
+</script>
+
+<script>
+// Circularity: KPI tiles, MCI vs GWP scatter, levers and end-of-life coverage.
+(() => {
+  const tiles = document.getElementById('circ-tiles');
+  const el = document.getElementById('circ-chart');
+  const leverEl = document.getElementById('lever-chart');
+  const legendEl = document.getElementById('circ-legend');
+  const note = document.getElementById('circ-note');
+  const table = document.getElementById('eol-table');
+  const btn = { ptl: document.getElementById('circ-ptl'), lh2: document.getElementById('circ-lh2') };
+  const name = { ptl: 'PtL fuel', lh2: 'liquid hydrogen' };
+  const life = [[0.5, 'Lifetime ×0.5', 1], [1, 'Lifetime as published', 0], [2, 'Lifetime ×2', 2]];
+  let fu = 'ptl';
+  const kpi = (rows, f, k) => (rows.find((r) => r.fu === f && r.kpi.startsWith(k)) || {}).value;
+  const pct1 = (v) => PL.fmt(v * 100, 1) + '%';
+
+  const drawTiles = () => {
+    if (!PL.ready(tiles, 'circularity_kpis')) return;
+    const k = dash.data('circularity_kpis').data;
+    const items = [
+      ['Carbon loop, PtL fuel', pct1(kpi(k, 'ptl', 'Carbon loop')), '', 'CO₂ captured from air vs CO₂ released when the fuel burns'],
+      ['MCI of the equipment', PL.fmt(kpi(k, 'ptl', 'MCI, linear'), 2) + ' → ' + PL.fmt(kpi(k, 'ptl', 'MCI, 100%'), 2), '', 'PtL fuel, as published → 100% recycled metal in, 90% recycled at end of life'],
+      ['Material with an end of life', pct1(kpi(k, 'ptl', 'Material mass')) + ' / ' + pct1(kpi(k, 'lh2', 'Material mass')), '', 'PtL fuel / liquid hydrogen. The liquefaction plant has no end-of-life flows.'],
+      ['Footprint from electricity', PL.fmt(kpi(k, 'ptl', 'of which electricity'), 'pct'), '', 'Screening GWP of PtL fuel. Equipment materials are ' + PL.fmt(kpi(k, 'ptl', 'of which equipment'), 'pct') + '.'],
+    ];
+    tiles.replaceChildren(...items.map(([label, value, unit, sub]) => {
+      const t = document.createElement('div'); t.className = 'pl-tile';
+      t.innerHTML = '<div class="pl-tile-label"></div><div class="pl-tile-value"></div><div class="pl-tile-note"></div>';
+      t.children[0].textContent = label; t.children[1].textContent = value; t.children[2].textContent = sub;
+      return t;
+    }));
+  };
+
+  const drawScatter = () => {
+    PL.legend(legendEl, life.map(([, n, c]) => [n, dash.colors[c]]));
+    if (!PL.ready(el, 'circularity_scenarios')) return;
+    const rows = dash.data('circularity_scenarios').data.filter((r) => r.fu === fu);
+    const W = el.clientWidth, H = 300, m = { l: 52, r: 12, t: 10, b: 42 };
+    el.replaceChildren();
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('height', H).attr('viewBox', `0 0 ${W} ${H}`);
+    const xs = d3.scaleLinear([0, 1], [m.l, W - m.r]);
+    const ys = d3.scaleLinear(d3.extent(rows, (r) => r.GWP), [H - m.b, m.t]).nice();
+    const ax = svg.append('g').attr('class', 'pl-axis');
+    xs.ticks(W < 420 ? 5 : 10).forEach((t) => {
+      ax.append('line').attr('x1', xs(t)).attr('x2', xs(t)).attr('y1', m.t).attr('y2', H - m.b);
+      ax.append('text').attr('x', xs(t)).attr('y', H - m.b + 16).attr('text-anchor', 'middle').text(d3.format('.1f')(t));
+    });
+    ys.ticks(5).forEach((t) => {
+      ax.append('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', ys(t)).attr('y2', ys(t));
+      ax.append('text').attr('x', m.l - 6).attr('y', ys(t)).attr('dy', '0.35em').attr('text-anchor', 'end').text(d3.format('.2f')(t));
+    });
+    ax.append('text').attr('x', (m.l + W - m.r) / 2).attr('y', H - 4).attr('text-anchor', 'middle').text('Material Circularity Indicator');
+    ax.append('text').attr('transform', `translate(12,${(m.t + H - m.b) / 2}) rotate(-90)`).attr('text-anchor', 'middle').text('kg CO₂e per kg');
+    rows.forEach((r) => {
+      const [, , c] = life.find(([l]) => l === r.lifetime);
+      const ref = r.recycled_content === 0 && r.EoL_recycling === 0 && r.lifetime === 1;
+      svg.append('circle').attr('cx', xs(r.MCI)).attr('cy', ys(r.GWP)).attr('r', ref ? 7 : 5)
+        .style('fill', dash.colors[c]).style('stroke', ref ? 'var(--color-fg)' : 'var(--color-panel)').style('stroke-width', ref ? 2 : 1)
+        .on('mousemove', (event) => PL.showTip(event, ref ? 'As published' : 'Scenario', [
+          { name: 'Metal recycled content', value: PL.fmt(r.recycled_content, 'pct') },
+          { name: 'End-of-life recycling', value: PL.fmt(r.EoL_recycling, 'pct') },
+          { name: 'Equipment lifetime', value: '×' + r.lifetime },
+          { color: dash.colors[c], name: 'MCI', value: PL.fmt(r.MCI, 2) },
+          { color: dash.colors[c], name: 'Screening GWP', value: PL.fmt(r.GWP, 3) + ' kg CO₂e' },
+        ])).on('mouseleave', PL.hideTip);
+    });
+    const minGWP = d3.min(rows, (r) => r.GWP);
+    const top = rows.reduce((a, b) => (b.MCI > a.MCI ? b : a));
+    note.textContent = (top.GWP <= minGWP + 1e-9 ? 'No trade-off: the most circular scenario is also the lowest-carbon one. ' : '')
+      + 'The outlined dot is the dataset as published: all primary metal, no recycling.';
+  };
+
+  const drawLevers = () => {
+    if (!PL.ready(leverEl, 'circularity_levers')) return;
+    const rows = dash.data('circularity_levers').data.filter((r) => r.fu === fu);
+    const base = rows[0].base;
+    const W = leverEl.clientWidth, barH = 22, rowH = 58, axisH = 22;
+    leverEl.replaceChildren();
+    const svg = d3.select(leverEl).append('svg').attr('width', '100%');
+    const pct = (v) => (v - base) / base * 100;
+    const lim = Math.max(25, Math.ceil(d3.max(rows, (r) => Math.max(Math.abs(pct(r.low)), Math.abs(pct(r.high)))) / 5) * 5 + 5);
+    const xs = d3.scaleLinear([-lim, lim], [36, W - 36]);
+    const ax = svg.append('g').attr('class', 'pl-axis');
+    xs.ticks(W < 420 ? 3 : 6).forEach((t) => {
+      ax.append('line').attr('x1', xs(t)).attr('x2', xs(t)).attr('y1', axisH - 4).attr('y2', axisH + rows.length * rowH);
+      ax.append('text').attr('x', xs(t)).attr('y', 12).attr('text-anchor', 'middle').text((t > 0 ? '+' : '') + t + '%');
+    });
+    svg.append('line').attr('x1', xs(0)).attr('x2', xs(0)).attr('y1', axisH - 4).attr('y2', axisH + rows.length * rowH).style('stroke', 'var(--color-fg)');
+    rows.forEach((r, i) => {
+      const y = axisH + i * rowH;
+      svg.append('text').attr('class', 'pl-lbl-m pl-halo').attr('x', 0).attr('y', y + 14).text(r.lever);
+      const lo = pct(r.low), hi = pct(r.high);
+      const color = r.lever.startsWith('Wind') ? 'var(--cds-chart-muted)' : dash.colors[0];
+      const x0 = xs(Math.min(lo, hi, 0)), x1 = xs(Math.max(lo, hi, 0));
+      svg.append('rect').attr('x', x0).attr('y', y + 22).attr('width', Math.max(x1 - x0, 2)).attr('height', barH).attr('rx', 4).style('fill', color)
+        .on('mousemove', (event) => PL.showTip(event, r.lever, [
+          { name: 'Low end', value: `${PL.fmt(r.low, 3)} kg (${lo >= 0 ? '+' : ''}${PL.fmt(lo, 0)}%)` },
+          { name: 'High end', value: `${PL.fmt(r.high, 3)} kg (${hi >= 0 ? '+' : ''}${PL.fmt(hi, 0)}%)` },
+        ])).on('mouseleave', PL.hideTip);
+      [...new Set([Math.round(lo), Math.round(hi)])].filter((v) => v !== 0).forEach((v) => {
+        svg.append('text').attr('class', 'pl-lbl').attr('x', xs(v) + (v > 0 ? 6 : -6)).attr('text-anchor', v > 0 ? 'start' : 'end')
+          .attr('y', y + 22 + barH / 2).attr('dy', '0.35em').text((v > 0 ? '+' : '') + v + '%');
+      });
+    });
+    const h = axisH + rows.length * rowH;
+    svg.attr('height', h).attr('viewBox', `0 0 ${W} ${h}`);
+  };
+
+  const drawTable = () => {
+    if (!PL.ready(table, 'eol_coverage')) return;
+    const rows = dash.data('eol_coverage').data;
+    const head = '<thead><tr><th>Product</th><th>Material</th><th class="pl-r">In, g/kg</th><th class="pl-r">End of life, g/kg</th><th class="pl-r">Coverage</th><th>Route in the dataset</th></tr></thead>';
+    table.innerHTML = head + '<tbody></tbody>';
+    const tb = table.querySelector('tbody');
+    rows.forEach((r) => {
+      const tr = document.createElement('tr');
+      const cells = [r.fu === 'ptl' ? 'PtL fuel' : 'Liquid hydrogen', r.material, PL.fmt(r.input_kg * 1000, 2), PL.fmt(r['end-of-life_kg'] * 1000, 2), null, r.route];
+      cells.forEach((c, j) => {
+        const td = document.createElement('td');
+        if (j >= 2 && j <= 4) td.className = 'pl-r';
+        if (j === 4) {
+          const pill = document.createElement('span');
+          pill.className = 'pl-pill ' + (r.coverage >= 0.9 ? 'ok' : 'warn');
+          pill.textContent = PL.fmt(r.coverage, 'pct');
+          td.append(pill);
+        } else td.textContent = c;
+        tr.append(td);
+      });
+      tb.append(tr);
+    });
+  };
+
+  const draw = () => {
+    Object.entries(btn).forEach(([k, b]) => b.setAttribute('aria-pressed', String(k === fu)));
+    drawTiles(); drawScatter(); drawLevers(); drawTable();
+  };
+  Object.entries(btn).forEach(([k, b]) => b.addEventListener('click', () => { fu = k; draw(); }));
+  dash.onData(draw);
 })();
 </script>
 
