@@ -113,7 +113,7 @@ What the link shows:
 - **A data gap for liquid hydrogen.** The liquefaction plant has no end-of-life flows, so 99% of the LH₂ chain's concrete and all of its copper have no end-of-life treatment. That keeps its MCI low whatever the recycling rate.
 - **No double counting.** One recycling-credit rule applies at a time: *cut-off* credits recycled content (matching ecoinvent cut-off), *end-of-life* credits recycling at end of life. The tests check that neither rule rewards both.
 
-The GWP uses **illustrative screening emission factors** (in `src/lcitools/circularity.py`), not ecoinvent 3.9 results. They are good enough to rank the levers. Replace them with ecoinvent cut-off scores before quoting a footprint. The MCI is the Ellen MacArthur Foundation indicator in simplified form: no recycling-process losses, and only metals can be recycled. Tables are in `results/circularity/`.
+The GWP uses **illustrative screening emission factors** (in `src/lcitools/circularity.py`), not ecoinvent 3.9 results. They are good enough to rank the levers. Replace them with ecoinvent cut-off scores before quoting a footprint. The MCI is the Ellen MacArthur Foundation indicator in simplified form: no recycling-process losses, and only metals can be recycled. Tables are in `results/circularity/`. **[METHODS.md](METHODS.md)** explains every calculation step by step, with worked numbers.
 
 ## Validation findings
 
