@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 20 1400 545" width="1400" height="545" role="img" aria-label="Animated flow diagram: wind power, water and CO2 from air become 1 kg of PtL jet fuel">
+<rect x="0" y="20" width="1400" height="545" rx="10" fill="#EEF2F1"/>
+<line x1="50" y1="20" x2="50" y2="565" stroke="#DDE5E4"/>
+<line x1="100" y1="20" x2="100" y2="565" stroke="#DDE5E4"/>
+<line x1="150" y1="20" x2="150" y2="565" stroke="#DDE5E4"/>
+<line x1="200" y1="20" x2="200" y2="565" stroke="#DDE5E4"/>
+<line x1="250" y1="20" x2="250" y2="565" stroke="#DDE5E4"/>
+<line x1="300" y1="20" x2="300" y2="565" stroke="#DDE5E4"/>
+<line x1="350" y1="20" x2="350" y2="565" stroke="#DDE5E4"/>
+<line x1="400" y1="20" x2="400" y2="565" stroke="#DDE5E4"/>
+<line x1="450" y1="20" x2="450" y2="565" stroke="#DDE5E4"/>
+<line x1="500" y1="20" x2="500" y2="565" stroke="#DDE5E4"/>
+<line x1="550" y1="20" x2="550" y2="565" stroke="#DDE5E4"/>
+<line x1="600" y1="20" x2="600" y2="565" stroke="#DDE5E4"/>
+<line x1="650" y1="20" x2="650" y2="565" stroke="#DDE5E4"/>
+<line x1="700" y1="20" x2="700" y2="565" stroke="#DDE5E4"/>
+<line x1="750" y1="20" x2="750" y2="565" stroke="#DDE5E4"/>
+<line x1="800" y1="20" x2="800" y2="565" stroke="#DDE5E4"/>
+<line x1="850" y1="20" x2="850" y2="565" stroke="#DDE5E4"/>
+<line x1="900" y1="20" x2="900" y2="565" stroke="#DDE5E4"/>
+<line x1="950" y1="20" x2="950" y2="565" stroke="#DDE5E4"/>
+<line x1="1000" y1="20" x2="1000" y2="565" stroke="#DDE5E4"/>
+<line x1="1050" y1="20" x2="1050" y2="565" stroke="#DDE5E4"/>
+<line x1="1100" y1="20" x2="1100" y2="565" stroke="#DDE5E4"/>
+<line x1="1150" y1="20" x2="1150" y2="565" stroke="#DDE5E4"/>
+<line x1="1200" y1="20" x2="1200" y2="565" stroke="#DDE5E4"/>
+<line x1="1250" y1="20" x2="1250" y2="565" stroke="#DDE5E4"/>
+<line x1="1300" y1="20" x2="1300" y2="565" stroke="#DDE5E4"/>
+<line x1="1350" y1="20" x2="1350" y2="565" stroke="#DDE5E4"/>
+<line x1="0" y1="50" x2="1400" y2="50" stroke="#DDE5E4"/>
+<line x1="0" y1="100" x2="1400" y2="100" stroke="#DDE5E4"/>
+<line x1="0" y1="150" x2="1400" y2="150" stroke="#DDE5E4"/>
+<line x1="0" y1="200" x2="1400" y2="200" stroke="#DDE5E4"/>
+<line x1="0" y1="250" x2="1400" y2="250" stroke="#DDE5E4"/>
+<line x1="0" y1="300" x2="1400" y2="300" stroke="#DDE5E4"/>
+<line x1="0" y1="350" x2="1400" y2="350" stroke="#DDE5E4"/>
+<line x1="0" y1="400" x2="1400" y2="400" stroke="#DDE5E4"/>
+<line x1="0" y1="450" x2="1400" y2="450" stroke="#DDE5E4"/>
+<line x1="0" y1="500" x2="1400" y2="500" stroke="#DDE5E4"/>
+<line x1="0" y1="550" x2="1400" y2="550" stroke="#DDE5E4"/>
+<text x="24" y="52" font-family="'IBM Plex Sans Condensed','Arial Narrow',Helvetica,Arial,sans-serif" font-size="22" font-weight="600" fill="#16242B">How wind becomes jet fuel</text>
+<text x="1376" y="52" text-anchor="end" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="13" fill="#5A6B70">flows per 1 kg of PtL fuel · 25.6 kWh · 3.16 kg CO₂ from air</text>
+<path d="M135,110 L228,110" fill="none" stroke="#FFFFFF" stroke-width="13.4" stroke-linejoin="round"/>
+<path d="M135,110 L228,110" fill="none" stroke="#3E9CC2" stroke-width="8.4" stroke-linejoin="round"/>
+<path d="M135,248 L185,248 L185,125 L228,125" fill="none" stroke="#FFFFFF" stroke-width="12.7" stroke-linejoin="round"/>
+<path d="M135,248 L185,248 L185,125 L228,125" fill="none" stroke="#C98A00" stroke-width="7.7" stroke-linejoin="round"/>
+<path d="M135,260 L448,260" fill="none" stroke="#FFFFFF" stroke-width="7.2" stroke-linejoin="round"/>
+<path d="M135,260 L448,260" fill="none" stroke="#C98A00" stroke-width="2.2" stroke-linejoin="round"/>
+<path d="M135,272 L185,272 L185,425 L228,425" fill="none" stroke="#FFFFFF" stroke-width="7.7" stroke-linejoin="round"/>
+<path d="M135,272 L185,272 L185,425 L228,425" fill="none" stroke="#C98A00" stroke-width="2.7" stroke-linejoin="round"/>
+<path d="M135,455 L228,455" fill="none" stroke="#FFFFFF" stroke-width="12.1" stroke-linejoin="round"/>
+<path d="M135,455 L228,455" fill="none" stroke="#7B6A9E" stroke-width="7.1" stroke-linejoin="round"/>
+<path d="M372,110 L500,110 L500,229" fill="none" stroke="#FFFFFF" stroke-width="8.6" stroke-linejoin="round"/>
+<path d="M372,110 L500,110 L500,229" fill="none" stroke="#2F74C8" stroke-width="3.6" stroke-linejoin="round"/>
+<path d="M560,291 L560,425 L628,425" fill="none" stroke="#FFFFFF" stroke-width="7.8" stroke-linejoin="round"/>
+<path d="M560,291 L560,425 L628,425" fill="none" stroke="#2F74C8" stroke-width="2.8" stroke-linejoin="round"/>
+<path d="M372,448 L628,448" fill="none" stroke="#FFFFFF" stroke-width="12.1" stroke-linejoin="round"/>
+<path d="M372,448 L628,448" fill="none" stroke="#7B6A9E" stroke-width="7.1" stroke-linejoin="round"/>
+<path d="M592,272 L920,272 L920,409" fill="none" stroke="#FFFFFF" stroke-width="8.3" stroke-linejoin="round"/>
+<path d="M592,272 L920,272 L920,409" fill="none" stroke="#2F74C8" stroke-width="3.3" stroke-linejoin="round"/>
+<path d="M772,440 L848,440" fill="none" stroke="#FFFFFF" stroke-width="11.0" stroke-linejoin="round"/>
+<path d="M772,440 L848,440" fill="none" stroke="#1B9483" stroke-width="6.0" stroke-linejoin="round"/>
+<path d="M992,440 L1058,440" fill="none" stroke="#FFFFFF" stroke-width="11.3" stroke-linejoin="round"/>
+<path d="M992,440 L1058,440" fill="none" stroke="#0E6F68" stroke-width="6.3" stroke-linejoin="round"/>
+<path d="M1202,440 L1265,440" fill="none" stroke="#FFFFFF" stroke-width="9.7" stroke-linejoin="round"/>
+<path d="M1202,440 L1265,440" fill="none" stroke="#D04A12" stroke-width="4.7" stroke-linejoin="round"/>
+<path d="M740,471 L740,530 L845,530" fill="none" stroke="#FFFFFF" stroke-width="10.1" stroke-linejoin="round"/>
+<path d="M740,471 L740,530 L845,530" fill="none" stroke="#3E9CC2" stroke-width="5.1" stroke-linejoin="round" stroke-dasharray="5 4"/>
+<path d="M1170,471 L1170,530 L995,530" fill="none" stroke="#FFFFFF" stroke-width="10.1" stroke-linejoin="round"/>
+<path d="M1170,471 L1170,530 L995,530" fill="none" stroke="#3E9CC2" stroke-width="5.1" stroke-linejoin="round" stroke-dasharray="5 4"/>
+<circle r="3.0" fill="#FFFFFF" stroke="#3E9CC2" stroke-width="1.5"><animateMotion dur="1.94s" begin="-0.00s" repeatCount="indefinite" path="M135,110 L228,110"/></circle>
+<circle r="3.0" fill="#FFFFFF" stroke="#3E9CC2" stroke-width="1.5"><animateMotion dur="1.94s" begin="-0.97s" repeatCount="indefinite" path="M135,110 L228,110"/></circle>
+<circle r="2.8" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.27s" begin="-0.00s" repeatCount="indefinite" path="M135,248 L185,248 L185,125 L228,125"/></circle>
+<circle r="2.8" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.27s" begin="-0.28s" repeatCount="indefinite" path="M135,248 L185,248 L185,125 L228,125"/></circle>
+<circle r="2.8" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.27s" begin="-0.57s" repeatCount="indefinite" path="M135,248 L185,248 L185,125 L228,125"/></circle>
+<circle r="2.8" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.27s" begin="-0.85s" repeatCount="indefinite" path="M135,248 L185,248 L185,125 L228,125"/></circle>
+<circle r="2.8" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.27s" begin="-1.14s" repeatCount="indefinite" path="M135,248 L185,248 L185,125 L228,125"/></circle>
+<circle r="2.8" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.27s" begin="-1.42s" repeatCount="indefinite" path="M135,248 L185,248 L185,125 L228,125"/></circle>
+<circle r="2.8" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.27s" begin="-1.71s" repeatCount="indefinite" path="M135,248 L185,248 L185,125 L228,125"/></circle>
+<circle r="2.8" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.27s" begin="-1.99s" repeatCount="indefinite" path="M135,248 L185,248 L185,125 L228,125"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="3.29s" begin="-0.00s" repeatCount="indefinite" path="M135,260 L448,260"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="3.29s" begin="-0.27s" repeatCount="indefinite" path="M135,260 L448,260"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="3.29s" begin="-0.55s" repeatCount="indefinite" path="M135,260 L448,260"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="3.29s" begin="-0.82s" repeatCount="indefinite" path="M135,260 L448,260"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="3.29s" begin="-1.10s" repeatCount="indefinite" path="M135,260 L448,260"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="3.29s" begin="-1.37s" repeatCount="indefinite" path="M135,260 L448,260"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="3.29s" begin="-1.65s" repeatCount="indefinite" path="M135,260 L448,260"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="3.29s" begin="-1.92s" repeatCount="indefinite" path="M135,260 L448,260"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="3.29s" begin="-2.20s" repeatCount="indefinite" path="M135,260 L448,260"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="3.29s" begin="-2.47s" repeatCount="indefinite" path="M135,260 L448,260"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="3.29s" begin="-2.75s" repeatCount="indefinite" path="M135,260 L448,260"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="3.29s" begin="-3.02s" repeatCount="indefinite" path="M135,260 L448,260"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.59s" begin="-0.00s" repeatCount="indefinite" path="M135,272 L185,272 L185,425 L228,425"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.59s" begin="-0.29s" repeatCount="indefinite" path="M135,272 L185,272 L185,425 L228,425"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.59s" begin="-0.58s" repeatCount="indefinite" path="M135,272 L185,272 L185,425 L228,425"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.59s" begin="-0.86s" repeatCount="indefinite" path="M135,272 L185,272 L185,425 L228,425"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.59s" begin="-1.15s" repeatCount="indefinite" path="M135,272 L185,272 L185,425 L228,425"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.59s" begin="-1.44s" repeatCount="indefinite" path="M135,272 L185,272 L185,425 L228,425"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.59s" begin="-1.73s" repeatCount="indefinite" path="M135,272 L185,272 L185,425 L228,425"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.59s" begin="-2.01s" repeatCount="indefinite" path="M135,272 L185,272 L185,425 L228,425"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#C98A00" stroke-width="1.5"><animateMotion dur="2.59s" begin="-2.30s" repeatCount="indefinite" path="M135,272 L185,272 L185,425 L228,425"/></circle>
+<circle r="2.6" fill="#FFFFFF" stroke="#7B6A9E" stroke-width="1.5"><animateMotion dur="1.94s" begin="-0.00s" repeatCount="indefinite" path="M135,455 L228,455"/></circle>
+<circle r="2.6" fill="#FFFFFF" stroke="#7B6A9E" stroke-width="1.5"><animateMotion dur="1.94s" begin="-0.97s" repeatCount="indefinite" path="M135,455 L228,455"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="5.15s" begin="-0.00s" repeatCount="indefinite" path="M372,110 L500,110 L500,229"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="5.15s" begin="-0.74s" repeatCount="indefinite" path="M372,110 L500,110 L500,229"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="5.15s" begin="-1.47s" repeatCount="indefinite" path="M372,110 L500,110 L500,229"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="5.15s" begin="-2.21s" repeatCount="indefinite" path="M372,110 L500,110 L500,229"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="5.15s" begin="-2.94s" repeatCount="indefinite" path="M372,110 L500,110 L500,229"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="5.15s" begin="-3.68s" repeatCount="indefinite" path="M372,110 L500,110 L500,229"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="5.15s" begin="-4.41s" repeatCount="indefinite" path="M372,110 L500,110 L500,229"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="4.21s" begin="-0.00s" repeatCount="indefinite" path="M560,291 L560,425 L628,425"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="4.21s" begin="-0.84s" repeatCount="indefinite" path="M560,291 L560,425 L628,425"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="4.21s" begin="-1.68s" repeatCount="indefinite" path="M560,291 L560,425 L628,425"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="4.21s" begin="-2.52s" repeatCount="indefinite" path="M560,291 L560,425 L628,425"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="4.21s" begin="-3.37s" repeatCount="indefinite" path="M560,291 L560,425 L628,425"/></circle>
+<circle r="2.6" fill="#FFFFFF" stroke="#7B6A9E" stroke-width="1.5"><animateMotion dur="5.33s" begin="-0.00s" repeatCount="indefinite" path="M372,448 L628,448"/></circle>
+<circle r="2.6" fill="#FFFFFF" stroke="#7B6A9E" stroke-width="1.5"><animateMotion dur="5.33s" begin="-0.76s" repeatCount="indefinite" path="M372,448 L628,448"/></circle>
+<circle r="2.6" fill="#FFFFFF" stroke="#7B6A9E" stroke-width="1.5"><animateMotion dur="5.33s" begin="-1.52s" repeatCount="indefinite" path="M372,448 L628,448"/></circle>
+<circle r="2.6" fill="#FFFFFF" stroke="#7B6A9E" stroke-width="1.5"><animateMotion dur="5.33s" begin="-2.29s" repeatCount="indefinite" path="M372,448 L628,448"/></circle>
+<circle r="2.6" fill="#FFFFFF" stroke="#7B6A9E" stroke-width="1.5"><animateMotion dur="5.33s" begin="-3.05s" repeatCount="indefinite" path="M372,448 L628,448"/></circle>
+<circle r="2.6" fill="#FFFFFF" stroke="#7B6A9E" stroke-width="1.5"><animateMotion dur="5.33s" begin="-3.81s" repeatCount="indefinite" path="M372,448 L628,448"/></circle>
+<circle r="2.6" fill="#FFFFFF" stroke="#7B6A9E" stroke-width="1.5"><animateMotion dur="5.33s" begin="-4.57s" repeatCount="indefinite" path="M372,448 L628,448"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="9.69s" begin="-0.00s" repeatCount="indefinite" path="M592,272 L920,272 L920,409"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="9.69s" begin="-0.75s" repeatCount="indefinite" path="M592,272 L920,272 L920,409"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="9.69s" begin="-1.49s" repeatCount="indefinite" path="M592,272 L920,272 L920,409"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="9.69s" begin="-2.24s" repeatCount="indefinite" path="M592,272 L920,272 L920,409"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="9.69s" begin="-2.98s" repeatCount="indefinite" path="M592,272 L920,272 L920,409"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="9.69s" begin="-3.73s" repeatCount="indefinite" path="M592,272 L920,272 L920,409"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="9.69s" begin="-4.47s" repeatCount="indefinite" path="M592,272 L920,272 L920,409"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="9.69s" begin="-5.22s" repeatCount="indefinite" path="M592,272 L920,272 L920,409"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="9.69s" begin="-5.96s" repeatCount="indefinite" path="M592,272 L920,272 L920,409"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="9.69s" begin="-6.71s" repeatCount="indefinite" path="M592,272 L920,272 L920,409"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="9.69s" begin="-7.45s" repeatCount="indefinite" path="M592,272 L920,272 L920,409"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="9.69s" begin="-8.20s" repeatCount="indefinite" path="M592,272 L920,272 L920,409"/></circle>
+<circle r="1.6" fill="#FFFFFF" stroke="#2F74C8" stroke-width="1.5"><animateMotion dur="9.69s" begin="-8.94s" repeatCount="indefinite" path="M592,272 L920,272 L920,409"/></circle>
+<circle r="2.2" fill="#FFFFFF" stroke="#1B9483" stroke-width="1.5"><animateMotion dur="1.58s" begin="-0.00s" repeatCount="indefinite" path="M772,440 L848,440"/></circle>
+<circle r="2.2" fill="#FFFFFF" stroke="#1B9483" stroke-width="1.5"><animateMotion dur="1.58s" begin="-0.79s" repeatCount="indefinite" path="M772,440 L848,440"/></circle>
+<circle r="2.3" fill="#FFFFFF" stroke="#0E6F68" stroke-width="1.5"><animateMotion dur="1.38s" begin="-0.00s" repeatCount="indefinite" path="M992,440 L1058,440"/></circle>
+<circle r="2.3" fill="#FFFFFF" stroke="#0E6F68" stroke-width="1.5"><animateMotion dur="1.38s" begin="-0.69s" repeatCount="indefinite" path="M992,440 L1058,440"/></circle>
+<circle r="1.7" fill="#FFFFFF" stroke="#D04A12" stroke-width="1.5"><animateMotion dur="1.31s" begin="-0.00s" repeatCount="indefinite" path="M1202,440 L1265,440"/></circle>
+<circle r="1.7" fill="#FFFFFF" stroke="#D04A12" stroke-width="1.5"><animateMotion dur="1.31s" begin="-0.66s" repeatCount="indefinite" path="M1202,440 L1265,440"/></circle>
+<circle r="1.8" fill="#FFFFFF" stroke="#3E9CC2" stroke-width="1.5"><animateMotion dur="3.42s" begin="-0.00s" repeatCount="indefinite" path="M740,471 L740,530 L845,530"/></circle>
+<circle r="1.8" fill="#FFFFFF" stroke="#3E9CC2" stroke-width="1.5"><animateMotion dur="3.42s" begin="-0.85s" repeatCount="indefinite" path="M740,471 L740,530 L845,530"/></circle>
+<circle r="1.8" fill="#FFFFFF" stroke="#3E9CC2" stroke-width="1.5"><animateMotion dur="3.42s" begin="-1.71s" repeatCount="indefinite" path="M740,471 L740,530 L845,530"/></circle>
+<circle r="1.8" fill="#FFFFFF" stroke="#3E9CC2" stroke-width="1.5"><animateMotion dur="3.42s" begin="-2.56s" repeatCount="indefinite" path="M740,471 L740,530 L845,530"/></circle>
+<circle r="1.8" fill="#FFFFFF" stroke="#3E9CC2" stroke-width="1.5"><animateMotion dur="4.88s" begin="-0.00s" repeatCount="indefinite" path="M1170,471 L1170,530 L995,530"/></circle>
+<circle r="1.8" fill="#FFFFFF" stroke="#3E9CC2" stroke-width="1.5"><animateMotion dur="4.88s" begin="-0.81s" repeatCount="indefinite" path="M1170,471 L1170,530 L995,530"/></circle>
+<circle r="1.8" fill="#FFFFFF" stroke="#3E9CC2" stroke-width="1.5"><animateMotion dur="4.88s" begin="-1.62s" repeatCount="indefinite" path="M1170,471 L1170,530 L995,530"/></circle>
+<circle r="1.8" fill="#FFFFFF" stroke="#3E9CC2" stroke-width="1.5"><animateMotion dur="4.88s" begin="-2.44s" repeatCount="indefinite" path="M1170,471 L1170,530 L995,530"/></circle>
+<circle r="1.8" fill="#FFFFFF" stroke="#3E9CC2" stroke-width="1.5"><animateMotion dur="4.88s" begin="-3.25s" repeatCount="indefinite" path="M1170,471 L1170,530 L995,530"/></circle>
+<circle r="1.8" fill="#FFFFFF" stroke="#3E9CC2" stroke-width="1.5"><animateMotion dur="4.88s" begin="-4.06s" repeatCount="indefinite" path="M1170,471 L1170,530 L995,530"/></circle>
+<text x="181" y="102" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11.5" fill="#16242B" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">4.75 kg</text>
+<text x="192" y="165" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11.5" fill="#16242B" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">24.3 kWh</text>
+<text x="330" y="252" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11.5" fill="#16242B" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">0.28 kWh</text>
+<text x="192" y="350" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11.5" fill="#16242B" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">0.98 kWh</text>
+<text x="181" y="447" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11.5" fill="#16242B" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">3.16 kg</text>
+<text x="436" y="102" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11.5" fill="#16242B" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">0.43 kg</text>
+<text x="567" y="360" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11.5" fill="#16242B" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">0.14 kg</text>
+<text x="500" y="440" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11.5" fill="#16242B" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">3.16 kg</text>
+<text x="927" y="340" text-anchor="start" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11.5" fill="#16242B" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">0.29 kg</text>
+<text x="810" y="432" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11.5" fill="#16242B" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">2.01 kg</text>
+<text x="1025" y="432" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11.5" fill="#16242B" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">2.30 kg</text>
+<text x="1233" y="432" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11.5" fill="#16242B" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">1.00 kg</text>
+<text x="792" y="522" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11.5" fill="#16242B" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">1.29 kg</text>
+<text x="1082" y="522" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="11.5" fill="#16242B" stroke="#FFFFFF" stroke-width="4" paint-order="stroke">1.30 kg</text>
+<rect x="15.0" y="86.0" width="120" height="48" rx="6" fill="#FFFFFF" stroke="#5A6B70" stroke-width="1.3" stroke-dasharray="4 3"/>
+<text x="75" y="114.5" text-anchor="middle" font-family="'IBM Plex Sans Condensed','Arial Narrow',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#16242B">Deionised water</text>
+<rect x="15.0" y="236.0" width="120" height="48" rx="6" fill="#FFFFFF" stroke="#5A6B70" stroke-width="1.3" stroke-dasharray="4 3"/>
+<text x="75" y="264.5" text-anchor="middle" font-family="'IBM Plex Sans Condensed','Arial Narrow',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#16242B">Wind electricity</text>
+<rect x="15.0" y="431.0" width="120" height="48" rx="6" fill="#FFFFFF" stroke="#5A6B70" stroke-width="1.3" stroke-dasharray="4 3"/>
+<text x="75" y="459.5" text-anchor="middle" font-family="'IBM Plex Sans Condensed','Arial Narrow',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#16242B">CO₂ in air</text>
+<rect x="228.0" y="79.0" width="144" height="62" rx="6" fill="#FFFFFF" stroke="#16242B" stroke-width="1.3"/>
+<text x="300" y="107" text-anchor="middle" font-family="'IBM Plex Sans Condensed','Arial Narrow',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#16242B">Alkaline electrolysis</text>
+<text x="300" y="125" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10.5" fill="#5A6B70">1 per 1.0 kt</text>
+<rect x="228.0" y="409.0" width="144" height="62" rx="6" fill="#FFFFFF" stroke="#16242B" stroke-width="1.3"/>
+<text x="300" y="437" text-anchor="middle" font-family="'IBM Plex Sans Condensed','Arial Narrow',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#16242B">Direct air capture</text>
+<text x="300" y="455" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10.5" fill="#5A6B70">1 per 3.5 kt</text>
+<rect x="448.0" y="229.0" width="144" height="62" rx="6" fill="#FFFFFF" stroke="#16242B" stroke-width="1.3"/>
+<text x="520" y="257" text-anchor="middle" font-family="'IBM Plex Sans Condensed','Arial Narrow',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#16242B">H₂ compression · 25 bar</text>
+<text x="520" y="275" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10.5" fill="#5A6B70">1 per 68.3 kt</text>
+<rect x="628.0" y="409.0" width="144" height="62" rx="6" fill="#FFFFFF" stroke="#16242B" stroke-width="1.3"/>
+<text x="700" y="437" text-anchor="middle" font-family="'IBM Plex Sans Condensed','Arial Narrow',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#16242B">Reverse water-gas shift</text>
+<text x="700" y="455" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10.5" fill="#5A6B70">1 per 257 kt</text>
+<rect x="848.0" y="409.0" width="144" height="62" rx="6" fill="#FFFFFF" stroke="#16242B" stroke-width="1.3"/>
+<text x="920" y="437" text-anchor="middle" font-family="'IBM Plex Sans Condensed','Arial Narrow',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#16242B">Syngas mixing</text>
+<rect x="1058.0" y="409.0" width="144" height="62" rx="6" fill="#FFFFFF" stroke="#16242B" stroke-width="1.3"/>
+<text x="1130" y="437" text-anchor="middle" font-family="'IBM Plex Sans Condensed','Arial Narrow',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#16242B">Fischer-Tropsch</text>
+<text x="1130" y="455" text-anchor="middle" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="10.5" fill="#5A6B70">1 per 149 Mt</text>
+<rect x="1265.0" y="414.0" width="110" height="52" rx="6" fill="#D04A12" stroke="#D04A12" stroke-width="1.3"/>
+<text x="1320" y="444.5" text-anchor="middle" font-family="'IBM Plex Sans Condensed','Arial Narrow',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#FFFFFF">1 kg PtL fuel</text>
+<rect x="845.0" y="512.0" width="150" height="36" rx="6" fill="#FFFFFF" stroke="#3E9CC2" stroke-width="1.3" stroke-dasharray="4 3"/>
+<text x="920" y="534.5" text-anchor="middle" font-family="'IBM Plex Sans Condensed','Arial Narrow',Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#16242B">Water out</text>
+</svg>

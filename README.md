@@ -16,6 +16,10 @@ The paper proposes a common structure for publishing LCIs: a dataset, a properti
 
 ## The supply chain
 
+[![Animated flow diagram: wind power, water and CO₂ from air become 1 kg of PtL jet fuel](results/charts/08_flow_animated.svg)](https://malleshkomal.github.io/ptl-lci-explorer/flow.html)
+
+**[Open the interactive flow diagram](https://malleshkomal.github.io/ptl-lci-explorer/flow.html)** to switch to liquid hydrogen, walk through the chain step by step, and click any step for its inputs and outputs. The dashed water outputs are not in the dataset: they are inputs minus product at each step.
+
 ```mermaid
 flowchart LR
     W[Wind electricity<br/>onshore, DE] -->|electricity| AEL[Alkaline water<br/>electrolysis]
@@ -48,6 +52,7 @@ python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\act
 pip install -r requirements.txt
 python run.py        # validate, scale to both functional units, write results/
 python make_charts.py  # draw the seven findings charts
+python make_flow_preview.py  # draw the animated flow diagram (SVG)
 pytest               # 10 tests
 ```
 
@@ -137,8 +142,10 @@ results/         generated tables, per-unit inventories and charts
   dashboard_data/ tables used by the interactive dashboard (JSON)
 run.py           entry point: validate and scale
 make_charts.py   draw the findings charts
+make_flow_preview.py  draw the animated flow diagram for the README
 build_site.py    build docs/index.html from site/page.html and results/dashboard_data/
 docs/index.html  the interactive findings page (GitHub Pages)
+docs/flow.html   the interactive animated flow diagram (GitHub Pages)
 ```
 
 ## Licence
