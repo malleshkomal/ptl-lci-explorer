@@ -20,30 +20,7 @@ The paper proposes a common structure for publishing LCIs: a dataset, a properti
 
 **[Open the interactive flow diagram](https://malleshkomal.github.io/ptl-lci-explorer/flow.html)** to switch to liquid hydrogen, walk through the chain step by step, and click any step for its inputs and outputs. The dashed water outputs are not in the dataset: they are inputs minus product at each step.
 
-```mermaid
-flowchart LR
-    W[Wind electricity<br/>onshore, DE] -->|electricity| AEL[Alkaline water<br/>electrolysis]
-    W -->|electricity| DAC[Direct air capture<br/>of CO₂]
-    AEL -->|H₂| C[Compression<br/>25 bar]
-    C -->|H₂| L[Liquefaction]
-    L --> LH2([1 kg LH₂])
-    C -->|H₂| RWGS[Reverse water-gas<br/>shift]
-    DAC -->|CO₂| RWGS
-    RWGS -->|CO| SG[Syngas]
-    C -->|H₂| SG
-    SG --> FT[Fischer-Tropsch<br/>synthesis]
-    FT --> PTL([1 kg PtL fuel])
-
-    CS[Electrolyser] -.-> AEL
-    CP[Compressor] -.-> C
-    LP[Liquefaction plant] -.-> L
-    DE[DAC equipment] -.-> DAC
-    FB[Fixed-bed reactor] -.-> RWGS
-    CAT[RWGS catalyst] -.-> FB
-    GTL[GTL plant] -.-> FT
-```
-
-Dashed arrows show infrastructure (construction) activities. The inventory has 14 foreground activities and 80 exchanges, with ecoinvent 3.9 cut-off as the background database.
+The inventory has 14 foreground activities and 80 exchanges, with ecoinvent 3.9 cut-off as the background database.
 
 ## Quick start
 
