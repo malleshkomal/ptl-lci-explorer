@@ -30,7 +30,8 @@ pip install -r requirements.txt
 python run.py        # validate, scale to both functional units, write results/
 python make_charts.py  # draw the seven findings charts
 python make_flow_preview.py  # draw the animated flow diagram (SVG)
-pytest               # 10 tests
+python make_circularity.py   # circularity KPIs linked to a screening GWP
+pytest               # 18 tests
 ```
 
 No Brightway or ecoinvent licence is needed. The tools work on the published files directly.
@@ -88,6 +89,32 @@ Run `python make_charts.py` to redraw these in `results/charts/`.
 
 The tables behind the interactive findings dashboard are in `results/dashboard_data/` as JSON.
 
+## Circularity KPIs linked to the carbon footprint
+
+`python make_circularity.py` computes circularity KPIs and a screening carbon footprint (GWP) from **the same scaled inventory and the same scenario parameters**: metal recycled content, end-of-life recycling and equipment lifetime. Changing a parameter moves both sides together, so trade-offs show up directly.
+
+![Circularity vs GWP](results/charts/09_circularity_vs_gwp.png)
+
+| Per 1 kg of product | PtL fuel | Liquid H₂ |
+|---|---:|---:|
+| Carbon loop closure (CO₂ captured / CO₂ released when burned) | 100.5% | – |
+| Equipment materials | 19.7 g | 132 g |
+| Material mass with an end-of-life flow in the dataset | 97.5% | 22.4% |
+| Material Circularity Indicator, as published (all primary metal, no recycling) | 0.10 | 0.10 |
+| MCI with 100% recycled metals and 90% end-of-life recycling | 0.67 | 0.30 |
+| Screening GWP, as published | 0.36 kg CO₂e | 0.93 kg CO₂e |
+| of which electricity / equipment materials | 85% / 14% | 84% / 15% |
+
+What the link shows:
+- **No trade-off at the best end.** The most circular scenario is also the lowest-carbon one, for both products.
+- **The MCI alone can mislead.** In 7% of scenario pairs, the more circular scenario has the higher footprint. The MCI counts kilograms, not carbon: a kilogram of concrete counts as much as a kilogram of stainless steel.
+- **Electricity sets the level.** Equipment levers each move the footprint by 7–15%. A ±25% change in the carbon intensity of wind power moves it by ±21%.
+- **Lifetime counts twice.** A longer equipment life raises the MCI and spreads the material burden over more product.
+- **A data gap for liquid hydrogen.** The liquefaction plant has no end-of-life flows, so 99% of the LH₂ chain's concrete and all of its copper have no end-of-life treatment. That keeps its MCI low whatever the recycling rate.
+- **No double counting.** One recycling-credit rule applies at a time: *cut-off* credits recycled content (matching ecoinvent cut-off), *end-of-life* credits recycling at end of life. The tests check that neither rule rewards both.
+
+The GWP uses **illustrative screening emission factors** (in `src/lcitools/circularity.py`), not ecoinvent 3.9 results. They are good enough to rank the levers. Replace them with ecoinvent cut-off scores before quoting a footprint. The MCI is the Ellen MacArthur Foundation indicator in simplified form: no recycling-process losses, and only metals can be recycled. Tables are in `results/circularity/`.
+
 ## Validation findings
 
 `lcitools.validate` runs six checks. On this dataset it finds no structural errors: all counts match the properties file, and every activity has one consistent production exchange. It does find two issues that are worth reporting to anyone reusing the data:
@@ -104,6 +131,7 @@ The tables behind the interactive findings dashboard are in `results/dashboard_d
 | `reader.py` | Parses the Brightway CSV export, where each activity block can have a different exchange header. Also reads the properties file and the LCIS2024 metadata sheet. |
 | `model.py` | Builds the square foreground technosphere matrix **A** and solves **A·s = f** for the activities upstream of the demand. It then sums the background and biosphere exchanges weighted by **s**. |
 | `validate.py` | Checks counts against the properties file, production exchanges, dangling foreground links, non-positive amounts, text encoding and required metadata fields. |
+| `circularity.py` | Material and end-of-life KPIs, carbon loop, MCI and a screening GWP that share one set of scenario parameters. |
 | `plots.py` | Draws the electricity chart. |
 
 All of these are generic. To check another LCIS2024 dataset, place its folder next to `power-to-liquid` and run `python run.py data/original/<name>`. The functional units in `run.py` are specific to this dataset, so update them for a new one.
@@ -112,7 +140,7 @@ All of these are generic. To check another LCIS2024 dataset, place its folder ne
 
 ```
 data/original/   the authors' files, unchanged (CC BY-NC 4.0, see its README)
-src/lcitools/    reader.py, model.py, validate.py, plots.py
+src/lcitools/    reader.py, model.py, validate.py, circularity.py, plots.py
 tests/           pytest checks (counts, mass balances, linearity)
 results/         generated tables, per-unit inventories and charts
   charts/        the seven findings charts (PNG)
@@ -120,6 +148,7 @@ results/         generated tables, per-unit inventories and charts
 run.py           entry point: validate and scale
 make_charts.py   draw the findings charts
 make_flow_preview.py  draw the animated flow diagram for the README
+make_circularity.py   link circularity KPIs with a screening GWP
 build_site.py    build docs/index.html from site/page.html and results/dashboard_data/
 docs/index.html  the interactive findings page (GitHub Pages)
 docs/flow.html   the interactive animated flow diagram (GitHub Pages)

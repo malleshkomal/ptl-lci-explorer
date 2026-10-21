@@ -1,0 +1,16 @@
+product,kpi,value,unit
+PtL fuel,Carbon loop closure (CO2 captured / released),1.0053352272727272,share
+PtL fuel,"Screening GWP, linear reference",0.36131684569193745,kg CO2e/kg
+PtL fuel,  of which electricity,0.8485983663806844,share
+PtL fuel,  of which equipment materials,0.14395034076419924,share
+PtL fuel,Equipment materials,19.691729521499997,g/kg
+PtL fuel,Material mass with an end-of-life flow,0.9754206032425166,share
+PtL fuel,"MCI, linear reference",0.09999999999999998,0-1
+PtL fuel,"MCI, 100% recycled metals and 90% EoL recycling",0.6743819177767392,0-1
+Liquid hydrogen,"Screening GWP, linear reference",0.926935180911875,kg CO2e/kg
+Liquid hydrogen,  of which electricity,0.8435793743751976,share
+Liquid hydrogen,  of which equipment materials,0.14953018621312567,share
+Liquid hydrogen,Equipment materials,131.8008015625,g/kg
+Liquid hydrogen,Material mass with an end-of-life flow,0.22374103524337208,share
+Liquid hydrogen,"MCI, linear reference",0.09999999999999998,0-1
+Liquid hydrogen,"MCI, 100% recycled metals and 90% EoL recycling",0.30131834631174526,0-1
